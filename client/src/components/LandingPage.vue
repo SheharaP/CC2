@@ -6,21 +6,20 @@
       <div class="row justify-content-between gy-5">
         <div class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start">
           <h2 data-aos="fade-up">Escape from <br>Reality</h2>
-          <p data-aos="fade-up" data-aos-delay="100">Sed autem laudantium dolores. Voluptatem itaque ea consequatur eveniet. Eum quas beatae cumque eum quaerat.</p>
+          <p data-aos="fade-up" data-aos-delay="100">Making travel plans to Asia? Perhaps you'd like to travel to some of the most well-known locations on the continent, such Sri Lanka. When you don't have to, why pay more? For your trip needs and budget, Travel Lanka offers the greatest variety of hotels in Sri Lanka. With 25 distinct regions, the nation provides tourists with a wide variety of stunning landscapes as well as a rich culture and way of life. Oh, and you should definitely see Colombo, Kandy, and Negombo. Browse through our extensive selection of hotels to find the lowest prices available online.</p>
           <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
-            <a href="#book-a-table" class="btn-book-a-table">Book a Table</a>
-            <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
+            <a href="#book-a-table" class="btn-book">Book Now</a>
           </div>
         </div>
         <div class="col-lg-5 order-1 order-lg-2 text-center text-lg-start">
-          <img src="../assets/img/hero-img.png" class="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="300">
+          <img src="../assets/img/main.jpg" class="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="300">
         </div>
       </div>
     </div>
-  </section><!-- End Hero Section -->
+  </section>
+  <!-- End Hero Section -->
 
   <main id="main">
-
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
       <div class="container" data-aos="fade-up">
@@ -29,42 +28,10 @@
           <h2>About Us</h2>
           <p>Learn More <span>About Us</span></p>
         </div>
-
-        <div class="row gy-4">
-          <div class="col-lg-7 position-relative about-img" style="background-image: url(../assets/img/about.jpg) ;" data-aos="fade-up" data-aos-delay="150">
-            <div class="call-us position-absolute">
-              <h4>Book a Table</h4>
-              <p>+1 5589 55488 55</p>
-            </div>
-          </div>
-          <div class="col-lg-5 d-flex align-items-end" data-aos="fade-up" data-aos-delay="300">
-            <div class="content ps-0 ps-lg-5">
-              <p class="fst-italic">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                magna aliqua.
-              </p>
-              <ul>
-                <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                <li><i class="bi bi-check2-all"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
-              </ul>
-              <p>
-                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
-              </p>
-
-              <div class="position-relative mt-4">
-                <img src="../assets/img/about-2.jpg" class="img-fluid" alt="">
-                <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox play-btn"></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
       </div>
     </section><!-- End About Section -->
 
-   <!-- ======= Why Us Section ======= -->
+    <!-- ======= Why Us Section ======= -->
     <section id="why-us" class="why-us section-bg">
       <div class="container" data-aos="fade-up">
 
@@ -72,14 +39,11 @@
 
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
             <div class="why-box">
-              <h3>Why Choose Yummy?</h3>
+              <h3>Why Choose Travel Lanka?</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
-                Asperiores dolores sed et. Tenetur quia eos. Autem tempore quibusdam vel necessitatibus optio ad corporis.
+                Our mission at Travel Lanka is to make affordable travel accessible to more people, and to deliver affordable and enjoyable travel experiences that are seamless from end to end. 
+                By seamless, we mean hassle-free from the moment you start planning your trip.
               </p>
-              <div class="text-center">
-                <a href="#" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
-              </div>
             </div>
           </div><!-- End Why Box -->
 
@@ -88,108 +52,78 @@
 
               <div class="col-xl-4" data-aos="fade-up" data-aos-delay="200">
                 <div class="icon-box d-flex flex-column justify-content-center align-items-center">
-                  <i class="bi bi-clipboard-data"></i>
-                  <h4>Corporis voluptates officia eiusmod</h4>
-                  <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
+                  <i class="bi bi-emoji-sunglasses"></i>
+                  <h4>Full Booking Experience</h4>
+                  <p>Offers you personalized booking experience with flexible booking conditions</p>
                 </div>
               </div><!-- End Icon Box -->
 
               <div class="col-xl-4" data-aos="fade-up" data-aos-delay="300">
                 <div class="icon-box d-flex flex-column justify-content-center align-items-center">
                   <i class="bi bi-gem"></i>
-                  <h4>Ullamco laboris ladore pan</h4>
-                  <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
+                  <h4>Dicounts and Offers</h4>
+                  <p>Travel Lanka is all about affordable tours </p>
                 </div>
               </div><!-- End Icon Box -->
 
               <div class="col-xl-4" data-aos="fade-up" data-aos-delay="400">
                 <div class="icon-box d-flex flex-column justify-content-center align-items-center">
-                  <i class="bi bi-inboxes"></i>
-                  <h4>Labore consequatur incidid dolore</h4>
-                  <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
+                  <i class="bi bi-map"></i>
+                  <h4>Largest Selection of Adventures</h4>
+                  <p>Travel Lanka allows you to easily find and book your favorite organized adventure, seamlessly on one convenient platform.</p>
                 </div>
               </div><!-- End Icon Box -->
-
             </div>
           </div>
-
         </div>
-
       </div>
-      
     </section><!-- End Why Us Section -->
-    <!-- ======= Stats Counter Section ======= -->
-    <section id="stats-counter" class="stats-counter">
+    
+    <!-- ======= Trasperent Section ======= -->
+    <section id="trasperent-section" class="trasperent-section">
       <div class="container" data-aos="zoom-out">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Clients</p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Projects</p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Hours Of Support</p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Workers</p>
-            </div>
-          </div><!-- End Stats Item -->
-
-        </div>
-
       </div>
     </section><!-- End Stats Counter Section -->
 
     
-    <!-- ======= Menu Section ======= -->
-    <section id="menu" class="menu">
+    <!-- ======= Destination Section ======= -->
+    <section id="destination" class="destination">
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
-          <h2>Our Menu</h2>
-          <p>Check Our <span>Yummy Menu</span></p>
+          <h2>Our Destinations</h2>
+          <p>Check Our <span>Destinations</span></p>
         </div>
 
         <ul class="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="200">
 
           <li class="nav-item">
-            <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#menu-starters">
-              <h4>Starters</h4>
+            <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#destination-north">
+              <h4>Northern</h4>
             </a>
           </li><!-- End tab nav item -->
 
           <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-breakfast">
-              <h4>Breakfast</h4>
+            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#destination-south">
+              <h4>Southern</h4>
             </a>
             </li><!-- End tab nav item -->
 
           <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-lunch">
-              <h4>Lunch</h4>
+            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#destination-west">
+              <h4>Western</h4>
             </a>
           </li><!-- End tab nav item -->
 
           <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-dinner">
-              <h4>Dinner</h4>
+            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#destination-east">
+              <h4>Eastern</h4>
+            </a>
+          </li><!-- End tab nav item -->
+
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#destination-central">
+              <h4>Central</h4>
             </a>
           </li><!-- End tab nav item -->
 
@@ -197,330 +131,193 @@
 
         <div class="tab-content" data-aos="fade-up" data-aos-delay="300">
 
-          <div class="tab-pane fade active show" id="menu-starters">
+          <div class="tab-pane fade active show" id="destination-north">
+            <div class="tab-header text-center">
+              <p>Region</p>
+              <h3>NORTHERN</h3>
+            </div>
+            <div class="gallery">
+              <img src="../assets/img/north_1.jpg" alt="Cinque Terre">
+              <div class="desc">Nallur Kandaswamy Kovil</div>
+            </div>
+
+            <div class="gallery">
+              <img src="../assets/img/north_2.jpg" alt="Cinque Terre">
+              <div class="desc">Jaffna Fort</div>
+            </div>
+
+            <div class="gallery">
+              <img src="../assets/img/north_3.jpg" alt="Cinque Terre">
+              <div class="desc">Vankalai Sanctuary</div>
+            </div>
+
+            <div class="gallery">
+              <img src="../assets/img/north_4.jpg" alt="Cinque Terre">
+              <div class="desc">Wilpattu National Park</div>
+            </div>
+
+            <div class="gallery">
+              <img src="../assets/img/north_5.jpg" alt="Cinque Terre">
+              <div class="desc">Giant's Tank Sanctuary</div>
+            </div>
+
+            <div class="gallery">
+              <img src="../assets/img/north_6.jpg" alt="Cinque Terre">
+              <div class="desc">Manatkaadu Beach</div>
+            </div>
+          </div><!-- End Northern Content -->
+
+          <div class="tab-pane fade" id="destination-south">
 
             <div class="tab-header text-center">
-              <p>Menu</p>
-              <h3>Starters</h3>
+              <p>Region</p>
+              <h3>SOUTHERN</h3>
+            </div>
+            <div class="gallery">
+              <img src="../assets/img/south_1.jpg" alt="Cinque Terre">
+              <div class="desc">Yala National Park</div>
             </div>
 
-            <div class="row gy-5">
-
-              <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-1.png" class="glightbox"><img src="assets/img/menu/menu-item-1.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Magnam Tiste</h4>
-                <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
-                </p>
-                <p class="price">
-                  $5.95
-                </p>
-              </div><!-- Menu Item -->
-
-              <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-2.png" class="glightbox"><img src="assets/img/menu/menu-item-2.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Aut Luia</h4>
-                <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
-                </p>
-                <p class="price">
-                  $14.95
-                </p>
-              </div><!-- Menu Item -->
-
-              <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-3.png" class="glightbox"><img src="assets/img/menu/menu-item-3.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Est Eligendi</h4>
-                <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
-                </p>
-                <p class="price">
-                  $8.95
-                </p>
-              </div><!-- Menu Item -->
-
-              <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-4.png" class="glightbox"><img src="assets/img/menu/menu-item-4.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Eos Luibusdam</h4>
-                <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
-                </p>
-                <p class="price">
-                  $12.95
-                </p>
-              </div><!-- Menu Item -->
-
-              <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-5.png" class="glightbox"><img src="assets/img/menu/menu-item-5.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Eos Luibusdam</h4>
-                <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
-                </p>
-                <p class="price">
-                  $12.95
-                </p>
-              </div><!-- Menu Item -->
-
-              <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-6.png" class="glightbox"><img src="assets/img/menu/menu-item-6.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Laboriosam Direva</h4>
-                <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
-                </p>
-                <p class="price">
-                  $9.95
-                </p>
-              </div><!-- Menu Item -->
-
+            <div class="gallery">
+              <img src="../assets/img/south_2.jpg" alt="Cinque Terre">
+              <div class="desc">Galle Dutch Fort</div>
             </div>
-          </div><!-- End Starter Menu Content -->
 
-          <div class="tab-pane fade" id="menu-breakfast">
+            <div class="gallery">
+              <img src="../assets/img/south_3.jpg" alt="Cinque Terre">
+              <div class="desc">Sinharaja Forest Reserve</div>
+            </div>
+
+            <div class="gallery">
+              <img src="../assets/img/south_4.jpg" alt="Cinque Terre">
+              <div class="desc">Mirissa Beach</div>
+            </div>
+
+            <div class="gallery">
+              <img src="../assets/img/south_5.jpg" alt="Cinque Terre">
+              <div class="desc">Hikkaduwa coral reefs</div>
+            </div>
+
+            <div class="gallery">
+              <img src="../assets/img/south_6.jpg" alt="Cinque Terre">
+              <div class="desc">Kumana National Park</div>
+            </div>
+          </div><!-- End Southern Content -->
+
+          <div class="tab-pane fade" id="destination-west">
 
             <div class="tab-header text-center">
-              <p>Menu</p>
-              <h3>Breakfast</h3>
+              <p>Region</p>
+              <h3>WESTERN</h3>
+            </div>
+            <div class="gallery">
+              <img src="../assets/img/west_1.jpg" alt="Cinque Terre">
+              <div class="desc">Dehiwala Zoological Garden</div>
             </div>
 
-            <div class="row gy-5">
-
-              <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-1.png" class="glightbox"><img src="assets/img/menu/menu-item-1.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Magnam Tiste</h4>
-                <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
-                </p>
-                <p class="price">
-                  $5.95
-                </p>
-              </div><!-- Menu Item -->
-
-              <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-2.png" class="glightbox"><img src="assets/img/menu/menu-item-2.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Aut Luia</h4>
-                <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
-                </p>
-                <p class="price">
-                  $14.95
-                </p>
-              </div><!-- Menu Item -->
-
-              <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-3.png" class="glightbox"><img src="assets/img/menu/menu-item-3.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Est Eligendi</h4>
-                <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
-                </p>
-                <p class="price">
-                  $8.95
-                </p>
-              </div><!-- Menu Item -->
-
-              <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-4.png" class="glightbox"><img src="assets/img/menu/menu-item-4.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Eos Luibusdam</h4>
-                <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
-                </p>
-                <p class="price">
-                  $12.95
-                </p>
-              </div><!-- Menu Item -->
-
-              <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-5.png" class="glightbox"><img src="assets/img/menu/menu-item-5.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Eos Luibusdam</h4>
-                <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
-                </p>
-                <p class="price">
-                  $12.95
-                </p>
-              </div><!-- Menu Item -->
-
-              <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-6.png" class="glightbox"><img src="assets/img/menu/menu-item-6.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Laboriosam Direva</h4>
-                <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
-                </p>
-                <p class="price">
-                  $9.95
-                </p>
-              </div><!-- Menu Item -->
-
+            <div class="gallery">
+              <img src="../assets/img/west_2.jpg" alt="Cinque Terre">
+              <div class="desc">Beddagana Wetland Park</div>
             </div>
-          </div><!-- End Breakfast Menu Content -->
 
-          <div class="tab-pane fade" id="menu-lunch">
+            <div class="gallery">
+              <img src="../assets/img/west_3.jpg" alt="Cinque Terre">
+              <div class="desc">Negombo Beach Park</div>
+            </div>
+
+            <div class="gallery">
+              <img src="../assets/img/west_4.jpg" alt="Cinque Terre">
+              <div class="desc">Gangaramaya Park</div>
+            </div>
+
+            <div class="gallery">
+              <img src="../assets/img/west_5.jpg" alt="Cinque Terre">
+              <div class="desc">Pahiyangala</div>
+            </div>
+
+            <div class="gallery">
+              <img src="../assets/img/west_6.jpg" alt="Cinque Terre">
+              <div class="desc">Leisure World Water Park</div>
+            </div>
+          </div><!-- End Western Content -->
+
+          <div class="tab-pane fade" id="destination-east">
 
             <div class="tab-header text-center">
-              <p>Menu</p>
-              <h3>Lunch</h3>
+              <p>Region</p>
+              <h3>EASTERN</h3>
+            </div>
+            <div class="gallery">
+              <img src="../assets/img/east_1.jpg" alt="Cinque Terre">
+              <div class="desc">Arugam Bay Beach</div>
             </div>
 
-            <div class="row gy-5">
-
-              <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-1.png" class="glightbox"><img src="assets/img/menu/menu-item-1.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Magnam Tiste</h4>
-                <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
-                </p>
-                <p class="price">
-                  $5.95
-                </p>
-              </div><!-- Menu Item -->
-
-              <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-2.png" class="glightbox"><img src="assets/img/menu/menu-item-2.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Aut Luia</h4>
-                <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
-                </p>
-                <p class="price">
-                  $14.95
-                </p>
-              </div><!-- Menu Item -->
-
-              <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-3.png" class="glightbox"><img src="assets/img/menu/menu-item-3.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Est Eligendi</h4>
-                <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
-                </p>
-                <p class="price">
-                  $8.95
-                </p>
-              </div><!-- Menu Item -->
-
-              <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-4.png" class="glightbox"><img src="assets/img/menu/menu-item-4.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Eos Luibusdam</h4>
-                <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
-                </p>
-                <p class="price">
-                  $12.95
-                </p>
-              </div><!-- Menu Item -->
-
-              <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-5.png" class="glightbox"><img src="assets/img/menu/menu-item-5.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Eos Luibusdam</h4>
-                <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
-                </p>
-                <p class="price">
-                  $12.95
-                </p>
-              </div><!-- Menu Item -->
-
-              <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-6.png" class="glightbox"><img src="assets/img/menu/menu-item-6.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Laboriosam Direva</h4>
-                <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
-                </p>
-                <p class="price">
-                  $9.95
-                </p>
-              </div><!-- Menu Item -->
-
+            <div class="gallery">
+              <img src="../assets/img/east_2.jpg" alt="Cinque Terre">
+              <div class="desc">Kanniya Hot Springs</div>
             </div>
-          </div><!-- End Lunch Menu Content -->
 
-          <div class="tab-pane fade" id="menu-dinner">
+            <div class="gallery">
+              <img src="../assets/img/east_3.jpg" alt="Cinque Terre">
+              <div class="desc">Lovers Leap</div>
+            </div>
+
+            <div class="gallery">
+              <img src="../assets/img/east_4.jpg" alt="Cinque Terre">
+              <div class="desc">Kudumbigala Sanctuary</div>
+            </div>
+
+            <div class="gallery">
+              <img src="../assets/img/east_5.jpg" alt="Cinque Terre">
+              <div class="desc">Dutch Bay</div>
+            </div>
+
+            <div class="gallery">
+              <img src="../assets/img/east_6.jpg" alt="Cinque Terre">
+              <div class="desc">Sri Thirukoneswaram Kovil</div>
+            </div>
+          </div><!-- End Eastern Content -->
+
+          <div class="tab-pane fade" id="destination-central">
 
             <div class="tab-header text-center">
-              <p>Menu</p>
-              <h3>Dinner</h3>
+              <p>Region</p>
+              <h3>CENTRAL</h3>
+            </div>
+            <div class="gallery">
+              <img src="../assets/img/central_1.jpg" alt="Cinque Terre">
+              <div class="desc">Kandy Lake</div>
             </div>
 
-            <div class="row gy-5">
-
-              <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-1.png" class="glightbox"><img src="assets/img/menu/menu-item-1.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Magnam Tiste</h4>
-                <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
-                </p>
-                <p class="price">
-                  $5.95
-                </p>
-              </div><!-- Menu Item -->
-
-              <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-2.png" class="glightbox"><img src="assets/img/menu/menu-item-2.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Aut Luia</h4>
-                <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
-                </p>
-                <p class="price">
-                  $14.95
-                </p>
-              </div><!-- Menu Item -->
-
-              <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-3.png" class="glightbox"><img src="assets/img/menu/menu-item-3.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Est Eligendi</h4>
-                <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
-                </p>
-                <p class="price">
-                  $8.95
-                </p>
-              </div><!-- Menu Item -->
-
-              <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-4.png" class="glightbox"><img src="assets/img/menu/menu-item-4.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Eos Luibusdam</h4>
-                <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
-                </p>
-                <p class="price">
-                  $12.95
-                </p>
-              </div><!-- Menu Item -->
-
-              <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-5.png" class="glightbox"><img src="assets/img/menu/menu-item-5.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Eos Luibusdam</h4>
-                <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
-                </p>
-                <p class="price">
-                  $12.95
-                </p>
-              </div><!-- Menu Item -->
-
-              <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-6.png" class="glightbox"><img src="assets/img/menu/menu-item-6.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Laboriosam Direva</h4>
-                <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
-                </p>
-                <p class="price">
-                  $9.95
-                </p>
-              </div><!-- Menu Item -->
-
+            <div class="gallery">
+              <img src="../assets/img/central_2.jpg" alt="Cinque Terre">
+              <div class="desc">Ramboda Falls</div>
             </div>
-          </div><!-- End Dinner Menu Content -->
 
+            <div class="gallery">
+              <img src="../assets/img/central_3.jpg" alt="Cinque Terre">
+              <div class="desc">Pidurangala</div>
+            </div>
+
+            <div class="gallery">
+              <img src="../assets/img/central_4.jpg" alt="Cinque Terre">
+              <div class="desc">Victoria Park - Nuwara Eliya</div>
+            </div>
+
+            <div class="gallery">
+              <img src="../assets/img/central_5.jpg" alt="Cinque Terre">
+              <div class="desc">Moon Plains</div>
+            </div>
+
+            <div class="gallery">
+              <img src="../assets/img/central_6.jpg" alt="Cinque Terre">
+              <div class="desc">Archaeological Museum - Sigiriya</div>
+            </div>
+          </div><!-- End Central Content -->
         </div>
-
       </div>
     </section><!-- End Menu Section -->
-
-
-
-
   </main><!-- End #main -->
-  
-
-
 </template>
 
 <script>
@@ -570,7 +367,7 @@ document.addEventListener('DOMContentLoaded', () => {
 /* Colors */
 :root {
   --color-default: #212529;
-  --color-primary: #ce1212;
+  --color-primary: #6012CE;
   --color-secondary: #37373f;
 }
 
@@ -676,7 +473,7 @@ section {
   margin-bottom: 30px;
 }
 
-.hero .btn-book-a-table {
+.hero .btn-book {
   font-weight: 500;
   font-size: 14px;
   letter-spacing: 1px;
@@ -686,36 +483,12 @@ section {
   transition: 0.5s;
   color: #fff;
   background: var(--color-primary);
-  box-shadow: 0 8px 28px rgba(206, 18, 18, 0.2);
+  box-shadow: 0 8px 28px rgba(73, 46, 101, 0.2);
 }
 
-.hero .btn-book-a-table:hover {
-  background: rgba(206, 18, 18, 0.8);
-  box-shadow: 0 8px 28px rgba(206, 18, 18, 0.45);
-}
-
-.hero .btn-watch-video {
-  font-size: 16px;
-  transition: 0.5s;
-  margin-left: 25px;
-  color: var(--font-secondary);
-  font-weight: 600;
-}
-
-.hero .btn-watch-video i {
-  color: var(--color-primary);
-  font-size: 32px;
-  transition: 0.3s;
-  line-height: 0;
-  margin-right: 8px;
-}
-
-.hero .btn-watch-video:hover {
-  color: var(--color-primary);
-}
-
-.hero .btn-watch-video:hover i {
-  color: rgba(206, 18, 18, 0.8);
+.hero .btn-book:hover {
+  background: rgba(73, 46, 101, 0.8);
+  box-shadow: 0 8px 28px rgba(73, 46, 101, 0.45);
 }
 
 @media (max-width: 640px) {
@@ -733,6 +506,11 @@ section {
 /*--------------------------------------------------------------
 # About Section
 --------------------------------------------------------------*/
+.about {
+  margin: 0;
+  padding: 0;;
+}
+
 .about .about-img {
   min-height: 500px;
 }
@@ -742,29 +520,6 @@ section {
   font-size: 36px;
   margin-bottom: 30px;
   font-family: var(--font-secondary);
-}
-
-.about .call-us {
-  left: 10%;
-  right: 10%;
-  bottom: 10%;
-  background-color: #fff;
-  box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.08);
-  padding: 20px;
-  text-align: center;
-}
-
-.about .call-us h4 {
-  font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 5px;
-  font-family: var(--font-default);
-}
-
-.about .call-us p {
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--color-primary);
 }
 
 .about .content ul {
@@ -787,103 +542,6 @@ section {
 
 .about .content p:last-child {
   margin-bottom: 0;
-}
-
-.about .play-btn {
-  width: 94px;
-  height: 94px;
-  background: radial-gradient(var(--color-primary) 50%, rgba(206, 18, 18, 0.4) 52%);
-  border-radius: 50%;
-  display: block;
-  position: absolute;
-  left: calc(50% - 47px);
-  top: calc(50% - 47px);
-  overflow: hidden;
-}
-
-.about .play-btn:before {
-  content: "";
-  position: absolute;
-  width: 120px;
-  height: 120px;
-  -webkit-animation-delay: 0s;
-  animation-delay: 0s;
-  -webkit-animation: pulsate-btn 2s;
-  animation: pulsate-btn 2s;
-  -webkit-animation-direction: forwards;
-  animation-direction: forwards;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-  -webkit-animation-timing-function: steps;
-  animation-timing-function: steps;
-  opacity: 1;
-  border-radius: 50%;
-  border: 5px solid rgba(206, 18, 18, 0.7);
-  top: -15%;
-  left: -15%;
-  background: rgba(198, 16, 0, 0);
-}
-
-.about .play-btn:after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translateX(-40%) translateY(-50%);
-  width: 0;
-  height: 0;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-left: 15px solid #fff;
-  z-index: 100;
-  transition: all 400ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
-}
-
-.about .play-btn:hover:before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translateX(-40%) translateY(-50%);
-  width: 0;
-  height: 0;
-  border: none;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-left: 15px solid #fff;
-  z-index: 200;
-  -webkit-animation: none;
-  animation: none;
-  border-radius: 0;
-}
-
-.about .play-btn:hover:after {
-  border-left: 15px solid var(--color-primary);
-  transform: scale(20);
-}
-
-@-webkit-keyframes pulsate-btn {
-  0% {
-    transform: scale(0.6, 0.6);
-    opacity: 1;
-  }
-
-  100% {
-    transform: scale(1, 1);
-    opacity: 0;
-  }
-}
-
-@keyframes pulsate-btn {
-  0% {
-    transform: scale(0.6, 0.6);
-    opacity: 1;
-  }
-
-  100% {
-    transform: scale(1, 1);
-    opacity: 0;
-  }
 }
 
 /*--------------------------------------------------------------
@@ -968,47 +626,26 @@ section {
 /*--------------------------------------------------------------
 # Stats Counter Section
 --------------------------------------------------------------*/
-.stats-counter {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../assets/img/stats-bg.jpg") center center;
+.trasperent-section {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../assets/img/Picture.jpg") center center;
   background-size: cover;
-  padding: 100px 0;
+  padding: 150px 0;
 }
 
 @media (min-width: 1365px) {
-  .stats-counter {
+  .trasperent-section {
     background-attachment: fixed;
   }
 }
 
-.stats-counter .stats-item {
-  padding: 30px;
-  width: 100%;
-}
-
-.stats-counter .stats-item span {
-  font-size: 48px;
-  display: block;
-  color: #fff;
-  font-weight: 700;
-}
-
-.stats-counter .stats-item p {
-  padding: 0;
-  margin: 0;
-  font-family: var(--font-secondary);
-  font-size: 16px;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.6);
-}
-
 /*--------------------------------------------------------------
-# Menu Section
+# Destination Section
 --------------------------------------------------------------*/
-.menu .nav-tabs {
+.destination .nav-tabs {
   border: 0;
 }
 
-.menu .nav-link {
+.destination .nav-link {
   margin: 0 10px;
   padding: 10px 5px;
   transition: 0.3s;
@@ -1021,18 +658,18 @@ section {
 }
 
 @media (max-width: 575px) {
-  .menu .nav-link {
+  .destination .nav-link {
     margin: 0 10px;
     padding: 10px 0;
   }
 }
 
-.menu .nav-link i {
+.destination .nav-link i {
   padding-right: 15px;
   font-size: 48px;
 }
 
-.menu .nav-link h4 {
+.destination .nav-link h4 {
   font-size: 18px;
   font-weight: 400;
   margin: 0;
@@ -1040,68 +677,56 @@ section {
 }
 
 @media (max-width: 575px) {
-  .menu .nav-link h4 {
+  .destination .nav-link h4 {
     font-size: 16px;
   }
 }
 
-.menu .nav-link:hover {
+.destination .nav-link:hover {
   color: var(--color-primary);
 }
 
-.menu .nav-link.active {
+.destination .nav-link.active {
   color: var(--color-primary);
   border-color: var(--color-primary);
 }
 
-.menu .tab-content .tab-header {
+.destination .tab-content .tab-header {
   padding: 30px 0;
 }
 
-.menu .tab-content .tab-header p {
+.destination .tab-content .tab-header p {
   font-size: 14px;
   text-transform: uppercase;
   color: #676775;
   margin-bottom: 0;
 }
 
-.menu .tab-content .tab-header h3 {
+.destination .tab-content .tab-header h3 {
   font-size: 36px;
   font-weight: 600;
   color: var(--color-primary);
 }
 
-.menu .tab-content .menu-item {
-  -moz-text-align-last: center;
-  text-align-last: center;
+div.gallery {
+  margin: 15px;
+  border: 1px;
+  float: left;
+  width: 400px;
 }
 
-.menu .tab-content .menu-item .menu-img {
-  padding: 0 60px;
-  margin-bottom: 15px;
+div.gallery:hover {
+  transform:scale(1.09);
+  z-index: 2;
 }
 
-.menu .tab-content .menu-item h4 {
-  font-size: 22px;
-  font-weight: 500;
-  color: var(--color-secondary);
-  font-family: var(--font-secondary);
-  font-weight: 30px;
-  margin-bottom: 5px;
+div.gallery img {
+  width: 100%;
+  height: 250px;
 }
 
-.menu .tab-content .menu-item .ingredients {
-  font-family: var(--font-secondary);
-  color: #8d8d9b;
-  margin-bottom: 5px;
+div.desc {
+  padding: 15px;
+  text-align: center;
 }
-
-.menu .tab-content .menu-item .price {
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--color-primary);
-}
-
-
-
 </style>
