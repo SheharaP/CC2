@@ -9,7 +9,7 @@
 
 <script>
 
-import aboutUs from "@/components/AboutUsSite.vue";
+import aboutUs from "@/components/LandingPage.vue";
 
 export default {
   name: "AboutView",

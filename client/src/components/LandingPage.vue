@@ -8,7 +8,7 @@
           <h2 data-aos="fade-up">Escape from <br>Reality</h2>
           <p data-aos="fade-up" data-aos-delay="100">Making travel plans to Asia? Perhaps you'd like to travel to some of the most well-known locations on the continent, such Sri Lanka. When you don't have to, why pay more? For your trip needs and budget, Travel Lanka offers the greatest variety of hotels in Sri Lanka. With 25 distinct regions, the nation provides tourists with a wide variety of stunning landscapes as well as a rich culture and way of life. Oh, and you should definitely see Colombo, Kandy, and Negombo. Browse through our extensive selection of hotels to find the lowest prices available online.</p>
           <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
-            <a href="#booknow" class="btn-book">Book Now</a>
+            <router-link to="/destination" class="btn-book">Book Now</router-link>
           </div>
         </div>
         <div class="col-lg-5 order-1 order-lg-2 text-center text-lg-start">
@@ -49,20 +49,20 @@
 
           <div class="col-lg-8 d-flex align-items-center">
             <div class="row gy-4">
-
               <div class="col-xl-4" data-aos="fade-up" data-aos-delay="200">
                 <div class="icon-box d-flex flex-column justify-content-center align-items-center">
                   <i class="bi bi-emoji-sunglasses"></i>
                   <h4>Full Booking Experience</h4>
-                  <p>Offers you personalized booking experience with flexible booking conditions</p>
+                  <p>Offers you personalized booking experience with flexible booking conditions with exciting offers and discounts.</p>
                 </div>
               </div><!-- End Icon Box -->
 
               <div class="col-xl-4" data-aos="fade-up" data-aos-delay="300">
                 <div class="icon-box d-flex flex-column justify-content-center align-items-center">
-                  <i class="bi bi-gem"></i>
-                  <h4>Dicounts and Offers</h4>
-                  <p>Travel Lanka is all about affordable tours </p>
+                  <i class="bi bi-activity"></i>
+                  <h4>Health and Safety</h4>
+                  <p>All possible hygiene and safety protocols have been implemented across our operations and we continue to update and adapt as the COVID -19 situation develops. 
+                  It is our team’s concerted endeavor to ensure the safety of our guests and each other. </p>
                 </div>
               </div><!-- End Icon Box -->
 
@@ -137,32 +137,32 @@
               <h3>NORTHERN</h3>
             </div>
             <div class="gallery">
-              <img src="../assets/img/north_1.jpg" alt="Cinque Terre">
+              <img src="../assets/img/Gallery/north_1.jpg" alt="Cinque Terre">
               <div class="desc">Nallur Kandaswamy Kovil</div>
             </div>
 
             <div class="gallery">
-              <img src="../assets/img/north_2.jpg" alt="Cinque Terre">
+              <img src="../assets/img/Gallery/north_2.jpg" alt="Cinque Terre">
               <div class="desc">Jaffna Fort</div>
             </div>
 
             <div class="gallery">
-              <img src="../assets/img/north_3.jpg" alt="Cinque Terre">
+              <img src="../assets/img/Gallery/north_3.jpg" alt="Cinque Terre">
               <div class="desc">Vankalai Sanctuary</div>
             </div>
 
             <div class="gallery">
-              <img src="../assets/img/north_4.jpg" alt="Cinque Terre">
+              <img src="../assets/img/Gallery/north_4.jpg" alt="Cinque Terre">
               <div class="desc">Wilpattu National Park</div>
             </div>
 
             <div class="gallery">
-              <img src="../assets/img/north_5.jpg" alt="Cinque Terre">
+              <img src="../assets/img/Gallery/north_5.jpg" alt="Cinque Terre">
               <div class="desc">Giant's Tank Sanctuary</div>
             </div>
 
             <div class="gallery">
-              <img src="../assets/img/north_6.jpg" alt="Cinque Terre">
+              <img src="../assets/img/Gallery/north_6.jpg" alt="Cinque Terre">
               <div class="desc">Manatkaadu Beach</div>
             </div>
           </div><!-- End Northern Content -->
@@ -174,32 +174,32 @@
               <h3>SOUTHERN</h3>
             </div>
             <div class="gallery">
-              <img src="../assets/img/south_1.jpg" alt="Cinque Terre">
+              <img src="../assets/img/Gallery/south_1.jpg" alt="Cinque Terre">
               <div class="desc">Yala National Park</div>
             </div>
 
             <div class="gallery">
-              <img src="../assets/img/south_2.jpg" alt="Cinque Terre">
+              <img src="../assets/img/Gallery/south_2.jpg" alt="Cinque Terre">
               <div class="desc">Galle Dutch Fort</div>
             </div>
 
             <div class="gallery">
-              <img src="../assets/img/south_3.jpg" alt="Cinque Terre">
+              <img src="../assets/img/Gallery/south_3.jpg" alt="Cinque Terre">
               <div class="desc">Sinharaja Forest Reserve</div>
             </div>
 
             <div class="gallery">
-              <img src="../assets/img/south_4.jpg" alt="Cinque Terre">
+              <img src="../assets/img/Gallery/south_4.jpg" alt="Cinque Terre">
               <div class="desc">Mirissa Beach</div>
             </div>
 
             <div class="gallery">
-              <img src="../assets/img/south_5.jpg" alt="Cinque Terre">
+              <img src="../assets/img/Gallery/south_5.jpg" alt="Cinque Terre">
               <div class="desc">Hikkaduwa coral reefs</div>
             </div>
 
             <div class="gallery">
-              <img src="../assets/img/south_6.jpg" alt="Cinque Terre">
+              <img src="../assets/img/Gallery/south_6.jpg" alt="Cinque Terre">
               <div class="desc">Kumana National Park</div>
             </div>
           </div><!-- End Southern Content -->
@@ -211,32 +211,32 @@
               <h3>WESTERN</h3>
             </div>
             <div class="gallery">
-              <img src="../assets/img/west_1.jpg" alt="Cinque Terre">
+              <img src="../assets/img/Gallery/west_1.jpg" alt="Cinque Terre">
               <div class="desc">Dehiwala Zoological Garden</div>
             </div>
 
             <div class="gallery">
-              <img src="../assets/img/west_2.jpg" alt="Cinque Terre">
+              <img src="../assets/img/Gallery/west_2.jpg" alt="Cinque Terre">
               <div class="desc">Beddagana Wetland Park</div>
             </div>
 
             <div class="gallery">
-              <img src="../assets/img/west_3.jpg" alt="Cinque Terre">
+              <img src="../assets/img/Gallery/west_3.jpg" alt="Cinque Terre">
               <div class="desc">Negombo Beach Park</div>
             </div>
 
             <div class="gallery">
-              <img src="../assets/img/west_4.jpg" alt="Cinque Terre">
+              <img src="../assets/img/Gallery/west_4.jpg" alt="Cinque Terre">
               <div class="desc">Gangaramaya Park</div>
             </div>
 
             <div class="gallery">
-              <img src="../assets/img/west_5.jpg" alt="Cinque Terre">
+              <img src="../assets/img/Gallery/west_5.jpg" alt="Cinque Terre">
               <div class="desc">Pahiyangala</div>
             </div>
 
             <div class="gallery">
-              <img src="../assets/img/west_6.jpg" alt="Cinque Terre">
+              <img src="../assets/img/Gallery/west_6.jpg" alt="Cinque Terre">
               <div class="desc">Leisure World Water Park</div>
             </div>
           </div><!-- End Western Content -->
@@ -248,32 +248,32 @@
               <h3>EASTERN</h3>
             </div>
             <div class="gallery">
-              <img src="../assets/img/east_1.jpg" alt="Cinque Terre">
+              <img src="../assets/img/Gallery/east_1.jpg" alt="Cinque Terre">
               <div class="desc">Arugam Bay Beach</div>
             </div>
 
             <div class="gallery">
-              <img src="../assets/img/east_2.jpg" alt="Cinque Terre">
+              <img src="../assets/img/Gallery/east_2.jpg" alt="Cinque Terre">
               <div class="desc">Kanniya Hot Springs</div>
             </div>
 
             <div class="gallery">
-              <img src="../assets/img/east_3.jpg" alt="Cinque Terre">
+              <img src="../assets/img/Gallery/east_3.jpg" alt="Cinque Terre">
               <div class="desc">Lovers Leap</div>
             </div>
 
             <div class="gallery">
-              <img src="../assets/img/east_4.jpg" alt="Cinque Terre">
+              <img src="../assets/img/Gallery/east_4.jpg" alt="Cinque Terre">
               <div class="desc">Kudumbigala Sanctuary</div>
             </div>
 
             <div class="gallery">
-              <img src="../assets/img/east_5.jpg" alt="Cinque Terre">
+              <img src="../assets/img/Gallery/east_5.jpg" alt="Cinque Terre">
               <div class="desc">Dutch Bay</div>
             </div>
 
             <div class="gallery">
-              <img src="../assets/img/east_6.jpg" alt="Cinque Terre">
+              <img src="../assets/img/Gallery/east_6.jpg" alt="Cinque Terre">
               <div class="desc">Sri Thirukoneswaram Kovil</div>
             </div>
           </div><!-- End Eastern Content -->
@@ -285,32 +285,32 @@
               <h3>CENTRAL</h3>
             </div>
             <div class="gallery">
-              <img src="../assets/img/central_1.jpg" alt="Cinque Terre">
+              <img src="../assets/img/Gallery/central_1.jpg" alt="Cinque Terre">
               <div class="desc">Kandy Lake</div>
             </div>
 
             <div class="gallery">
-              <img src="../assets/img/central_2.jpg" alt="Cinque Terre">
+              <img src="../assets/img/Gallery/central_2.jpg" alt="Cinque Terre">
               <div class="desc">Ramboda Falls</div>
             </div>
 
             <div class="gallery">
-              <img src="../assets/img/central_3.jpg" alt="Cinque Terre">
+              <img src="../assets/img/Gallery/central_3.jpg" alt="Cinque Terre">
               <div class="desc">Pidurangala</div>
             </div>
 
             <div class="gallery">
-              <img src="../assets/img/central_4.jpg" alt="Cinque Terre">
+              <img src="../assets/img/Gallery/central_4.jpg" alt="Cinque Terre">
               <div class="desc">Victoria Park - Nuwara Eliya</div>
             </div>
 
             <div class="gallery">
-              <img src="../assets/img/central_5.jpg" alt="Cinque Terre">
+              <img src="../assets/img/Gallery/central_5.jpg" alt="Cinque Terre">
               <div class="desc">Moon Plains</div>
             </div>
 
             <div class="gallery">
-              <img src="../assets/img/central_6.jpg" alt="Cinque Terre">
+              <img src="../assets/img/Gallery/central_6.jpg" alt="Cinque Terre">
               <div class="desc">Archaeological Museum - Sigiriya</div>
             </div>
           </div><!-- End Central Content -->
@@ -321,39 +321,33 @@
 </template>
 
 <script>
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  "use strict";
-
-  /**
-   * Sticky header on scroll
-   */
-  const selectHeader = document.querySelector('#header');
-  if (selectHeader) {
-    document.addEventListener('scroll', () => {
-      window.scrollY > 100 ? selectHeader.classList.add('sticked') : selectHeader.classList.remove('sticked');
-    });
-  }
-  /**
-   * Scroll top button
-   */
-  const scrollTop = document.querySelector('.scroll-top');
-  if (scrollTop) {
-    const togglescrollTop = function() {
-      window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
+    document.addEventListener('DOMContentLoaded', () => {
+      "use strict";
+      /*
+        * Sticky header on scroll
+      */
+    const selectHeader = document.querySelector('#header');
+    if (selectHeader) {
+      document.addEventListener('scroll', () => {
+        window.scrollY > 100 ? selectHeader.classList.add('sticked') : selectHeader.classList.remove('sticked');
+      });
     }
-    window.addEventListener('load', togglescrollTop);
-    document.addEventListener('scroll', togglescrollTop);
-    scrollTop.addEventListener('click', window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    }));
-  }
-
-});
-
+    /**
+    * Scroll top button
+    */
+    const scrollTop = document.querySelector('.scroll-top');
+    if (scrollTop) {
+      const togglescrollTop = function() {
+        window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
+      }
+      window.addEventListener('load', togglescrollTop);
+      document.addEventListener('scroll', togglescrollTop);
+      scrollTop.addEventListener('click', window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      }));
+    }
+  });
 </script>
 
 <style>
@@ -471,6 +465,7 @@ section {
   color: #4f4f5a;
   font-weight: 400;
   margin-bottom: 30px;
+  text-align:justify;
 }
 
 .hero .btn-book {

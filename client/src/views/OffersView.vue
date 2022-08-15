@@ -1,7 +1,7 @@
 <template>
   <div class="offers">
     <main>
-      <h2>Our Offers</h2>
+      
       <Offers />
     </main>
   </div>

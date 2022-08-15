@@ -8,7 +8,7 @@
 		<li><router-link to="/" class="nav-link">Home</router-link></li>
         <li><a href="#about" class="nav-link">About</a></li>
         <li><router-link to="/offers" class="nav-link">Offers</router-link></li>
-        <li><router-link to="/destination" class="nav-link">Destinations</router-link></li>
+        <li><router-link to="/destination" class="nav-link">Reservations</router-link></li>
 		<li><div class="dropdown">
 			<button class="btn-register">Register</button> <!--Drop down menu for register-->
 			<div class="dropdown-content">
@@ -30,9 +30,9 @@
 	<transition name ="mobile-nav">
 		<ul v-show="mobileNav" class="dropdown-nav">
 		<li><router-link to="/" class="nav-link">Home</router-link></li>
-        <li><router-link to="/about" class="nav-link">About</router-link></li>
+        <li><a href="#about" class="nav-link">About</a></li>
         <li><router-link to="/offers" class="nav-link">Offers</router-link></li>
-        <li><router-link to="/destination" class="nav-link">Destinations</router-link></li>
+        <li><router-link to="/destination" class="nav-link">Reservations</router-link></li>
 	</ul>
 	</transition>
 </nav>

@@ -5,7 +5,7 @@
     <div class="container">
         <div class="forms">
             <div class="form register">
-                <span class="title">Register</span> 
+                <span class="title">Member Registeration</span> 
             
                 <form action="#">
                     <div class="input-field">
