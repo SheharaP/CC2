@@ -61,9 +61,8 @@
     border-radius: 15px;
     max-width: 700px;
     width: 100%;
-    height: 100%;
-    margin: 20px auto;
-    padding: 30px;
+    height: 700px;
+    margin: 30px auto;
     box-shadow: 1px 1px 2px rgba(0,0,0,0,0.125);
     font-family: var(--font-default);
     box-shadow: #212529;
