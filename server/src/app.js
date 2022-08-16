@@ -13,14 +13,13 @@ app.post('/register', async(req, res) => {
   try{
     
     const email = req.body.email;
-    const emailExists = await dbQuery(`SELECT true FROM pg_tourist WHERE email = '${email}';`);
+    const emailExists = await dbQuery(`SELECT true FROM pg_tourist WHERE email = '${email}';`); // ex : email does exist -> emailExists = true ==> null or ""
 
     console.log(emailExists);
 
     if ( emailExists == null || emailExists=="" ) { 
 
       const name = req.body.name;
-      const contactno = req.body.contactno;
       const password = req.body.password;
       
     console.log(JSON.stringify(req.body));

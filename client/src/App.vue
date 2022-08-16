@@ -8,7 +8,7 @@
   <div v-else>
   <NavigationProfile/>
   </div>
-      <router-view />
+      <router-view /> 
  
       <Footer />
   </div>

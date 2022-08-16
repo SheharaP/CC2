@@ -11,7 +11,7 @@
                         <input type="text" v-model="name" :class="{invalid: isSubmitting && !name.trim() }" placeholder="Full name" required/>
                         <i class="bi bi-person"></i>
                     </div>   
-                     
+                    
                     <div class="input-field">
                       <select id="country" v-model="country" name="country" class="form-control">
                         <option value="" disabled selected>Select your Country</option>
