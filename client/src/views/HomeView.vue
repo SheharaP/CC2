@@ -1,6 +1,7 @@
 <template>
+
   <div class="home">
-     <LandingPage msg="Shehara"/>
+     <LandingPage />
   </div>
 </template>
 
@@ -10,7 +11,7 @@ import LandingPage from '@/components/LandingPage.vue'
 export default {
   name: 'HomeView',
   components: {
-    LandingPage
+    LandingPage,
   }
 }
 </script>

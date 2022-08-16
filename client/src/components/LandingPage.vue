@@ -479,6 +479,7 @@ section {
   color: #fff;
   background: var(--color-primary);
   box-shadow: 0 8px 28px rgba(73, 46, 101, 0.2);
+  text-decoration: none;
 }
 
 .hero .btn-book:hover {

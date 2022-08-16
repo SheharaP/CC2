@@ -1,4 +1,5 @@
 <template>
+
   <div class="offers">
     <main> 
       <Offers />
@@ -9,6 +10,7 @@
 <script>
 
 import Offers from "@/components/OffersSite.vue";
+
 
 export default {
   name: "OffersView",

@@ -12,7 +12,7 @@ import RegisterTourist from '@/components/RegisterSiteTourist.vue'
 export default {
   name: 'RegistrationTouristView',
   components: {
-    RegisterTourist
+    RegisterTourist,
   }
   
 }

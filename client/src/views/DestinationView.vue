@@ -1,4 +1,5 @@
 <template>
+
   <div class="dest">
     <Destinations />
   </div>
@@ -11,7 +12,7 @@ import Destinations from '@/components/DestinationSite.vue'
 export default {
   name: 'DestinationView',
   components: {
-    Destinations
+    Destinations,
   }
 }
 </script>
