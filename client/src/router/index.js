@@ -66,6 +66,11 @@ const routes = [
     name: 'login',
     component: () => import('../views/LoginView.vue')
   },
+  {
+    path: '/booking', 
+    name: 'booking',
+    component: () => import('../views/BookingView.vue')
+  },
 ]
 
 const router = createRouter({
