@@ -14,15 +14,15 @@
                 </div>   
             </div>
             <div class="input_field">
-                <label>First Name:</label><span>*</span><br/>
+                <label>First Name:</label><span class="req">*</span><br/>
                 <input type="text" class="form-control shadow-none" placeholder="Enter your first name" id="fname" required>
             </div>
             <div class="input_field">
-                <label>Last Name:</label><span>*</span><br/>
+                <label>Last Name:</label><span class="req">*</span><br/>
                 <input type="text" class="form-control shadow-none" placeholder="Enter your last name" id="lname" required>
             </div>
             <div class="input_field">
-                <label>Email:</label><span>*</span><br/>
+                <label>Email:</label><span class="req">*</span><br/>
                 <input type="text" class="form-control shadow-none" placeholder="Enter your email address" id="email" required>
             </div>
             <div class="input_field">
@@ -34,7 +34,7 @@
                 <input type="time" class="form-control shadow-none" id="time">
             </div>
             <div class="input_field">
-                <label>Where are you From:</label><span>*</span><br/>
+                <label>Where are you From:</label><span class="req">*</span><br/>
                 <select class="form-control shadow-none" id="country" name="country" required>
                     <option>Select country</option>
                     <option value="AF">Afghanistan</option>
@@ -292,7 +292,7 @@
                 </select>
             </div>
             <div class="input_field">
-                <label>Contact number:</label><span>*</span><br/>
+                <label>Contact number:</label><span class="req">*</span><br/>
                 <input type="tel" class="form-control shadow-none" id="pnumber" placeholder="012-345-6789" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" maxlength="10" required>
             </div>
             <div class="submit">
@@ -352,7 +352,7 @@
     margin-top: 5px;
     margin-bottom: 10px;
 }
-span{
+.input_field .req{
     color: red;
     padding-left:0;
 }
