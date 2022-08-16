@@ -28,10 +28,15 @@ const routes = [
     name: 'about',
     component: () => import('../views/HomeView.vue')
   },
-{
+  {
     path: '/offers',
     name: 'offers',
     component: () => import('../views/OffersView.vue')
+  },
+  {
+    path: '/offersview',
+    name: 'offersview',
+    component: () => import('../views/OffersviewView.vue')
   },
   {
     path: '/destination',
@@ -60,6 +65,11 @@ const routes = [
     path: '/login', 
     name: 'login',
     component: () => import('../views/LoginView.vue')
+  },
+  {
+    path: '/booking', 
+    name: 'booking',
+    component: () => import('../views/BookingView.vue')
   },
 ]
 

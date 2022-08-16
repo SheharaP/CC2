@@ -296,7 +296,7 @@
                 <input type="tel" class="form-control shadow-none" id="pnumber" placeholder="012-345-6789" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" maxlength="10" required>
             </div>
             <div class="submit">
-                <button type="submit" class="btn text-white shadow none"><router-link to="/pay" class="nav-link">Pay</router-link> </button>
+                <button type="submit" class="btn text-white shadow none"><router-link to="/offersview" class="nav-link">Pay</router-link> </button>
             </div>
         </form>
     </div>
