@@ -9,6 +9,10 @@
                 <input type="text" class="form-control shadow-none" placeholder="Give a Title to your Promotion" id="P-Name">
             </div>
             <div class="input_field">
+                <label><i class="bi bi-card-text"></i>Description on Promotion:</label><br>
+                <input type="text" class="form-control shadow-none" placeholder="Give a breif description to your Promotion" id="description">
+            </div>
+            <div class="input_field">
                 <label><i class="bi bi-calendar2"></i>Promotion Starting Date:</label><br/>
                 <input type="date" class="form-control shadow-none" id="S-Date">
             </div>
@@ -61,7 +65,7 @@
     border-radius: 15px;
     max-width: 700px;
     width: 100%;
-    height: 750px;
+    height: 800px;
     margin: 30px auto;
     box-shadow: 1px 1px 2px rgba(0,0,0,0,0.125);
     font-family: var(--font-default);
@@ -97,6 +101,7 @@
     background: var(--color-primary);
     box-shadow: 0 8px 28px rgba(73, 46, 101, 0.2);
     margin-bottom: 80px;
+    margin-top: 20px;
 }
 .btn:hover {
   background: rgba(73, 46, 101, 0.8);
