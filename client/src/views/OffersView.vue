@@ -1,8 +1,7 @@
 <template>
 
   <div class="offers">
-    <main>
-      <h2>Our Offers</h2>
+    <main> 
       <Offers />
     </main>
   </div>
@@ -20,4 +19,3 @@ export default {
   },
 };
 </script>
-

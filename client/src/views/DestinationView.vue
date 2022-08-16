@@ -1,7 +1,6 @@
 <template>
 
   <div class="dest">
-    <h1>Destinations</h1>
     <Destinations />
   </div>
 </template>

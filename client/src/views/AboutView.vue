@@ -1,7 +1,6 @@
 <template>
   <div class="about">
     <main>
-      <h2>About Us</h2>
     </main>
     <aboutUs/>
   </div>
@@ -9,7 +8,7 @@
 
 <script>
 
-import aboutUs from "@/components/AboutUsSite.vue";
+import aboutUs from "@/components/LandingPage.vue";
 
 export default {
   name: "AboutView",
