@@ -1,7 +1,6 @@
 <template>
   <div class="about">
     <main>
-      <h2>About Us</h2>
     </main>
     <aboutUs/>
   </div>

@@ -1,7 +1,6 @@
 <template>
   <div class="offers">
-    <main>
-      
+    <main> 
       <Offers />
     </main>
   </div>
@@ -18,4 +17,3 @@ export default {
   },
 };
 </script>
-
