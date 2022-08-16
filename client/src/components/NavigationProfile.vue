@@ -9,22 +9,7 @@
         <li><a href="#about" class="nav-link">About</a></li>
         <li><router-link to="/offers" class="nav-link">Offers</router-link></li>
         <li><router-link to="/destination" class="nav-link">Destinations</router-link></li>
-		<li><div class="dropdown">
-			<button class="btn-register">Register</button> <!--Drop down menu for register-->
-			<div class="dropdown-content">
-				<router-link to="/registerTourist" class="nav-link">Tourist</router-link>
-				<router-link to="/registerHotel" class="nav-link">Hotel</router-link>
-			</div>
-		</div>
-		</li>
-		<li><button>
-			<router-link to="/login" class="btn-login">Login</router-link>
-			<div class="arrow-wrapper">
-				<div class="arrow"></div>
-				</div>
-		</button></li>
-
-		
+		<li><button @click="logout" class="btn-login">Logout</button></li>	
 	</ul>
 	<div class="icon">  
 		<i @click="toggleMobileNav" v-show="mobile" class="bi bi-list" :class="{'icon-active' : mobileNav}"></i> <!--Mobile Navigation -> "mobile" function shows the mobile nav when resizing webpage-->
@@ -35,20 +20,7 @@
         <li><router-link to="/about" class="nav-link">About</router-link></li>
         <li><router-link to="/offers" class="nav-link">Offers</router-link></li>
         <li><router-link to="/destination" class="nav-link">Destinations</router-link></li>
-		<li><div class="dropdown">
-			<button class="btn-register">Register</button> <!--Drop down menu for register-->
-			<div class="dropdown-content">
-				<router-link to="/registerTourist" class="nav-link">Tourist</router-link>
-				<router-link to="/registerHotel" class="nav-link">Hotel</router-link>
-			</div>
-		</div>
-		</li>
-		<li><button>
-			<router-link to="/login" class="btn-login">Login</router-link>
-			<div class="arrow-wrapper">
-				<div class="arrow"></div>
-				</div>
-		</button></li>
+		<li><button @click="logout" class="btn-login">Logout</button></li>
 	</ul>
 	</transition>
 </nav>
@@ -56,23 +28,44 @@
 </template>
 
 <script>
+/* eslint-disable no-unused-vars */
+import {getAuth,onAuthStateChanged, signOut } from "firebase/auth";
+import { useRouter } from "vue-router";
 
 
 export default {
-	name:"NavigationEx",
+	name:"NavigationProfile",
 	data() {
 		return{
 			scrollPosition:null,
 			mobile:null,
 			mobileNav:null,
 			windowWidth:null,
+			router: useRouter(),
+			loggedIn: false,
+			auth:getAuth()
 		};
 
 	},
+	mounted() {
+
+    const ref = this;
+  onAuthStateChanged(this.auth, (user) =>{
+      if (user) {
+        ref.loggedIn = true;
+      } else {
+        ref.loggedIn = false;
+      }
+    });
+  },
+  computed: {
+    authenticated() {
+      return this.loggedIn;
+    }
+  },
 	created() {
 		window.addEventListener("resize", this.checkScreen.bind(this));
-
-			
+	
 	},
 	methods: {
 
@@ -93,13 +86,23 @@ export default {
 			
 			
 		},
-		
-  }
+		logout() {
+			console.log("bye bye")
+			
+			signOut(this.auth).then(() => {
+          this.loggedIn = false;
+          this.email = "";
+          this.password = "";
+          this.router.push("/");
+        });
+    }
 		
 		
 		
 	}
 	
+	
+};
 </script>
 
 <style lang="scss" >

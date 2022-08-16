@@ -1,5 +1,21 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import { getAuth, onAuthStateChanged} from "firebase/auth";
+
+
+
+const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    const removeListener = onAuthStateChanged(
+      getAuth(),
+      (user) => {
+        removeListener();
+        resolve(user);
+      },
+      reject
+    )
+  });
+}
 
 const routes = [
   {
@@ -23,9 +39,17 @@ const routes = [
     component: () => import('../views/DestinationView.vue')
   },
   {
+    path: '/tprofile',
+    name: 'tprofile',
+    component: () => import('../views/TouristProfileView.vue'),
+    meta: {
+      requiresAuth: true,
+    }
+  },
+  {
     path: '/registerTourist',
     name: 'registerTourist',
-    component: () => import('../views/RegistrationTouristView.vue')
+    component: () => import('../views/RegistrationTouristView.vue'),
   },
   {
     path: '/registerHotel',
@@ -33,17 +57,30 @@ const routes = [
     component: () => import('../views/RegistrationHotelView.vue')
   },
   {
-    path: '/login',
+    path: '/login', 
     name: 'login',
     component: () => import('../views/LoginView.vue')
   },
+  
 ]
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHistory(),
   routes
 })
 
+/*  eslint-disable no-console */
+router.beforeEach(async(to, from, next) => {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    if (await getCurrentUser()) {
+      next();
+    } else {
+      alert("you don't have access");
+      next("/");
+    }
+  } else {
+    next();
+  }
+});
+
 export default router
-
-

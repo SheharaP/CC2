@@ -3,6 +3,7 @@
     <div class="container">
         <div class="forms">
             <div class="form login">
+              <div v-if="!authenticated">
                 <span class="title">Login</span> 
             
                 <form action="#">
@@ -30,7 +31,7 @@
                     </div>
 
                     <div class="input-field button">
-                        <input type="button" @click.prevent="login" value="Login">
+                        <input type="button" @click="signin" value="Login"> <p v-if="errMsg">{{ errMsg }}</p>
                     </div>
                 </form>
 
@@ -40,67 +41,86 @@
                     </span>
                 </div>
             </div>
+
+            <div v-if="authenticated">
+      <button @click="logout" class="myLogout">Logout</button>
+    </div>
+            </div>
             </div>
     </div>
 </div>
-<!-- <form class = form>
-        <div class="row-mt-4">
-          <div class="col-md-2">
-            <label for="" size="30" class="mt-1">Email Address</label>
-          </div>
-          <div class="col-md-6">
-            <input type="text" placeholder="Email Address" v-model="email" :class="{invalid: isLogin && !email.trim() }"/>
-            <span><p ref="emailError"></p></span>
-          </div>
-        </div>
-        
-        <div class="row-mt-4">
-          <div class="col-md-2">
-            <label for="" size="30" class="mt-1">Password</label>
-            </div>
-            <div class="col-md-6">
-              <input type="password"  v-model="password" :class="{invalid: isLogin && !password.trim()}"  autocomplete="off" placeholder="Password" />
-              <span><p ref="passwordError"></p></span>
-            </div>
-        </div>
-       
-            <button class="btn btn-primary" @click.prevent="login">Login</button>
-
-</form> -->
 </template>
 
 <script>
-
-import auth from '@/services/auth'
+/* eslint-disable no-unused-vars */
+import { getAuth, onAuthStateChanged,signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { useRouter } from "vue-router";
 
 export default {
-  name: "LoginSite",
+  name: "LoginBox", 
+
   data() {
-    return{
+    return {
+      loggedIn: false,
       email: "",
       password: "",
-      isLogin: false,
-      hidePw: true,
+      router: useRouter(),
+      errMsg: "",
+      auth:getAuth()
+    };
+  },
+  mounted() {
+
+    const ref = this;
+  onAuthStateChanged(this.auth, (user) =>{
+      if (user) {
+        ref.loggedIn = true;
+      } else {
+        ref.loggedIn = false;
+      }
+    });
+  },
+  computed: {
+    authenticated() {
+      return this.loggedIn;
     }
   },
+  methods: {
+signin() {
+      signInWithEmailAndPassword(this.auth, this.email, this.password)
+        .then((data) => {
+          console.log("Logged in");
+          // this.router.push("/feed");
+        })
+        .catch((error) => {
+          console.log(error.code);
+          switch (error.code) {
+            case "auth/invalid-email":
+              this.errMsg = "Invalid Email";
+              break;
+            case "auth/user-not-found":
+              this.errMsg = "No account with that email found";
+              break;
+            case "auth/wrong-password":
+              this.errMsg = "Password incorrect";
+              break;
+            default:
+              this.errMsg = "Email or password was incorrect";
+              break;
+          }
+        });
+    },
+    logout() {
 
-  methods : {
-    async login() {
-    
-      event.preventDefault();
-
-          const response = await auth.login({
-            email: this.email,
-            password: this.password
-          })
-          console.log(response.data);
-        }, catch(e) {
-          console.log(e);
-        },        
-         
-   }
-}
-
+  signOut(this.auth).then(() => {
+          this.loggedIn = false;
+          this.email = "";
+          this.password = "";
+          this.router.push("/");
+        });
+    }
+  }
+};
 </script>
 
 

@@ -1,6 +1,7 @@
 import express from 'express';
 import { dbQuery } from './postgresql.js';
 import cors from 'cors';
+import { getAuth, onAuthStateChanged,signInWithEmailAndPassword, signOut } from "firebase/auth";
 
 const app = express();
 
@@ -77,7 +78,41 @@ app.post('/login', async(req,res) => {
   }
 })
 
+app.get('/userInfo',  async(req,res) => {
 
+  try{
+    
+    const email = req.body.email;
+    const emailExists = await dbQuery(`SELECT true FROM pg_tourist WHERE email = '${email}';`);
+
+    console.log(emailExists);
+
+    if ( emailExists == null || emailExists=="" ) { 
+
+      const name = req.body.name;
+      const contactno = req.body.contactno;
+      const password = req.body.password;
+
+      res.send({
+        message: `Hello ${name} is already registered!`
+      });
+      
+   } else{
+    res.send({
+      message: `Hello ${name} is not there!`
+    });
+    
+
+      
+      
+
+  }} catch(e){
+    res.send({
+      message: `Error : ${e}`
+    });
+  }
+
+})
 
 
 
