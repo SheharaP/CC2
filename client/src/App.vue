@@ -2,15 +2,15 @@
     
  <div id="app">
 
-  <div v-if="!nav">
-  <Navigation/>
-  </div>
-  <div v-else>
-  <NavigationProfile/>
-  </div>
-      <router-view />
- 
-      <Footer />
+    <div v-if="!loggedIn">
+      <Navigation/>
+    </div>
+    <div v-else>
+      <NavigationProfile/>
+    </div>
+    
+      <router-view /> 
+   <Footer />
   </div>
   
 </template>
@@ -20,9 +20,8 @@
 import Footer from '@/components/FooterComp.vue'
 import Navigation from '@/components/NavigationEx.vue'
 import NavigationProfile from '@/components/NavigationProfile.vue'
-/* eslint-disable no-unused-vars */
+
 import { getAuth, onAuthStateChanged} from "firebase/auth";
-import { useRouter } from "vue-router";
 
 export default {
 name: 'App',
@@ -33,24 +32,20 @@ Footer
 },
 data () {
   return { 
-    logginIn: false, 
-    nav:false,
+    loggedIn: false, 
     auth:getAuth(),
-    router: useRouter(),
   }
 },
  mounted() {
 
     const ref = this;
-  onAuthStateChanged(this.auth, (user) =>{
+    onAuthStateChanged(this.auth, (user) =>{
       if (user) {
         ref.loggedIn = true;
-        ref.nav = true;
         
         
       } else {
         ref.loggedIn = false;
-        ref.nav = false;
       }
       
     });
@@ -71,7 +66,6 @@ data () {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Raleway", sans-serif;
   font-weight: 400;
 }
 #app {

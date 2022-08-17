@@ -8,7 +8,7 @@
 
 <script>
 import Destinations from '@/components/DestinationSite.vue'
- 
+
 export default {
   name: 'DestinationView',
   components: {

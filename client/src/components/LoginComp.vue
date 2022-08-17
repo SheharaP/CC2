@@ -1,5 +1,6 @@
 <template>
-<div class="body">
+  <div class="login">
+    <div class="body">
     <div class="container">
         <div class="forms">
             <div class="form login">
@@ -16,10 +17,11 @@
                     <div class="input-field">
                         <input type="password"  v-model="password" :class="{invalid: isLogin && !password.trim()}"  autocomplete="off" placeholder="Enter your password" required/>
                         <i class="bi bi-key"></i> 
-                       <i class="bi bi-eye-slash showHidePw"></i>
+                       <i @click="toggleShowPassword" class="bi bi-eye-slash showHidePw"></i> 
+                       <i @click="toggleShowPassword" class="bi bi-eye-slash showHidePw"></i> 
                         <span><p ref="passwordError"></p></span>
                        
-                    </div>
+                    </div> 
 
                     <div class="checkbox-text">
                         <div class="checkbox-content">
@@ -49,6 +51,8 @@
             </div>
     </div>
 </div>
+
+  </div>
 </template>
 
 <script>
@@ -57,16 +61,17 @@ import { getAuth, onAuthStateChanged,signInWithEmailAndPassword, signOut } from 
 import { useRouter } from "vue-router";
 
 export default {
-  name: "LoginBox", 
-
-  data() {
+  name: 'LoginView',
+    data() {
     return {
       loggedIn: false,
       email: "",
       password: "",
-      router: useRouter(),
+       router: useRouter(),
       errMsg: "",
-      auth:getAuth()
+      auth:getAuth(),
+      showPassword: false,
+      i:1,
     };
   },
   mounted() {
@@ -75,14 +80,19 @@ export default {
   onAuthStateChanged(this.auth, (user) =>{
       if (user) {
         ref.loggedIn = true;
+        
       } else {
         ref.loggedIn = false;
       }
+      
     });
   },
   computed: {
     authenticated() {
       return this.loggedIn;
+    },
+    buttonLabel() {
+      return (this.showPassword) ? "Hide" : "Show";
     }
   },
   methods: {
@@ -90,7 +100,8 @@ signin() {
       signInWithEmailAndPassword(this.auth, this.email, this.password)
         .then((data) => {
           console.log("Logged in");
-          // this.router.push("/feed");
+          this.$emit('signin')
+          this.router.push("/tprofile");
         })
         .catch((error) => {
           console.log(error.code);
@@ -119,8 +130,24 @@ signin() {
           this.router.push("/");
         });
     }
+    ,
+    toggleShowPassword() { 
+
+      if(this.i%2==0){
+        this.$refs.showHidePw = "bi bi-eye showHidePw";
+
+      }
+      else{
+        this.$refs.showHidePw = "bi bi-eye-slash showHidePw";
+      }
+      this.i++;
+      
+    }
   }
 };
+  
+
+
 </script>
 
 
@@ -280,283 +307,3 @@ margin-top: 200px;
 }
 
 </style>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 
-
-<script>
-
-import auth from '@/services/auth'
-
-
-export default {
-  name: "RegisterSite",
-  data() {
-    return{
-      email: "",
-      password: "",
-      isLogin: false,
-    }
-  },
-
-  methods : {
-    async login() {
-    
-      event.preventDefault();
-
-          const response = await auth.login({
-            email: this.email,
-            password: this.password
-          })
-          console.log(response.data);
-        }, catch(e) {
-          console.log(e);
-        },
-
-  }
-}
-
-</script>
-
-<style scoped=form>
-
-*{
-  position: center;
-}
-
-form {
-  max-width: 100vw; 
-  margin-left : 33vw;
-  display: block;
-}
-.mt-1{
- font-weight: bold;
-}
-.col-md-2{
-  width: 100%;
-}
-.col-md-6{
-  margin-bottom: 20px;
-   width: 50%;
-}
-.btn{
-  text-align: center;
-  width: 50%;
-  margin-bottom: 50px;
-}
-.form-control:focus {
-  color: #212529;
-  background-color: #fff;
-  border-color: #86b7fe;
-  outline: 0;
-  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
-}
-.invalid {
-  color: #212529;
-  background-color: rgb(202, 144, 144);
-  border-color: #c81e12;
-  outline: 0;
-  box-shadow: 0 0 0 0.25rem rgba(253, 13, 21, 0.25);
-}
-
-h2{
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  color:rebeccapurple;
-  text-align: center;
-  letter-spacing: normal;
-  margin: 50px;
-}
-ul {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-  margin-left: 0;
-  padding: 0;
-}
-
-li { 
-	margin-bottom: 8px;
-	position: relative;
-  color: rgba(92, 90, 107, 0.8);
-  list-style: none;
-}
-
-li:before {
-  content: "";
-	width: 0%; height: 2px;
-	background: #2ecc71;
-	position: absolute;
-	left: 0; top: 50%;
-	display: block;
-	transition: all .6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-
-
-
-/* Password Input --------- */
-
-
-input[type] {
-	line-height: 1.5;
-	display: block;
-	color: #000000;
-	font-weight: 300;
-	width: 100%;
-	height: calc(2.75rem + 2px);
-	padding: .625rem .75rem;
-	border-radius: .25rem;
-	background-color: #fff;
-	transition: border-color .4s ease;
-	border: 1px solid #cad1d7;
-	outline: 0;
-  
-}
-
-input[type]:focus {
-	border-color: rgba(50, 151, 211, .45);
-}
-
-
-
-/* Checkmark & Strikethrough --------- */
-
-.is_valid { 
-  color: rgba(136, 152, 170, 0.8);
-
-}
-.is_valid:before { width: 100%; }
-
-
-
-</style> -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 
-<script>
-
-import axios from 'axios';
-
-export default {
-  name: "RegisterSite",
-  data() {
-    return{
-      fname: "",
-      lname: "",
-      email: "",
-      contactno: "",
-      birthdate: "",
-      pwd: "",
-      cpwd: ""
-    }
-  },
-  methods: {
-    registerStudent: function() {
-      axios.post("/api/student", {
-        fname: this.fname,
-        lname: this.lname,
-        email: this.email,
-        contactno: this.contactno,
-        birthdate: this.birthdate,
-        semester: this.pwd,
-        course: this.cpwd
-      }).then((res) => {
-        if(res.data.msg === "Validation Failed"){
-          let errors = res.data.errors;
-          let errorMsg = "";
-          if(errors.fname.length != 0){
-            for(let i=0; i<errors.fname.length; i++){
-              errorMsg += `${errors.fname[i]}\n`;
-            }
-          } 
-          
-          if(errors.lname.length != 0){
-            for(let i=0; i<errors.lname.length; i++){
-              errorMsg += `${errors.lname[i]}\n`;
-            }
-          }
-          if(errors.email.length != 0){
-            for(let i=0; i<errors.email.length; i++){
-              errorMsg += `${errors.email[i]}\n`;
-            }
-          }
-          if(errors.contactno.length != 0){
-            for(let i=0; i<errors.contactno.length; i++){
-              errorMsg += `${errors.contactno[i]}\n`;
-            }
-          }
-          if(errors.birthdate.length != 0){
-            for(let i=0; i<errors.birthdate.length; i++){
-              errorMsg += `${errors.birthdate[i]}\n`;
-            }
-          }
-          if(errors.semester.length != 0){
-            for(let i=0; i<errors.semester.length; i++){
-              errorMsg += `${errors.semester[i]}\n`;
-            }
-          }
-          if(errors.pwd.length != 0){
-            for(let i=0; i<errors.pwd.length; i++){
-              errorMsg += `${errors.pwd[i]}\n`;
-            }
-          }
-          if(errors.cpwd.length != 0){
-            for(let i=0; i<errors.cpwd.length; i++){
-              errorMsg += `${errors.cpwd[i]}\n`;
-            }
-          }
-          alert(errorMsg);
-        }
-        else{
-          alert("Successfully Saved");
-        }
-      }).catch(()=>{
-        alert("Something Went Wrong");
-      })
-    }
-  }
-};
-</script> -->

@@ -12,6 +12,8 @@ module.exports = {
     parser: '@babel/eslint-parser'
   },
   rules: {
+    "no-mixed-spaces-and-tabs": 0,
     'vue/no-deprecated-slot-attribute': 'off',
+    
   }
 }
