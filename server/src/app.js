@@ -79,9 +79,33 @@ app.post('/login', async(req,res) => {
   }
 })
 
+app.post('/showPromo', async(req, res) => {
+  
+  try{
+    const pName = req.body.pName;
+    const description = req.body.description;
+    const sDate = req.body.sDate;
+    const eDate = req.body.eDate;
+    const price = req.body.price;
+    const list = req.body.list;
+
+    console.log(JSON.stringify(req.body));
+    await dbQuery(`INSERT INTO pg_Promotion (pName , description , sDate, eDate, price, list ) VALUES
+    ('${pName}', '${description}', '${sDate}', '${eDate}', '${price}, '${list}) ON CONFLICT DO NOTHING;`);
+
+  }catch(e){
+    res.send({
+      message: `Error : ${e}`
+    });
+  }
+
+})
+
 app.listen(3000, () => {
   console.log('App running at http://localhost:3000');
 });
+
+
 
 
 

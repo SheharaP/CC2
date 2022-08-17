@@ -3,40 +3,85 @@
         <div class="title">
             Upload Your Promotions
         </div>
-        <div class="form" id="promotion-form">
-            <div class="input_field">
-                <label><i class="bi bi-displayport"></i>Promotion name:</label><br>
-                <input type="text" class="form-control shadow-none" placeholder="Give a Title to your Promotion" id="P-Name">
+        <form>
+            <div class="form" id="promotion-form">
+                <div class="input_field">
+                    <label><i class="bi bi-displayport"></i>Promotion name:</label><br>
+                    <input type="text" v-model="pName" class="form-control shadow-none" placeholder="Give a Title to your Promotion" id="P-Name" required>
+                </div>
+                <div class="input_field">
+                    <label><i class="bi bi-card-list"></i>Description on Promotion:</label><br/>
+                    <textarea v-model="description" class="form-control shadow-none" placeholder="Brief description on your promotion" id="description" required></textarea>
+                </div>
+                <div class="input_field">
+                    <label><i class="bi bi-calendar2"></i>Promotion Starting Date:</label><br/>
+                    <input type="date" v-model="sDate" class="form-control shadow-none" id="S-Date" required>
+                </div>
+                <div class="input_field">
+                    <label><i class="bi bi-calendar2-check"></i>Promotion Ending Date:</label><br/>
+                    <input type="date" v-model="eDate" class="form-control shadow-none" id="E-Date" required>
+                </div>
+                <div class="input_field">
+                    <label><i class="bi bi-currency-dollar"></i>Price:</label><br/>
+                    <input type="text" v-model="price" class="form-control shadow-none" placeholder="Enter the Cost in USD" id="Price" required>
+                </div>
+                <div class="input_field">
+                    <label><i class="bi bi-card-list"></i>What's Included:</label><br/>
+                    <textarea v-model="list" class="form-control shadow-none" placeholder="List us what are included in your promotion" id="List" required></textarea>
+                </div>
+                <div class="input_field">
+                    <label><i class="bi bi-card-image"></i>Upload a picture of Promotion:</label><br/>
+                    <div class="image">
+                        <input type="file" id="image_input" accept="image/png, image/jpg, image/jpeg"> 
+                    </div>   
+                </div>
+                <div class="col-lg-1">
+                    <button type="submit" class="btn text-white shadow none" @click.prevent="showPromo">Upload </button>
+                </div>
             </div>
-            <div class="input_field">
-                <label><i class="bi bi-calendar2"></i>Promotion Starting Date:</label><br/>
-                <input type="date" class="form-control shadow-none" id="S-Date">
-            </div>
-            <div class="input_field">
-                <label><i class="bi bi-calendar2-check"></i>Promotion Ending Date:</label><br/>
-                <input type="date" class="form-control shadow-none" id="E-Date">
-            </div>
-            <div class="input_field">
-                <label><i class="bi bi-cash"></i>Price:</label><br/>
-                <input type="text" class="form-control shadow-none" placeholder="Enter the Cost" id="Price">
-            </div>
-            <div class="input_field">
-                <label><i class="bi bi-card-list"></i>What's Included:</label><br/>
-                <textarea class="form-control shadow-none" placeholder="List us what are included in your promotion" id="List"></textarea>
-            </div>
-            <div class="input_field">
-                <label><i class="bi bi-card-image"></i>Upload a picture of Promotion:</label><br/>
-                <div class="image">
-                    <input type="file" id="image_input" accept="image/png, image/jpg, image/jpeg"> 
-                </div>   
-            </div>
-            <div class="col-lg-1">
-                <button type="submit" class="btn text-white shadow none">Upload </button>
-            </div>
-        </div>
+        </form>
+        
 
     </div>
 </template>
+
+<script>
+import auth from '@/services/auth'
+
+
+export default {
+  name: "OffersView",
+  data() {
+    return {
+      pName: "",
+      description:"",
+      sDate: "",
+      eDate: "",
+      price: "",
+      list:"",
+    };
+  },
+  methods: {
+        async showPromo() {
+          console.log("works");
+          event.preventDefault();
+          const response = await auth.showPromo({
+            pName: this.pName,
+            description: this.description,
+            sDate: this.sDate,
+            eDate: this.eDate,
+            price: this.price,
+            list: this.list,
+          })
+           console.log(response.data);
+    },
+
+  },
+};
+
+        
+</script>
+
 
 <style>
 :root {
@@ -61,7 +106,7 @@
     border-radius: 15px;
     max-width: 700px;
     width: 100%;
-    height: 750px;
+    height: 850px;
     margin: 30px auto;
     box-shadow: 1px 1px 2px rgba(0,0,0,0,0.125);
     font-family: var(--font-default);
@@ -87,7 +132,7 @@
 }
 
 .container-offer-form .form .input_field label{
-    width: 250px;
+    width: 350px;
     margin-right:15px ;
 }
 .input_field .image{

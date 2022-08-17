@@ -7,7 +7,7 @@ export default{
     login(cred){
         return api().post('login', cred);
     },
-    // userInfo(details){
-    //     return api().post('userInfo', details);
-    // }
+    showPromo(x){
+        return api().post('showPromo', x);
+    }
 }
