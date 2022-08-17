@@ -8,23 +8,23 @@ const app = express();
 app.use(cors(), express.json(), express.urlencoded({extended : false}))
 
 
-app.post('/register', async(req, res) => {
+app.post('/registerTourist', async(req, res) => {
   
   try{
-    
     const email = req.body.email;
-    const emailExists = await dbQuery(`SELECT true FROM pg_tourist WHERE email = '${email}';`); 
+    const emailExists = await dbQuery(`SELECT true FROM tourist WHERE tourist_email = '${email}';`); 
 
     console.log(emailExists);
 
     if ( emailExists == null || emailExists=="" ) { 
 
       const name = req.body.name;
-      const password = req.body.password;
+      const country = req.body.country;
+      const role = req.body.role;
       
-    console.log(JSON.stringify(req.body));
-    await dbQuery(`INSERT INTO pg_tourist (name , email , contactno, password ) VALUES
-    ('${name}', '${email}', '${contactno}', '${password}') ON CONFLICT DO NOTHING;`); 
+    console.log(JSON.stringify(req.body)); 
+    await dbQuery(`INSERT INTO tourist (tourist_name , tourist_email , country, role) VALUES
+    ('${name}', '${email}', '${country}', '${role}') ON CONFLICT DO NOTHING;`); 
 
 
       
@@ -51,8 +51,8 @@ app.post('/login', async(req,res) => {
     const email = req.body.email;
     const confirmPassword = req.body.password;
 
-    const emailExists = await dbQuery(`SELECT true FROM pg_tourist WHERE email = ('${email}') ;`);
-    const passwordExists = await dbQuery(`SELECT true FROM pg_tourist WHERE email =
+    const emailExists = await dbQuery(`SELECT true FROM tourist WHERE email = ('${email}') ;`);
+    const passwordExists = await dbQuery(`SELECT true FROM tourist WHERE email =
     ('${email}') AND password = ('${confirmPassword}');`);
 
 

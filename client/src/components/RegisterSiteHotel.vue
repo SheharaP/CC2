@@ -23,6 +23,42 @@
                         <i class="bi bi-telephone"></i> 
                         <span><p ref="emailError"></p></span>
                     </div>
+                     <div class="input-field">
+                      
+                    <div >
+                        <select class="form-control shadow-none">
+                            <option value="none">Select a District</option>
+                            <option value="Nuwara Eliya">Nuwara Eliya</option>
+                            <option value="Colombo">Colombo</option>
+                            <option value="Galle">Galle</option>
+                            <option value="Kandy">Kandy</option>
+                            <option value="Ratnapura">Ratnapura</option>
+                            <option value="Hambantota">Hambantota</option>
+                            <option value="Matara">Matara</option>
+                            <option value="Badulla">Badulla</option>
+                            <option value="Jaffna">Jaffna</option>
+                            <option value="Ampara">Ampara</option>
+                            <option value="Anuradhapura	">Anuradhapura</option>
+                            <option value="Batticaloa">Batticaloa</option>
+                            <option value="Gampaha">Gampaha</option>
+                            <option value="Kalutara">Kalutara</option>
+                            <option value="Kegalle">Kegalle</option>
+                            <option value="Kilinochchi">Kilinochchi</option>
+                            <option value="Kurunegala">Kurunegala</option>
+                            <option value="Mannar">Mannar</option>
+                            <option value="Matale">Matale</option>
+                            <option value="Monaragala">Monaragala</option>
+                            <option value="Mullaitivu">Mullaitivu</option>
+                            <option value="Polonnaruwa">Polonnaruwa</option>
+                            <option value="Puttalam">Puttalam</option>
+                            <option value="Trincomalee">Trincomalee</option>
+                            <option value="Vavuniya">Vavuniya</option>
+                        </select>
+                    </div>
+
+                    </div>
+
+
                       <ul>
                         <li :class="{ is_valid: contains_eight_characters }">8 Characters</li>
                         <li :class="{ is_valid: contains_number }">Contains Number</li>
@@ -33,12 +69,6 @@
                       <input type="password" @input="checkPassword" v-model="password" :class="{invalid: isSubmitting && !password.trim()}"  autocomplete="off" placeholder="Password" required/>
                         <i class="bi bi-key"></i> 
                         <span><p ref="passwordError"></p></span>
-                    </div>
-                    <div class="input-field">
-                        <input type="password"  v-model="cpassword" :class="{invalid: isSubmitting && !cpassword.trim()}"  autocomplete="off" placeholder="Confirm password" required/>
-                        <i class="bi bi-key"></i> 
-                        <span><p ref="passwordError"></p></span>
-                       
                     </div>
 
                     <div class="checkbox-text">
@@ -64,70 +94,6 @@
             </div>
     </div>
 </div>
-
-
-<!-- <h2> Sign in or create an account </h2>
-<form class = form>
- 
-        <div class="row-mt-4">
-          <div class="col-md-2">
-            <label for="" class="mt-1">Name</label>
-          </div>
-          <div class="col-md-6">
-            <input type="text" size="20" v-model="name" :class="{invalid: isSubmitting && !name.trim() }" placeholder="Full Name" />
-            <span ><p ref ="nameError"> </p> </span>
-          </div>
-        </div>
-        <div class="row-mt-4">
-          <div class="col-md-2">
-            <label for="" size="30" class="mt-1">Email Address</label>
-          </div>
-          <div class="col-md-6">
-            <input type="text" placeholder="Email Address" v-model="email" :class="{invalid: isSubmitting && !email.trim() }"/>
-            <span><p ref="emailError"></p></span>
-          </div>
-        </div>
-        <div class="row-mt-4">
-          <div class="col-md-2">
-            <label for="" class="mt-1">Contact Number</label>
-          </div>
-          <div class="col-md-6">
-            <input type="tel" placeholder="Contact Number" v-model="contactno" :class="{invalid: isSubmitting && !contactno.trim() }"/>
-            <span><p ref="contactError"></p></span>
-          </div>
-        </div>
-        <div class="row-mt-4">
-          <div class="col-md-2">
-            <label for="" size="30" class="mt-1">Password</label>
-            <ul>
-              <li :class="{ is_valid: contains_eight_characters }">8 Characters</li>
-              <li :class="{ is_valid: contains_number }">Contains Number</li>
-              <li :class="{ is_valid: contains_uppercase }">Contains Uppercase</li>
-              <li :class="{ is_valid: contains_special_character }">Contains Special Character</li>
-            </ul>
-            </div>
-            <div class="col-md-6">
-              <input type="password" @input="checkPassword" v-model="password" :class="{invalid: isSubmitting && !password.trim()}"  autocomplete="off" placeholder="Password" />
-              <span><p ref="passwordError"></p></span>
-            </div>
-            
-        </div>
-        <div class="row-mt-4">
-          <div class="col-md-2">
-            <label for="" size="30" class="mt-1">Confirm password</label>
-          </div>
-          <div class="col-md-6">
-            <input type="password" v-model="cpassword" :class="{invalid: isSubmitting && !cpassword.trim()}"  autocomplete="off" placeholder="Password" />
-            <span><p ref="passwordError"></p></span>
-          </div>
-        </div>
-        <div class="row-mt-4">
-          <div class="col-md-2">
-            <button class="btn btn-primary" @click.prevent="validate">Register</button>
-
-          </div>
-        </div>
-</form> -->
 
 
 </template>
@@ -261,11 +227,8 @@ export default {
 
 <style lang = "scss" scoped>
 
-h2{
-margin-top: 200px;
-}
 .body{
-  margin: 200px 0 200px 0;
+  margin: 100px 0 200px 0;
   display:flex;
   justify-content: center;
 }
