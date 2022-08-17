@@ -61,7 +61,6 @@
             </div>
           </div>
         </div>
-        
             <button type="button" class="btn btn-primary btn-rounded btn-lg">
               Edit Profile
             </button>
@@ -88,3 +87,30 @@
 
 
 </style>
+
+
+
+
+
+
+
+
+
+Beethovenmvt@3
+
+
+CC_TravelLanka
+
+
+
+
+
+
+
+
+
+
+
+<ModalComp @close="toggleModal" :modalActive="modalActive">
+      <div class="modal-content">
+        <div class="card-body">

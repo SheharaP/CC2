@@ -33,20 +33,6 @@
 		<li><router-link to="/" class="nav-link">Home</router-link></li>
         <li><a href="#about" class="nav-link">About</a></li>
         <li><router-link to="/destination" class="nav-link">Explore</router-link></li>
-		<li><div class="dropdown">
-			<button class="btn-register">Register</button> <!--Drop down menu for register-->
-			<div class="dropdown-content">
-				<router-link to="/registerTourist" class="nav-link">Tourist</router-link>
-				<router-link to="/registerHotel" class="nav-link">Hotel</router-link>
-			</div>
-		</div>
-		</li>
-		<li><button>
-			<router-link to="/login" class="btn-login">Login</router-link>
-			<div class="arrow-wrapper">
-				<div class="arrow"></div>
-				</div>
-		</button></li>
 	</ul>
 	</transition>
 </nav>

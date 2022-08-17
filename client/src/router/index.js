@@ -44,14 +44,6 @@ const routes = [
     component: () => import('../views/DestinationView.vue')
   },
   {
-    path: '/tprofile',
-    name: 'tprofile',
-    component: () => import('../views/TouristProfileView.vue'),
-    meta: {
-      requiresAuth: true,
-    }
-  },
-  {
     path: '/registerTourist',
     name: 'registerTourist',
     component: () => import('../views/RegistrationTouristView.vue'),
@@ -70,6 +62,14 @@ const routes = [
     path: '/booking', 
     name: 'booking',
     component: () => import('../views/BookingView.vue')
+  },
+  {
+    path: '/tprofile',
+    name: 'tprofile',
+    component: () => import('../views/TouristProfileView.vue'),
+    meta: {
+      requiresAuth: true,
+    }
   },
 ]
 
