@@ -32,7 +32,7 @@
 
     <div class="container">
         <div class="col-lg-12 bg-white shadow p-4 rounded">
-            <h4>Book Now</h4>
+            <h4>Search Now</h4>
             <form>
                 <div class="row">
                     <div class="col-lg-3">
