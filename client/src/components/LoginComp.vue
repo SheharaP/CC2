@@ -17,8 +17,6 @@
                     <div class="input-field">
                         <input type="password"  v-model="password" :class="{invalid: isLogin && !password.trim()}"  autocomplete="off" placeholder="Enter your password" required/>
                         <i class="bi bi-key"></i> 
-                       <i @click="toggleShowPassword" class="bi bi-eye-slash showHidePw"></i> 
-                       <i @click="toggleShowPassword" class="bi bi-eye-slash showHidePw"></i> 
                         <span><p ref="passwordError"></p></span>
                        
                     </div> 

@@ -13,7 +13,7 @@
                     </div>   
                     
                     <div class="input-field">
-                      <select id="country" v-model="country" name="country" class="form-control">
+                      <select id="country" v-model="country" name="country" class="form-control shadow-none">
                         <option value="" disabled selected>Select your Country</option>
                         <option value="Afghanistan">Afghanistan</option>
                         <option value="Åland Islands">Åland Islands</option>
@@ -287,7 +287,7 @@
                     </div>
 
                     <div class="input-field button">
-                        <input type="button" @click.prevent="register" value="Register">
+                        <input type="button" @click.prevent="registerTourist" value="Register">
                     </div>
                 </form>
 
@@ -318,6 +318,7 @@ export default {
       name: "",
       country:"",
       email: "",
+      role: "tourist",
       password: "",
       router: useRouter(),
       isSubmitting: false,
@@ -330,13 +331,13 @@ export default {
     };
   },
   methods: {
-        async register() {
-          console.log("register");
+        async registerTourist() {
+
           createUserWithEmailAndPassword(getAuth(), this.email, this.password)
           .then(  // eslint-disable-next-line
           (data) => {
             console.log("Logged in");
-            this.router.push('/touristProfile');
+            //this.router.push('/tprofile');
 
           })
           .catch((error) => {
@@ -345,13 +346,19 @@ export default {
           }
         );
 
+          console.log("register");
           event.preventDefault();
-          const response = await auth.register({
+          const response = await auth.registerTourist({
             name: this.name,
             country: this.country,
             email: this.email,
+            role: this.role,
           })
            console.log(response.data);
+
+          
+
+          
     },
     checkPassword() {
       this.password_length = this.password.length;
