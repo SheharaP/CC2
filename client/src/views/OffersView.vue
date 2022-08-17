@@ -7,27 +7,27 @@
             <div class="form" id="promotion-form">
                 <div class="input_field">
                     <label><i class="bi bi-displayport"></i>Promotion name:</label><br>
-                    <input type="text" v-model="pName" class="form-control shadow-none" placeholder="Give a Title to your Promotion" id="P-Name" required>
+                    <input type="text" class="pName" placeholder="Give a Title to your Promotion" id="P-Name" required>
                 </div>
                 <div class="input_field">
                     <label><i class="bi bi-card-list"></i>Description on Promotion:</label><br/>
-                    <textarea v-model="description" class="form-control shadow-none" placeholder="Brief description on your promotion" id="description" required></textarea>
+                    <textarea class="description" placeholder="Brief description on your promotion" id="description" required></textarea>
                 </div>
                 <div class="input_field">
                     <label><i class="bi bi-calendar2"></i>Promotion Starting Date:</label><br/>
-                    <input type="date" v-model="sDate" class="form-control shadow-none" id="S-Date" required>
+                    <input type="date" v-model="sDate" class="sDate" id="S-Date" required>
                 </div>
                 <div class="input_field">
                     <label><i class="bi bi-calendar2-check"></i>Promotion Ending Date:</label><br/>
-                    <input type="date" v-model="eDate" class="form-control shadow-none" id="E-Date" required>
+                    <input type="date" v-model="eDate" class="eDate" id="E-Date" required>
                 </div>
                 <div class="input_field">
                     <label><i class="bi bi-currency-dollar"></i>Price:</label><br/>
-                    <input type="text" v-model="price" class="form-control shadow-none" placeholder="Enter the Cost in USD" id="Price" required>
+                    <input type="text" v-model="price" class="price" placeholder="Enter the Cost in USD" id="Price" required>
                 </div>
                 <div class="input_field">
                     <label><i class="bi bi-card-list"></i>What's Included:</label><br/>
-                    <textarea v-model="list" class="form-control shadow-none" placeholder="List us what are included in your promotion" id="List" required></textarea>
+                    <textarea  class="list" placeholder="List us what are included in your promotion" id="List" required></textarea>
                 </div>
                 <div class="input_field">
                     <label><i class="bi bi-card-image"></i>Upload a picture of Promotion:</label><br/>

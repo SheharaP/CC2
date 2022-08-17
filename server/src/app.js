@@ -90,7 +90,7 @@ app.post('/showPromo', async(req, res) => {
     const list = req.body.list;
 
     console.log(JSON.stringify(req.body));
-    await dbQuery(`INSERT INTO pg_Promotion (pName , description , sDate, eDate, price, list ) VALUES
+    await dbQuery(`INSERT INTO Promotion (pName , description , sDate, eDate, price, list ) VALUES
     ('${pName}', '${description}', '${sDate}', '${eDate}', '${price}, '${list}) ON CONFLICT DO NOTHING;`);
 
   }catch(e){
