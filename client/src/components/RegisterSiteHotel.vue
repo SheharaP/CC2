@@ -122,50 +122,47 @@ export default {
   },
   methods : {
     async register() {
-    
       event.preventDefault();
-          const response = await auth.register({
-            name: this.name,
-            email: this.email,
-            contactno: this.contactno,
-            password: this.password,
-            cpassword: this.cpassword
-          })
-          Swal.fire(
-            `${this.name} is registered!`,
-            'Have a great time!',
-              'success'
-            )
-          console.log(response.data);
-        }, catch(e) {
-          console.log(e);
-        },
-    
+        const response = await auth.register({
+          name: this.name,
+          email: this.email,
+          contactno: this.contactno,
+          password: this.password,
+          cpassword: this.cpassword
+        })
+        Swal.fire(
+          `${this.name} is registered!`,
+          'Have a great time!',
+            'success'
+          )
+        console.log(response.data);
+      }, catch(e) {
+        console.log(e);
+      },
+
       checkPassword() {
-      this.password_length = this.password.length;
-			const format = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-			
-      if (this.password_length > 7) {
-        this.contains_eight_characters = true;
-      } else {
-        this.contains_eight_characters = false;
-			}
-			
-      this.contains_number = /\d/.test(this.password);
-      this.contains_uppercase = /[A-Z]/.test(this.password);
-			this.contains_special_character = format.test(this.password);
+        this.password_length = this.password.length;
+        const format = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+        
+        if (this.password_length > 7) {
+          this.contains_eight_characters = true;
+        } else {
+          this.contains_eight_characters = false;
+        }
+        this.contains_number = /\d/.test(this.password);
+        this.contains_uppercase = /[A-Z]/.test(this.password);
+        this.contains_special_character = format.test(this.password);
       
-      if (this.contains_eight_characters === true &&
+        if (this.contains_eight_characters === true &&
 					this.contains_special_character === true &&
 					this.contains_uppercase === true &&
 					this.contains_number === true) {
 						this.valid_password = true;	
-            
-      } else {
-        this.valid_password = false;
-      }
-      return this.valid_password;
-    },
+          } else {
+            this.valid_password = false;
+          }
+          return this.valid_password;
+      },
     confirmPassword(pwd, cpwd){
       if(pwd === cpwd){
         return true;

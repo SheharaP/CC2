@@ -83,15 +83,15 @@ app.post('/showPromo', async(req, res) => {
   
   try{
     const pName = req.body.pName;
-    const description = req.body.description;
+    const desc = req.body.desc;
     const sDate = req.body.sDate;
     const eDate = req.body.eDate;
     const price = req.body.price;
-    const list = req.body.list;
+    const feature = req.body.feature;
 
     console.log(JSON.stringify(req.body));
-    await dbQuery(`INSERT INTO Promotion (pName , description , sDate, eDate, price, list ) VALUES
-    ('${pName}', '${description}', '${sDate}', '${eDate}', '${price}, '${list}) ON CONFLICT DO NOTHING;`);
+    await dbQuery(`INSERT INTO offers (p_name , para , s_date , e_date , price, feature) 
+    VALUES ('${pName}', '${desc}', '${sDate}', '${eDate}', '${price}','${feature}') ON CONFLICT DO NOTHING;`);
 
   }catch(e){
     res.send({

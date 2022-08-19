@@ -7,36 +7,37 @@
             <div class="form" id="promotion-form">
                 <div class="input_field">
                     <label><i class="bi bi-displayport"></i>Promotion name:</label><br>
-                    <input type="text" class="pName" placeholder="Give a Title to your Promotion" id="P-Name" required>
+                    <input type="text" v-model="pName" class="form-control shadow-none" placeholder="Give a Title to your Promotion" id="P-Name" required>
                 </div>
                 <div class="input_field">
                     <label><i class="bi bi-card-list"></i>Description on Promotion:</label><br/>
-                    <textarea class="description" placeholder="Brief description on your promotion" id="description" required></textarea>
+                    <input type="text" v-model="desc" class="form-control shadow-none" placeholder="Brief description on your promotion with 25-30 words" id="description" required>
                 </div>
                 <div class="input_field">
                     <label><i class="bi bi-calendar2"></i>Promotion Starting Date:</label><br/>
-                    <input type="date" v-model="sDate" class="sDate" id="S-Date" required>
+                    <input type="date" v-model="sDate" class="form-control shadow-none"  id="S-Date" required>
                 </div>
                 <div class="input_field">
                     <label><i class="bi bi-calendar2-check"></i>Promotion Ending Date:</label><br/>
-                    <input type="date" v-model="eDate" class="eDate" id="E-Date" required>
+                    <input type="date" v-model="eDate" class="form-control shadow-none" id="E-Date" required>
                 </div>
                 <div class="input_field">
                     <label><i class="bi bi-currency-dollar"></i>Price:</label><br/>
-                    <input type="text" v-model="price" class="price" placeholder="Enter the Cost in USD" id="Price" required>
+                    <input type="number" v-model="price" class="form-control shadow-none"  placeholder="Enter the Cost in USD" id="Price" required>
                 </div>
                 <div class="input_field">
                     <label><i class="bi bi-card-list"></i>What's Included:</label><br/>
-                    <textarea  class="list" placeholder="List us what are included in your promotion" id="List" required></textarea>
+                    <input type="text" v-model="feature" class="form-control shadow-none" placeholder="List us what are included in your promotion" id="List" required>
                 </div>
-                <div class="input_field">
+                <!--<div class="input_field">
                     <label><i class="bi bi-card-image"></i>Upload a picture of Promotion:</label><br/>
                     <div class="image">
                         <input type="file" id="image_input" accept="image/png, image/jpg, image/jpeg"> 
                     </div>   
-                </div>
-                <div class="col-lg-1">
+                </div>-->
+                <div class="col-lg-3">
                     <button type="submit" class="btn text-white shadow none" @click.prevent="showPromo">Upload </button>
+                    <button type="reset" class="btn text-white shadow none" @click.prevent="reset">Reset </button>
                 </div>
             </div>
         </form>
@@ -47,37 +48,67 @@
 
 <script>
 import auth from '@/services/auth'
-
-
 export default {
   name: "OffersView",
   data() {
     return {
-      pName: "",
-      description:"",
-      sDate: "",
-      eDate: "",
-      price: "",
-      list:"",
+        errors:[],
+        pName: "",
+        desc:"",
+        sDate: "",
+        eDate: "",
+        price: "",
+        feature:"",
     };
   },
   methods: {
         async showPromo() {
-          console.log("works");
-          event.preventDefault();
-          const response = await auth.showPromo({
-            pName: this.pName,
-            description: this.description,
-            sDate: this.sDate,
-            eDate: this.eDate,
-            price: this.price,
-            list: this.list,
-          })
-           console.log(response.data);
+            if (this.pName && this.desc && this.sDate && this.eDate && this.price && this.feature){
+                alert("Your promotion has been uploaded for verification!");
+                event.preventDefault();
+                const response = await auth.showPromo({
+                    pName: this.pName,
+                    desc: this.desc,
+                    sDate: this.sDate,
+                    eDate: this.eDate,
+                    price: this.price,
+                    feature: this.feature
+                })
+                console.log(response.data);
+            }
+            this.errors =[];
+            if (!this.pName){
+                alert("Promotion name is Required");
+            }
+            if (!this.desc){
+                alert("Promotion Description is Required");
+            }
+            if (!this.sDate){
+                alert("Starting Date of the promotion is required")
+            }
+            if (!this.eDate){
+                alert("Endning Date of the promotion required")
+            }
+            if (!this.price){
+                alert("Price of the promotion is required")
+            }
+            if (!this.feature){
+                alert("Features that are included in the promotion is required")
+            }
+            console.warn("errors",this.errors)
+        },
+        async reset(){
+            this.pName = "";
+            this.desc = "";
+            this.sDate = "";
+            this.eDate = "";
+            this.price = "";
+            this.feature = "";
+        }
     },
-
-  },
 };
+
+
 
         
 </script>
@@ -121,7 +152,7 @@ export default {
 .container-offer-form .form{
     width:100%;
 }
-.container-offer-form .form input ,textarea{
+.container-offer-form .form input{
     width: 100%;
     border-radius: 5px;
     margin: 10px;
@@ -141,7 +172,7 @@ export default {
 .btn{
     background: var(--color-primary);
     box-shadow: 0 8px 28px rgba(73, 46, 101, 0.2);
-    margin-bottom: 80px;
+    margin-left: 5px;
 }
 .btn:hover {
   background: rgba(73, 46, 101, 0.8);
