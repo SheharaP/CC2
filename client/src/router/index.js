@@ -71,6 +71,14 @@ const routes = [
       requiresAuth: true,
     }
   },
+    {
+      path: '/hprofile',
+      name: 'hprofile',
+      component: () => import('../views/HotelProfileView.vue'),
+      meta: {
+        requiresAuth: true,
+      }
+  },
 ]
 
 const router = createRouter({

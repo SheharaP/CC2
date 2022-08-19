@@ -129,8 +129,7 @@ signin() {
           this.password = "";
           this.router.push("/");
         });
-    }
-    ,
+    },
     toggleShowPassword() { 
 
       if(this.i%2==0){
