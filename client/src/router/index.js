@@ -36,7 +36,7 @@ const routes = [
   {
     path: '/offersview',
     name: 'offersview',
-    component: () => import('../views/OffersviewView.vue')
+    component: () => import('../views/OffersTouristView.vue')
   },
   {
     path: '/destination',
