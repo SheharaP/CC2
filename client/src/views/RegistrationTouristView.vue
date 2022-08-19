@@ -7,7 +7,7 @@
 
 <script>
 
-import RegisterTourist from '@/components/RegisterSiteTourist.vue'
+import RegisterTourist from '@/components/RegisterTourist.vue'
 
 export default {
   name: 'RegistrationTouristView',

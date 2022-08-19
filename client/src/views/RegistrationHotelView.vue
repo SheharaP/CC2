@@ -7,7 +7,7 @@
 
 <script>
 
-import RegisterHotel from '@/components/RegisterSiteHotel.vue'
+import RegisterHotel from '@/components/RegisterHotel.vue'
 
 export default {
   name: 'RegistrationHotelView',

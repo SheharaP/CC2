@@ -259,8 +259,7 @@
                         <option value="Yemen">Yemen</option>
                         <option value="Zambia">Zambia</option>
                         <option value="Zimbabwe">Zimbabwe</option>
-                       
-            </select>
+                      </select>
                     </div>
                     <div class="input-field">
                       <input type="text" v-model="email" :class="{invalid: isSubmitting && !email.trim() }" placeholder="Email Address" required/>
