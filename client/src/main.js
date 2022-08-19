@@ -27,7 +27,5 @@ createApp(App).use(router).mount('#app')
 
 import 'bootstrap/dist/css/bootstrap.css';
 
-import '@/assets/vendor/bootstrap/js/bootstrap.bundle.min.js';
-
 
 
