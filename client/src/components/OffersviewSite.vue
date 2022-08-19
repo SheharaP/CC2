@@ -20,9 +20,7 @@
         </div>
     </section>
 </template>
-<!--<script>
-    document.getElementById("display-2").innerHTML=localStorage.getItem("textvalue");
-</script>-->
+
 
 <style>
 
