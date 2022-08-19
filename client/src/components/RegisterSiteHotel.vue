@@ -121,40 +121,30 @@ export default {
       contains_uppercase: false,
       contains_special_character: false,
       valid_password: false
-    };
+    }
   },
-  methods: {
-        async registerHotel() {
-
-          createUserWithEmailAndPassword(getAuth(), this.email, this.password)
-          .then(  // eslint-disable-next-line
-          (data) => {
-            console.log("Logged in");
-            //this.router.push('/tprofile');
-
-          })
-          .catch((error) => {
-            console.log(error.code);
-            alert("Sorry you could not sign up" + error.message);
-          }
-        );
-
-          console.log("register");
-          event.preventDefault();
-          const response = await auth.registerHotel({
+  methods : {
+    async register() {
+    
+      event.preventDefault();
+          const response = await auth.register({
             name: this.name,
-            dist: this.dist,
             email: this.email,
             contactno: this.contactno,
-            role: this.role,
+            password: this.password,
+            cpassword: this.cpassword
           })
-           console.log(response.data);
-
-          
-
-          
-    },
-    checkPassword() {
+          Swal.fire(
+            `${this.name} is registered!`,
+            'Have a great time!',
+              'success'
+            )
+          console.log(response.data);
+        }, catch(e) {
+          console.log(e);
+        },
+    
+      checkPassword() {
       this.password_length = this.password.length;
 			const format = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 			
@@ -168,7 +158,7 @@ export default {
       this.contains_uppercase = /[A-Z]/.test(this.password);
 			this.contains_special_character = format.test(this.password);
       
-      if (this.contains_eight_characters === true &&
+        if (this.contains_eight_characters === true &&
 					this.contains_special_character === true &&
 					this.contains_uppercase === true &&
 					this.contains_number === true) {
@@ -179,15 +169,66 @@ export default {
       }
       return this.valid_password;
     },
-
-  },
-};
-
+    confirmPassword(pwd, cpwd){
+      if(pwd === cpwd){
+        return true;
+      } else {
+        return false;
+      }
+    },
+    validate(){
+      if (this.name == null || this.name == "") {
+        let nameError = "Please enter your name";
+        this.$refs.nameError.innerHTML = nameError;
+        this.name ="";
+        this.isSubmitting = true
+        continueStatement;
+      } 
+      
+      else if(this.email != String(this.email) .toLowerCase() .match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)){
+        let emailError = "You have entered an invalid email address!";
+        this.$refs.emailError.innerHTML = emailError;
+        this.email ="";
+        this.isSubmitting = true
+        continueStatement;
+      }
+      else if (this.contactno == null || this.contactno == "") {
+        let contactError = "Please enter valid contact number";
+        this.$refs.contactError.innerHTML = contactError;
+        this.contactno ="";
+        this.isSubmitting = true
+        continueStatement;
+      } 
+      else if(!this.checkPassword){
+        let passwordError = "Please enter valid password";
+        this.$refs.passwordError.innerHTML = passwordError;
+        this.password ="";
+        this.isSubmitting = true
+        continueStatement;
+      }
+      else if(!this.confirmPassword(this.password, this.cpassword)){
+        let passwordError = "Passwords do not match";
+        this.$refs.passwordError.innerHTML = passwordError;
+        this.cpassword ="";
+        this.isSubmitting = true
+        continueStatement;
+      }
+      
+      else{
+        this.$refs.nameError.innerHTML = "";
+        this.$refs.emailError.innerHTML = "";
+        this.$refs.contactError.innerHTML = "";
+        this.$refs.passwordError.innerHTML = "";
+        this.isSubmitting = false
+        this.register();
+      }
+    },
+}
+}
         
 </script>
 
-<style scoped>
-
+<style lang = "scss" scoped>
 
 .body{
   margin: 100px 0 200px 0;
@@ -386,4 +427,197 @@ li:before {
 
 
 
+<<<<<<< HEAD
 </style>
+=======
+</style>
+<!-- 
+<style scoped>
+
+form {
+  max-width: 100vw; 
+  margin-left : 33vw;
+  display: block;
+}
+.mt-1{
+ font-weight: bold;
+}
+.col-md-2{
+  width: 100%;
+}
+.col-md-6{
+  margin-bottom: 20px;
+   width: 50%;
+}
+.btn{
+  text-align: center;
+  width: 50%;
+  margin-bottom: 50px;
+}
+.form-control:focus {
+  color: #212529;
+  background-color: #fff;
+  border-color: #86b7fe;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+.invalid {
+  color: #212529;
+  background-color: rgb(202, 144, 144);
+  border-color: #c81e12;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(253, 13, 21, 0.25);
+}
+h2{
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color:rebeccapurple;
+  text-align: center;
+  margin: 120px 0 50px 0;
+  letter-spacing: normal;
+  
+}
+ul {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+  margin-left: 0;
+  padding: 0;
+}
+li { 
+	margin-bottom: 8px;
+	position: relative;
+  color: rgba(92, 90, 107, 0.8);
+  list-style: none;
+}
+li:before {
+  content: "";
+	width: 0%; height: 2px;
+	background: #2ecc71;
+	position: absolute;
+	left: 0; top: 50%;
+	display: block;
+	transition: all .6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+/* Password Input --------- */
+input[type] {
+	line-height: 1.5;
+	display: block;
+	color: #000000;
+	font-weight: 300;
+	width: 100%;
+	height: calc(2.75rem + 2px);
+	padding: .625rem .75rem;
+	border-radius: .25rem;
+	background-color: #fff;
+	transition: border-color .4s ease;
+	border: 1px solid #cad1d7;
+	outline: 0;
+  
+}
+input[type]:focus {
+	border-color: rgba(50, 151, 211, .45);
+}
+/* Checkmark & Strikethrough --------- */
+.is_valid { 
+  color: rgba(136, 152, 170, 0.8);
+}
+.is_valid:before { width: 100%; }
+
+
+</style> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<script>
+import axios from 'axios';
+export default {
+  name: "RegisterSite",
+  data() {
+    return{
+      fname: "",
+      lname: "",
+      email: "",
+      contactno: "",
+      birthdate: "",
+      pwd: "",
+      cpwd: ""
+    }
+  },
+  methods: {
+    registerStudent: function() {
+      axios.post("/api/student", {
+        fname: this.fname,
+        lname: this.lname,
+        email: this.email,
+        contactno: this.contactno,
+        birthdate: this.birthdate,
+        semester: this.pwd,
+        course: this.cpwd
+      }).then((res) => {
+        if(res.data.msg === "Validation Failed"){
+          let errors = res.data.errors;
+          let errorMsg = "";
+          if(errors.fname.length != 0){
+            for(let i=0; i<errors.fname.length; i++){
+              errorMsg += `${errors.fname[i]}\n`;
+            }
+          } 
+          
+          if(errors.lname.length != 0){
+            for(let i=0; i<errors.lname.length; i++){
+              errorMsg += `${errors.lname[i]}\n`;
+            }
+          }
+          if(errors.email.length != 0){
+            for(let i=0; i<errors.email.length; i++){
+              errorMsg += `${errors.email[i]}\n`;
+            }
+          }
+          if(errors.contactno.length != 0){
+            for(let i=0; i<errors.contactno.length; i++){
+              errorMsg += `${errors.contactno[i]}\n`;
+            }
+          }
+          if(errors.birthdate.length != 0){
+            for(let i=0; i<errors.birthdate.length; i++){
+              errorMsg += `${errors.birthdate[i]}\n`;
+            }
+          }
+          if(errors.semester.length != 0){
+            for(let i=0; i<errors.semester.length; i++){
+              errorMsg += `${errors.semester[i]}\n`;
+            }
+          }
+          if(errors.pwd.length != 0){
+            for(let i=0; i<errors.pwd.length; i++){
+              errorMsg += `${errors.pwd[i]}\n`;
+            }
+          }
+          if(errors.cpwd.length != 0){
+            for(let i=0; i<errors.cpwd.length; i++){
+              errorMsg += `${errors.cpwd[i]}\n`;
+            }
+          }
+          alert(errorMsg);
+        }
+        else{
+          alert("Successfully Saved");
+        }
+      }).catch(()=>{
+        alert("Something Went Wrong");
+      })
+    }
+  }
+};
+</script> -->

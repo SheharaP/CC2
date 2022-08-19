@@ -229,3 +229,159 @@ app.listen(3000, () => {
 
   
 // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  // postgresql(async(connection) => {
+  //   await connection.query(`INSERT INTO pg_tourist (email, password) VALUES ('${email}', '${pass}}') ON CONFLICT DO NOTHING;`);
+  // });
+
+
+// app.use(cors(), express.json(), express.urlencoded({extended : false}))
+
+// const baseRouter = express.Router();
+// const apiRouter = express.Router();
+
+
+
+
+// baseRouter.post('/register', async(req, res) => {
+  
+//   check('email', 'This email should be valid')
+//     .isEmail()
+//     .notEmpty()
+//     .normalizeEmail()
+
+// })
+
+  
+//     // validate the input
+//   req.checkBody('name', 'Name is required').notEmpty();
+//   req.checkBody('email', 'Email/username is required').notEmpty();
+//   req.checkBody('contactno', 'Contact Number is required').notEmpty();
+//   req.checkBody('password', 'Password is required').notEmpty();
+//   req.checkBody('cpassword', 'Confirm Password').notEmpty();
+//   req.checkBody('birthdate', 'DOB is required').notEmpty();
+//   req.checkBody('email', 'Email is required').notEmpty();
+//   req.checkBody('email', 'Email does not appear to be valid').isEmail();
+
+//   // check the validation object for errors
+//   var errors = req.validationErrors();
+
+//   if (errors) {
+
+//     flash = { type: 'alert-danger', messages: errors };
+//     res.redirect('register');
+
+//   } else {
+
+//     // pull the form variables off the request body
+//     var username = req.body.username;
+//     var password = req.body.password;
+//     var additional = {
+//       Email: req.body.email,
+//       DisplayName: req.body.display
+//     };
+
+//   }
+//   console.log(JSON.stringify(req.body));
+//   console.log(req.body.email);
+
+//   const email = req.body.email;
+
+//   console.log(`Email: ${email}`);
+
+//   await dbQuery(`INSERT INTO pg_tourist (email) VALUES ('${email}') ON CONFLICT DO NOTHING;`);
+  
+//   // postgresql(async(connection) => {
+//   //   await connection.query(`INSERT INTO pg_tourist (email, password) VALUES ('${email}', '${pass}}') ON CONFLICT DO NOTHING;`);
+//   // });
+
+//   res.send({
+//     message: `Hello ${req.body.email} User is registered now!`
+//   });
+// })
+
+// baseRouter.get('/test', async(req, res) => {
+//   console.log("We are in localhost/test.");
+//   res.status(200).send({message: "Hi there!"});
+// })
+
+// apiRouter.get('/test', async(req, res) => {
+//   console.log("We are in  localhost/api/test.");
+//   res.status(200).send({message: "Hi there!"});
+// })
+
+
+// app.use('/', baseRouter); //--> http://localhpost  -> http://localhost/test
+// app.use('/api', apiRouter);  //--> http://localhost/api  -> http://localhost/api/test
+
+// // app.use('/', router);
+
+
+
+
+// postgresql(async (connection) => {
+//   await connection.query('CREATE TABLE IF NOT EXISTS books (id bigserial primary key, title text, author text);');
+//   await connection.query('CREATE UNIQUE INDEX IF NOT EXISTS title ON books (title);');
+
+//   const books = [
+//     { title: 'Mastering the Lightning Network', author: 'Andreas Antonopoulos' },
+//     { title: 'Load Balancing with HAProxy', author: 'Nick Ramirez' },
+//     { title: 'Silent Weapons for Quiet Wars', author: 'Unknown' },
+//   ];
+
+//   for (let i = 0; i < books.length; i += 1) {
+//     const book = books[i];
+//     await connection.query(`INSERT INTO books (title, author) VALUES ('${book.title}', '${book.author}') ON CONFLICT DO NOTHING;`);
+//   }
+
+//   console.log('PostgreSQL database seeded!');
+// });
+
+
+// import express from 'express' //process json data very easily
+
+// import morgan from 'morgan'
+// import postgresql from 'postgresql';
+
+// var app = express()
+// app.use(morgan('combined')) //print out the logs //log generator
+// app.use(cors()) //allow client/host to access this //you want a server to be hosted on a differnt domain and you want any client around the world to use the server
+
+// postgresql();
+
+
+
+// import express from 'express';
+// import postgresql from './postgresql.js';
+
+
+
+// const app = express();
+
+// app.get('/books', async (req, res) => {
+//   const rows = await process.postgresql.query('SELECT * FROM books');
+//   res.status(200).send(JSON.stringify(rows));
+// });
+
+// app.listen(3000, () => {
+//   console.log('App running at http://localhost:3000');
+// });
+
+
+
