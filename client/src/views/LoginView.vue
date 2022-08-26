@@ -129,20 +129,7 @@ signin() {
           this.password = "";
           this.router.push("/");
         });
-    }
-    ,
-    toggleShowPassword() { 
-
-      if(this.i%2==0){
-        this.$refs.showHidePw = "bi bi-eye showHidePw";
-
-      }
-      else{
-        this.$refs.showHidePw = "bi bi-eye-slash showHidePw";
-      }
-      this.i++;
-      
-    }
+    },
   }
 };
   

@@ -36,7 +36,7 @@ const routes = [
   {
     path: '/offersview',
     name: 'offersview',
-    component: () => import('../views/OffersviewView.vue')
+    component: () => import('../views/OffersTouristView.vue')
   },
   {
     path: '/destination',
@@ -70,6 +70,14 @@ const routes = [
     meta: {
       requiresAuth: true,
     }
+  },
+    {
+      path: '/hprofile',
+      name: 'hprofile',
+      component: () => import('../views/HotelProfileView.vue'),
+      meta: {
+        requiresAuth: true,
+      }
   },
 ]
 

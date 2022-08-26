@@ -23,15 +23,9 @@ const firebaseConfig = {
 const fapp = initializeApp(firebaseConfig); // eslint-disable-next-line
 const analytics = getAnalytics(fapp);
 
-// import mitt from "mitt";
-// const emitter = mitt();
-// createApp(App).config.globalProperties.emitter = emitter;
-
 createApp(App).use(router).mount('#app')
 
 import 'bootstrap/dist/css/bootstrap.css';
-
-import '@/assets/vendor/bootstrap/js/bootstrap.bundle.min.js';
 
 
 
