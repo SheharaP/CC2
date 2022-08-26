@@ -3,6 +3,9 @@ import { dbQuery } from './postgresql.js';
 import cors from 'cors';
 
 
+
+
+
 const app = express();
 
 app.use(cors(), express.json(), express.urlencoded({extended : false}))
@@ -31,11 +34,7 @@ app.post('/registerTourist', async(req, res) => {
    } else{
     res.send({
       message: `Hello ${email} is already registered!`
-    });
-    
-
-      
-      
+    });      
 
   }} catch(e){
     res.send({
@@ -80,8 +79,8 @@ app.post('/login', async(req,res) => {
 })
 
 app.post('/showPromo', async(req, res) => {
-  
   try{
+    console.log(JSON.stringify(req.body));
     const pName = req.body.pName;
     const desc = req.body.desc;
     const sDate = req.body.sDate;
@@ -89,7 +88,7 @@ app.post('/showPromo', async(req, res) => {
     const price = req.body.price;
     const feature = req.body.feature;
 
-    console.log(JSON.stringify(req.body));
+    
     await dbQuery(`INSERT INTO offers (p_name , para , s_date , e_date , price, feature) 
     VALUES ('${pName}', '${desc}', '${sDate}', '${eDate}', '${price}','${feature}') ON CONFLICT DO NOTHING;`);
 
@@ -100,6 +99,34 @@ app.post('/showPromo', async(req, res) => {
   }
 
 })
+
+app.post('/book', async(req, res) => {
+  try{
+    console.log(JSON.stringify(req.body));
+    
+    const fname = req.body.fname;
+    const lname = req.body.lname;
+    const email = req.body.email;
+    const indate = req.body.indate;
+    const outdate = req.body.outdate;
+    const adult = req.body.adult;
+    const children = req.body.children;
+    const sreq = req.body.sreq;
+    const atime = req.body.atime;
+
+    
+    await dbQuery(`INSERT INTO booking (fname , lname , email , indate , outdate, adult, children, sreq, atime) 
+    VALUES ('${fname}', '${lname}', '${email}', '${indate}', '${outdate}','${adult}','${children}','${sreq}','${atime}') ON CONFLICT DO NOTHING;`);
+
+  }catch(e){
+    res.send({
+      message: `Error : ${e}`
+    });
+  }
+
+})
+
+
 
 app.listen(3000, () => {
   console.log('App running at http://localhost:3000');

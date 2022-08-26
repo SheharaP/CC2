@@ -9,5 +9,8 @@ export default{
     },
     showPromo(x){
         return api().post('showPromo', x);
+    },
+    book(y){
+        return api().post('book', y);
     }
 }

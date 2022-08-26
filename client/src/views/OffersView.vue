@@ -31,9 +31,11 @@
                 </div>
                 <!--<div class="input_field">
                     <label><i class="bi bi-card-image"></i>Upload a picture of Promotion:</label><br/>
-                    <div class="image">
-                        <input type="file" id="image_input" accept="image/png, image/jpg, image/jpeg"> 
-                    </div>   
+                    <div class="imagePreviewWrapper" :style="{'background-image': `url(${previewImage})`}">
+                        <i class="bi bi-cloud-upload" @click="selectImage" v-if="icon"></i>
+                    </div>
+                    <input type="file" id="image_input" accept="image/png, image/jpg, image/jpeg" @input="pickFile" ref="fileInput" >
+                    <input type="file" @change="onFileSelected">
                 </div>-->
                 <div class="col-lg-3">
                     <button type="submit" class="btn text-white shadow none" @click.prevent="showPromo">Upload </button>
@@ -41,17 +43,19 @@
                 </div>
             </div>
         </form>
-        
-
     </div>
 </template>
 
 <script>
 import auth from '@/services/auth'
+
 export default {
   name: "OffersView",
   data() {
     return {
+        previewImage: null,
+        startDate: null,
+        endDate:null,
         errors:[],
         pName: "",
         desc:"",
@@ -59,6 +63,9 @@ export default {
         eDate: "",
         price: "",
         feature:"",
+        selectedFile:null
+        //icon:true
+
     };
   },
   methods: {
@@ -104,7 +111,26 @@ export default {
             this.eDate = "";
             this.price = "";
             this.feature = "";
-        }
+            //this.icon=true;
+            //this.previewImage=null;
+        },
+        
+        /*async selectImage (){
+            this.$refs.fileInput.click()
+        },
+        async pickFile (){
+            let input = this.$refs.fileInput
+            let file = input.files
+            if (file && file[0]) {
+                let reader = new FileReader
+                reader.onload = e => {
+                this.previewImage = e.target.result
+                }
+                reader.readAsDataURL(file[0])
+                this.$emit('input', file[0])
+                this.icon=false;
+            }
+        }*/
     },
 };
 
@@ -137,7 +163,7 @@ export default {
     border-radius: 15px;
     max-width: 700px;
     width: 100%;
-    height: 850px;
+    height: 100%;
     margin: 30px auto;
     box-shadow: 1px 1px 2px rgba(0,0,0,0,0.125);
     font-family: var(--font-default);
@@ -166,8 +192,23 @@ export default {
     width: 350px;
     margin-right:15px ;
 }
-.input_field .image{
-    margin: 5px;
+.imagePreviewWrapper{
+    width: 100%;
+    height: 400px;
+    border-style:dashed;
+    border-color: #99969d;
+    margin: 0 auto 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    object-fit: cover;
+    background-size: cover;
+}
+.input_field .imagePreviewWrapper i{
+    cursor: pointer;
+    display: flex;
+    font-size: 100px;
+    color: #99969d;
 }
 .btn{
     background: var(--color-primary);

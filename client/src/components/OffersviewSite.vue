@@ -11,8 +11,8 @@
                             <img src="../assets/img/Book/city_1.jpg" class="img-fluid" alt="" id="display-1">
                         </div>
                         <div class="info">
-                            <h4><span id="display-2"></span></h4>
-                            <p><span id="display-3"></span></p>
+                            <h4><span id="display-2">{{ pName }}</span></h4>
+                            <p><span id="display-3">{{ desc}}</span></p>
                         </div>
                     </div>
                 </div>
