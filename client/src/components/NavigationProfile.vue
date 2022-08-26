@@ -8,7 +8,7 @@
 		<li><router-link to="/" class="nav-link">Home</router-link></li>
         <li><a href="/#about" class="nav-link">About</a></li>
         <li><router-link to="/destination" class="nav-link">Explore</router-link></li>
-        <li><router-link to="/offers" class="nav-link">Offers</router-link></li>
+        <li><router-link to="/offersview" class="nav-link">Offers</router-link></li>
 		<li><router-link to="/tprofile" class="nav-link">My Profile</router-link></li>
 		<li><button @click="logout" class="btn-login">Logout</button></li>	
 	</ul>
@@ -19,7 +19,7 @@
 		<ul v-show="mobileNav" class="dropdown-nav">
 		<li><router-link to="/" class="nav-link">Home</router-link></li>
         <li><router-link to="/about" class="nav-link">About</router-link></li>
-        <li><router-link to="/offers" class="nav-link">Offers</router-link></li>
+        <li><router-link to="/offersview" class="nav-link">Offers</router-link></li>
         <li><router-link to="/destination" class="nav-link">Explore</router-link></li>
 		<li><button @click="logout" class="btn-login">Logout</button></li>
 	</ul>

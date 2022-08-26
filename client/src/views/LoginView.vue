@@ -17,8 +17,6 @@
                     <div class="input-field">
                         <input type="password"  v-model="password" :class="{invalid: isLogin && !password.trim()}"  autocomplete="off" placeholder="Enter your password" required/>
                         <i class="bi bi-key"></i> 
-                       <i @click="toggleShowPassword" class="bi bi-eye-slash showHidePw"></i> 
-                       <i @click="toggleShowPassword" class="bi bi-eye-slash showHidePw"></i> 
                         <span><p ref="passwordError"></p></span>
                        
                     </div> 
@@ -59,6 +57,7 @@
 /* eslint-disable no-unused-vars */
 import { getAuth, onAuthStateChanged,signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { useRouter } from "vue-router";
+import auth from '@/services/auth'
 
 export default {
   name: 'LoginView',
@@ -70,8 +69,6 @@ export default {
        router: useRouter(),
       errMsg: "",
       auth:getAuth(),
-      showPassword: false,
-      i:1,
     };
   },
   mounted() {
@@ -100,8 +97,19 @@ signin() {
       signInWithEmailAndPassword(this.auth, this.email, this.password)
         .then((data) => {
           console.log("Logged in");
-          this.$emit('signin')
-          this.router.push("/tprofile");
+          const resp = auth.loginRole({
+            role
+          });
+          console.log(resp.data);
+
+
+          if(resp.data == "tourist"){
+            this.router.push("/tprofile");
+          }
+          else if(resp.data == "hotel"){
+            this.router.push("/hprofile");
+
+          }
         })
         .catch((error) => {
           console.log(error.code);

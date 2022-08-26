@@ -4,7 +4,7 @@
     <div class="container">
         <div class="forms">
             <div class="form register">
-                <span class="title">Hotel Registeration</span> 
+                <span class="title">Hotel Registration</span> 
             
                 <form>
                     <div class="input-field">
@@ -122,7 +122,7 @@ export default {
           .then(  // eslint-disable-next-line
           (data) => {
             console.log("Logged in");
-            //this.router.push('/tprofile');
+            this.router.push('/hprofile');
 
           })
           .catch((error) => {
@@ -140,10 +140,7 @@ export default {
             contactno: this.contactno,
             role: this.role,
           })
-           console.log(response.data);
-
-          
-
+           console.log(response.data)
           
     },
     checkPassword() {

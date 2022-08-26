@@ -10,6 +10,9 @@ export default{
     login(cred){
         return api().post('login', cred);
     },
+    loginRole(cred){
+        return api().get('loginRole', cred);
+    },
     showPromo(x){
         return api().post('showPromo', x);
     },
