@@ -83,7 +83,7 @@
                         <input type="number" id="quantity" name="quantity" class="form-control shadow-none">
                     </div>
                     <div class="col-lg-1">
-                        <button type="submit" class="btn text-white shadow none"><router-link to="/booking" class="nav-link">Search</router-link> </button>
+                        <button type="submit" class="btn text-white shadow none"><router-link to="/hotels" class="nav-link">Search</router-link> </button>
                     </div>
                 </div>
             </form>

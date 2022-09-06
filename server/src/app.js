@@ -6,10 +6,7 @@ import cors from 'cors';
 const app = express();
 
 
-
-
 app.use(cors(), express.json(), express.urlencoded({extended : false}))
-
 
 app.post('/registerTourist', async(req, res) => {
   
@@ -40,6 +37,8 @@ app.post('/registerTourist', async(req, res) => {
   }
 
 })
+
+
 
 app.post('/registerHotel', async(req, res) => {
   
@@ -121,17 +120,11 @@ app.get('/loginRole', async(req,res) => {
   
       const role = await dbQuery(`SELECT role FROM hotel WHERE hotel_email = ('${email}') ;`);
       
-      res.send({
-        message : `N/A Hotel role`,
-        role
-      });
+      res.send(role);
 
     }
     else{
-    res.send({
-      message : `N/A, Tourist role`,
-      role
-    });
+    res.send(role);
   }
   } catch(e){
     res.send({
@@ -160,6 +153,42 @@ app.post('/showPromo', async(req, res) => {
     });
   }
 
+})
+
+app.get('/users', async(req,res) =>{
+  try{
+    const users = await dbQuery(`SELECT * FROM booking`);
+
+    if (users == null || users == ""){
+      const response = "No user found" ;
+      res.send(response);
+    }
+    else{
+    res.send(users);
+  }
+  } catch(e){
+    res.send({
+      message: `Error : ${e}`
+    });
+  }
+})
+
+app.get('/users/:id', async(req,res) =>{
+  try{
+    const user = await dbQuery(`SELECT * FROM booking WHERE bookingid = ('${req.params.id}');`);
+
+    if (user == null || user == ""){
+      const response = "No user found" ;
+      res.send(response);
+    }
+    else{
+    res.send(user);
+  }
+  } catch(e){
+    res.send({
+      message: `Error : ${e}`
+    });
+  }
 })
 
 app.listen(3000, () => {

@@ -63,6 +63,7 @@ const routes = [
     name: 'booking',
     component: () => import('../views/BookingView.vue')
   },
+
   {
     path: '/tprofile',
     name: 'tprofile',
@@ -71,14 +72,19 @@ const routes = [
       requiresAuth: true,
     }
   },
-    {
-      path: '/hprofile',
-      name: 'hprofile',
-      component: () => import('../views/HotelProfileView.vue'),
-      meta: {
-        requiresAuth: true,
-      }
+  {
+    path: '/hprofile',
+    name: 'hprofile',
+    component: () => import('../views/HotelProfileView.vue'),
+    meta: {
+      requiresAuth: true,
+    }
   },
+  {
+    path: '/hotels',
+    name: 'hotels',
+    component: () => import('../views/HoteldisplayView.vue')
+  }
 ]
 
 const router = createRouter({

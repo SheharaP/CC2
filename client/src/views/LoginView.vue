@@ -97,9 +97,8 @@ signin() {
       signInWithEmailAndPassword(this.auth, this.email, this.password)
         .then((data) => {
           console.log("Logged in");
-          const resp = auth.loginRole({
-            role
-          });
+          const resp = auth.loginRole();
+          
           console.log(resp.data);
 
 

@@ -18,5 +18,8 @@ export default{
     },
     book(y){
         return api().post('book', y);
+    },
+    gethotels(){
+        return api().get('users');
     }
 }

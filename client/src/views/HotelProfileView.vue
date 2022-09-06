@@ -90,7 +90,7 @@
 }
 
 .card{
-  background-color: aqua;
+  
   margin-bottom: 200px;
 }
 .btn{ 
