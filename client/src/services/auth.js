@@ -11,7 +11,7 @@ export default{
         return api().post('login', cred);
     },
     loginRole(cred){
-        return api().get('loginRole', cred);
+        return api().post('loginRole', cred);
     },
     showPromo(x){
         return api().post('showPromo', x);

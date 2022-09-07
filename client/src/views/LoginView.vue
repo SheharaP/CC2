@@ -95,19 +95,20 @@ export default {
   methods: {
 signin() {
       signInWithEmailAndPassword(this.auth, this.email, this.password)
-        .then((data) => {
+        .then(async (data) => {
           console.log("Logged in");
-          const resp = auth.loginRole();
-          
-          console.log(resp.data);
 
+          const resp = await auth.loginRole({
+            'email': data.user.email
+          });
 
-          if(resp.data == "tourist"){
+          console.log(`This is a ${resp.data.role} profile.`);
+
+          if (resp.data.role == "tourist"){
             this.router.push("/tprofile");
           }
-          else if(resp.data == "hotel"){
+          else if(resp.data.role == "hotel"){
             this.router.push("/hprofile");
-
           }
         })
         .catch((error) => {

@@ -84,7 +84,6 @@ app.post('/login', async(req,res) => {
     const passwordExists = await dbQuery(`SELECT true FROM tourist WHERE email =
     ('${email}') AND password = ('${confirmPassword}');`);
 
-
     if (emailExists == null || emailExists == ""){
   
       res.send({
@@ -107,25 +106,20 @@ app.post('/login', async(req,res) => {
     });
   }
 })
-app.js
 
-app.get('/loginRole', async(req,res) => {
-
+app.post('/loginRole', async(req,res) => {
   try{
     const email = req.body.email;
 
-    const role = await dbQuery(`SELECT role FROM tourist WHERE tourist_email = ('${email}') ;`);
+    const touristQuery = await dbQuery(`SELECT role FROM tourist WHERE tourist_email = ('${email}') ;`);
 
-    if (role == null || role == ""){
-  
-      const role = await dbQuery(`SELECT role FROM hotel WHERE hotel_email = ('${email}') ;`);
-      
-      res.send(role);
-
+    if (!(touristQuery.length)){
+      const hotelQuery = await dbQuery(`SELECT role FROM hotel WHERE hotel_email = ('${email}') ;`);
+      res.status(200).json({ role: hotelQuery[0].role });
     }
     else{
-    res.send(role);
-  }
+      res.status(200).json({ role: touristQuery[0].role });
+    }
   } catch(e){
     res.send({
       message: `Error : ${e}`
