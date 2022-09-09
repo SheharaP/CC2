@@ -58,6 +58,7 @@
 import { getAuth, onAuthStateChanged,signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { useRouter } from "vue-router";
 import auth from '@/services/auth'
+import Swal from 'sweetalert2'
 
 export default {
   name: 'LoginView',
@@ -66,7 +67,7 @@ export default {
       loggedIn: false,
       email: "",
       password: "",
-       router: useRouter(),
+      router: useRouter(),
       errMsg: "",
       auth:getAuth(),
     };
@@ -88,9 +89,6 @@ export default {
     authenticated() {
       return this.loggedIn;
     },
-    buttonLabel() {
-      return (this.showPassword) ? "Hide" : "Show";
-    }
   },
   methods: {
 signin() {
@@ -99,15 +97,23 @@ signin() {
           console.log("Logged in");
 
           const resp = await auth.loginRole({
-            'email': data.user.email
+            'email': data.user.email,
           });
 
           console.log(`This is a ${resp.data.role} profile.`);
 
           if (resp.data.role == "tourist"){
+            Swal.fire(
+              'Welcome! '+  this.email,
+              'Successful login!'
+            )
             this.router.push("/tprofile");
           }
           else if(resp.data.role == "hotel"){
+            Swal.fire(
+              'Welcome! '+ this.email,
+              'Successful login!'
+            )
             this.router.push("/hprofile");
           }
         })
@@ -116,15 +122,39 @@ signin() {
           switch (error.code) {
             case "auth/invalid-email":
               this.errMsg = "Invalid Email";
+              Swal.fire({
+            icon: 'error',
+            title: 'Something went wrong!',
+            text: 'Sorry, we could not sign you up',
+            footer: this.errMsg
+          })
               break;
             case "auth/user-not-found":
-              this.errMsg = "No account with that email found";
+              this.errMsg = "No account with that email was found";
+              Swal.fire({
+            icon: 'error',
+            title: 'Something went wrong!',
+            text: 'Sorry, we could not sign you up',
+            footer: this.errMsg
+          })
               break;
             case "auth/wrong-password":
-              this.errMsg = "Password incorrect";
+              this.errMsg = "Email or password was incorrect";
+              Swal.fire({
+            icon: 'error',
+            title: 'Something went wrong!',
+            text: 'Sorry, we could not sign you up',
+            footer: this.errMsg
+          })
               break;
             default:
               this.errMsg = "Email or password was incorrect";
+              Swal.fire({
+            icon: 'error',
+            title: 'Something went wrong!',
+            text: 'Sorry, we could not sign you up',
+            footer: this.errMsg
+          })
               break;
           }
         });

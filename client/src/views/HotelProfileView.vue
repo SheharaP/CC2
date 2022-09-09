@@ -1,105 +1,175 @@
 <template>
-<section class="vh-100" style="background-color: #eee;">
-  <div class="container py-5 h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-md-12 col-xl-4">
 
-        <div class="card" style="border-radius: 15px;">
-          <div class="card-body text-center">
-            <div class="mt-3 mb-4">
-              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava2-bg.webp"
-              class="rounded-circle img-fluid" style="width: 100px;" />
+  <div class="container mt-5">
+    
+    <div class="row d-flex justify-content-center">
+        
+        <div class="col-md-7">
+            
+            <div class="card p-3 py-4">
+                
+                
+                <div class="text-center mt-3">
+                    <span class="bg-secondary p-1 px-4 rounded text-white"> {{role}}</span>
+                    <h5 class="mt-2 mb-0">Welcome Hotel {{userName}}</h5>
+                    <span>UI/UX Designer</span>
+                    
+                    <div class="px-4 mt-1">
+                        <p class="fonts">Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                    
+                    </div>
+                    
+                    <div class="buttons">
+                        
+                        <button class="btn btn-outline-primary px-4">Message</button>
+                        <button class="btn btn-primary px-4 ms-3">Contact</button>
+                    </div>
+                    
+                    
+                </div>
+                
+               
+                
+                
             </div>
-            <h4 class="mb-2">Julie L. Arsenault</h4>
-            <p class="text-muted mb-4">@Programmer <span class="mx-2">|</span> <a href="#!">mdbootstrap.com</a></p>   
-            <div class="card mb-4">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-sm-3">
-                    <p class="mb-0">Full Name</p>
-                  </div>
-                  <div class="col-sm-9">
-                    <p class="text-muted mb-0">Johnatan Smith</p>
-                  </div>
-                </div>
-                <hr>
-                <div class="row">
-                  <div class="col-sm-3">
-                    <p class="mb-0">Email</p>
-                  </div>
-                  <div class="col-sm-9">
-                    <p class="text-muted mb-0">example@example.com</p>
-                  </div>
-                </div>
-                <hr>
-                <div class="row">
-                  <div class="col-sm-3">
-                    <p class="mb-0">Phone</p>
-                  </div>
-                  <div class="col-sm-9">
-                    <p class="text-muted mb-0">(097) 234-5678</p>
-                  </div>
-                </div>
-                <hr>
-                <div class="row">
-                  <div class="col-sm-3">
-                    <p class="mb-0">Mobile</p>
-                  </div>
-                  <div class="col-sm-9">
-                    <p class="text-muted mb-0">(098) 765-4321</p>
-                  </div>
-                </div>
-                <hr>
-                <div class="row">
-                  <div class="col-sm-3">
-                    <p class="mb-0">Address</p>
-                  </div>
-                  <div class="col-sm-9">
-                    <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="btn">
-              <button type="button" class="btn btn-primary btn-rounded btn-lg">Edit Profile</button>
-              <button type="button" class="btn btn-primary btn-rounded btn-lg">
-                  <router-link to="/offers" class="nav-link">Add offers</router-link>
-              </button>
-            </div>
-            <!--<div class="col-lg-3">
-              <button type="button" class="btn text-white shadow none">Edit Profile </button>
-              <button type="button" class="btn text-white shadow none"><router-link to="/offers">Add offers</router-link></button>
-            </div>-->
-          </div>
+            
         </div>
-      </div>
+        
     </div>
-  </div>
-</section>
-</template>
+    
+</div>
 
+
+</template>
+  
+
+  
 <script>
 
- /* eslint-disable */ 
-
-</script>
-<style scoped>
-*{
-  margin-top:0;
-  max-width: 100%;
-}
-
-.card{
+import auth from '@/services/auth'
+  //import { useRouter } from "vue-router";
+ import {getAuth, onAuthStateChanged} from "firebase/auth"
+  //import Swal from 'sweetalert2'
   
-  margin-bottom: 200px;
+  export default {
+    name: "RegisterHotel",
+    data() {
+      return{
+        userName:"",
+        role:"",
+        auth:getAuth(),
+      }
+      
+    },
+methods:{
+
+  async findUser(){
+
+    console.log("hi from findUser");
+
+    onAuthStateChanged(this.auth, async (user) => {
+  
+        const resp = auth.findUser({
+          'email': user.email,
+        });
+      
+        console.log(user.email);
+        console.log(`This is the name ${(await resp).data} profile.`);
+        this.userName = (await resp).data;
+
+        const response = await auth.loginRole({
+            'email': user.email,
+          });
+
+          console.log(`This is the name ${(response).data.role} profile.`);
+          this.role = (response).data.role;
+
+        })
+  }
+},
+  mounted(){
+
+    const user = getAuth().currentUser;
+    if (user !== null) {
+    this.email = user.email;
+   console.log(this.email);
+
+   this.findUser();
+
+   
 }
-.btn{ 
-  padding: 10px;
-  margin: 10px;
-  color: white;
-  background-color: none;
+  }
+}
+   
+  </script>
 
+  <style scoped>
+.container{
+  margin-bottom: 100px;
+}
+.card{
+    border:none;
+    position:relative;
+    overflow:hidden;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.card:before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    width:4px;
+    height:100%;
+    background-color:#E1BEE7;
+    transform:scaleY(1);
+    transition:all 0.5s;
+    transform-origin: bottom
+}
+
+.card:after{
+    
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    width:4px;
+    height:100%;
+    background-color:#8E24AA;
+    transform:scaleY(0);
+    transition:all 0.5s;
+    transform-origin: bottom
+}
+
+.card:hover::after{
+    transform:scaleY(1);
 }
 
 
-</style>
+.fonts{
+    font-size:24px;
+}
+
+
+.buttons button:nth-child(1){
+       border:1px solid #8E24AA !important;
+       color:#8E24AA;
+       height:40px;
+}
+
+.buttons button:nth-child(1):hover{
+       border:1px solid #8E24AA !important;
+       color:#fff;
+       height:40px;
+       background-color:#8E24AA;
+}
+
+.buttons button:nth-child(2){
+       border:1px solid #8E24AA !important;
+       background-color:#8E24AA;
+       color:#fff;
+        height:40px;
+}
+  
+  </style>

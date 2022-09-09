@@ -4,8 +4,8 @@ const pool = new postgresql.Pool({
   user: 'postgres',
   host: 'localhost',
   database:'CC_TravelLanka',
-  password: 'Saagithya_09',
-  port: 5433
+  password: 'Beethovenmvt3',
+  port: 5432
 });
 
 export async function dbQuery(...args){

@@ -8,7 +8,7 @@
             
                 <form>
                     <div class="input-field">
-                        <input type="text" v-model="name" :class="{invalid: isSubmitting && !name.trim() }" placeholder="Hotel name" required/>
+                        <input type="text" v-model="name" placeholder="Hotel name" required/>
                         <i class="bi bi-person"></i>
                     </div>   
                     
@@ -43,11 +43,11 @@
                         </select>  
                     </div>
                     <div class="input-field">
-                      <input type="text" v-model="email" :class="{invalid: isSubmitting && !email.trim() }" placeholder="Hotel Email Address" required/>
+                      <input type="text" v-model="email" placeholder="Hotel Email Address" required/>
                         <i class="bi bi-at"></i> 
                     </div>
                     <div class="input-field">
-                      <input type="text" v-model="contactno" :class="{invalid: isSubmitting && !email.trim() }" placeholder="Hotel Represententive Contact Number" required/>
+                      <input type="text" v-model="contactno" placeholder="Hotel Represententive Contact Number" required/>
                         <i class="bi bi-telephone"></i> 
                     </div>
                       <ul>
@@ -57,7 +57,7 @@
                         <li :class="{ is_valid: contains_special_character }">Contains Special Character</li>
                       </ul>
                     <div class="input-field">
-                      <input type="password" @input="checkPassword" v-model="password" :class="{invalid: isSubmitting && !password.trim()}"  autocomplete="off" placeholder="Password" required/>
+                      <input type="password" @input="checkPassword" v-model="password" autocomplete="off" placeholder="Password" required/>
                         <i class="bi bi-key"></i> 
                     </div>
 
@@ -92,8 +92,7 @@
 import auth from '@/services/auth'
 import { useRouter } from "vue-router";
 import {getAuth, createUserWithEmailAndPassword} from "firebase/auth"
-
-
+import Swal from 'sweetalert2'
 
 export default {
   name: "RegisterHotel",
@@ -121,13 +120,23 @@ export default {
           createUserWithEmailAndPassword(getAuth(), this.email, this.password)
           .then(  // eslint-disable-next-line
           (data) => {
-            console.log("Logged in");
-            this.router.push('/hprofile');
+            
+            Swal.fire(
+              'Successfully registered!',
+              this.email,
+              'success'
+            )
+            this.router.push('/');
 
           })
           .catch((error) => {
             console.log(error.code);
-            alert("Sorry you could not sign up" + error.message);
+            Swal.fire({
+            icon: 'error',
+            title: 'Something went wrong!',
+            text: 'Sorry, we could not sign you up',
+            footer: error.message
+          })
           }
         );
 

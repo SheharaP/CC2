@@ -13,6 +13,9 @@ export default{
     loginRole(cred){
         return api().post('loginRole', cred);
     },
+    findUser(val){
+        return api().post('findUser', val);
+    },
     showPromo(x){
         return api().post('showPromo', x);
     },

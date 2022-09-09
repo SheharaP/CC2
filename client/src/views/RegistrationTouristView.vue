@@ -8,7 +8,7 @@
             
                 <form>
                     <div class="input-field">
-                        <input type="text" v-model="name" :class="{invalid: isSubmitting && !name.trim() }" placeholder="Full name" required/>
+                        <input type="text" v-model="name" placeholder="Full name" required/>
                         <i class="bi bi-person"></i>
                     </div>   
                     
@@ -262,7 +262,7 @@
                       </select>
                     </div>
                     <div class="input-field">
-                      <input type="text" v-model="email" :class="{invalid: isSubmitting && !email.trim() }" placeholder="Email Address" required/>
+                      <input type="text" v-model="email" placeholder="Email Address" required/>
                         <i class="bi bi-at"></i> 
                     </div>
                       <ul>
@@ -307,8 +307,7 @@
 import auth from '@/services/auth'
 import { useRouter } from "vue-router";
 import {getAuth, createUserWithEmailAndPassword} from "firebase/auth"
-
-
+import Swal from 'sweetalert2'
 
 export default {
   name: "RegisterSiteTourist",
@@ -335,13 +334,25 @@ export default {
           createUserWithEmailAndPassword(getAuth(), this.email, this.password)
           .then(  // eslint-disable-next-line
           (data) => {
+
+            Swal.fire(
+              'Successfully registered!',
+              this.email,
+              'success'
+            )
+
             console.log("Logged in");
             //this.router.push('/tprofile');
 
           })
           .catch((error) => {
             console.log(error.code);
-            alert("Sorry you could not sign up" + error.message);
+            Swal.fire({
+            icon: 'error',
+            title: 'Something went wrong!',
+            text: 'Sorry, we could not sign you up',
+            footer: error.message
+          })
           }
         );
 

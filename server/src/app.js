@@ -38,8 +38,6 @@ app.post('/registerTourist', async(req, res) => {
 
 })
 
-
-
 app.post('/registerHotel', async(req, res) => {
   
   try{
@@ -116,9 +114,33 @@ app.post('/loginRole', async(req,res) => {
     if (!(touristQuery.length)){
       const hotelQuery = await dbQuery(`SELECT role FROM hotel WHERE hotel_email = ('${email}') ;`);
       res.status(200).json({ role: hotelQuery[0].role });
+      
     }
     else{
       res.status(200).json({ role: touristQuery[0].role });
+    }
+  } catch(e){
+    res.send({
+      message: `Error : ${e}`
+    });
+  }
+})
+
+app.post('/findUser', async(req,res) => {
+  try{
+    const email = req.body.email;
+
+    const touristQuery = await dbQuery(`SELECT tourist_name FROM tourist WHERE tourist_email = ('${email}') ;`);
+
+    if (!(touristQuery.length)){
+      const hotelQuery = await dbQuery(`SELECT hotel_name FROM hotel WHERE hotel_email = ('${email}') ;`);
+      const name = hotelQuery[0].hotel_name;
+      res.send(name);
+   
+    }
+    else{
+      const name = touristQuery[0].tourist_name;
+      res.send(name);
     }
   } catch(e){
     res.send({

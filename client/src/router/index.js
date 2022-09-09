@@ -65,25 +65,33 @@ const routes = [
   },
 
   {
-    path: '/tprofile',
-    name: 'tprofile',
-    component: () => import('../views/TouristProfileView.vue'),
+    path: '/profile',
+    name: 'profile',
+    component: () => import('../views/ProfileView.vue'),
     meta: {
       requiresAuth: true,
     }
   },
   {
-    path: '/hprofile',
-    name: 'hprofile',
-    component: () => import('../views/HotelProfileView.vue'),
-    meta: {
-      requiresAuth: true,
-    }
-  },
-  {
-    path: '/hotels',
+    path: '/hotels', 
     name: 'hotels',
     component: () => import('../views/HoteldisplayView.vue')
+  },
+  {
+    path: '/admin', 
+    name: 'admin',
+    component: () => import('../views/AdminPanel.vue'),
+    meta: {
+      requiresAuth: true,
+    }
+  },
+  {
+    path: '/adminView', 
+    name: 'adminView',
+    component: () => import('../views/AdminView.vue'),
+    meta: {
+      requiresAuth: true,
+    }
   }
 ]
 
