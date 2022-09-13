@@ -3,6 +3,7 @@ import { dbQuery } from './postgresql.js';
 import cors from 'cors';
 
 
+
 const app = express();
 
 
@@ -50,12 +51,13 @@ app.post('/registerHotel', async(req, res) => {
 
       const name = req.body.name;
       const dist = req.body.dist;
+      const address = req.body.address;
       const contactno = req.body.contactno;
       const role = req.body.role;
       
     console.log(JSON.stringify(req.body)); 
-    await dbQuery(`INSERT INTO hotel (hotel_name , dist , hotel_email , contactno, role) VALUES
-    ('${name}', '${dist}', '${email}','${contactno}', '${role}') ON CONFLICT DO NOTHING;`); 
+    await dbQuery(`INSERT INTO hotel (hotel_name , dist , hotel_email , contactno, address, role) VALUES
+    ('${name}', '${dist}', '${email}','${contactno}', '${address}' ,'${role}') ON CONFLICT DO NOTHING;`); 
 
 
       
@@ -133,9 +135,9 @@ app.post('/findUser', async(req,res) => {
     const touristQuery = await dbQuery(`SELECT tourist_name FROM tourist WHERE tourist_email = ('${email}') ;`);
 
     if (!(touristQuery.length)){
-      const hotelQuery = await dbQuery(`SELECT hotel_name FROM hotel WHERE hotel_email = ('${email}') ;`);
-      const name = hotelQuery[0].hotel_name;
-      res.send(name);
+      const hotelQuery = await dbQuery(`SELECT hotel_name, contactno, dist, address FROM hotel WHERE hotel_email = ('${email}') ;`);
+      const details = {name : hotelQuery[0].hotel_name, contactno: hotelQuery[0].contactno, dist: hotelQuery[0].dist, address: hotelQuery[0].address};
+      res.send(details);
    
     }
     else{
@@ -206,6 +208,29 @@ app.get('/users/:id', async(req,res) =>{
     });
   }
 })
+
+// app.post('/firebaseAuth', async(req,res) => {
+
+//   const key = req.body.key;
+
+//   if(key){
+//     try{
+//       const firebase = JSON.stringify({firebaseConfig});
+//       console.log(firebase);
+//       res.send(firebase);
+//     }
+//     catch(e){
+//       res.send({
+//         message: `Error : ${e}`
+//       });
+//     }
+//   } else{
+//     res.send({
+//       message: `Error : ${e}`
+//     });
+//   }
+  
+// })
 
 app.listen(3000, () => {
   console.log('App running at http://localhost:3000');
