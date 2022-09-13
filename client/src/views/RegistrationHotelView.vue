@@ -11,7 +11,14 @@
                         <input type="text" v-model="name" placeholder="Hotel name" required/>
                         <i class="bi bi-person"></i>
                     </div>   
-                    
+                    <div class="input-field">
+                      <input type="text" v-model="email" placeholder="Hotel Email Address" required/>
+                        <i class="bi bi-at"></i> 
+                    </div>
+                    <div class="input-field">
+                      <input type="text" v-model="contactno" placeholder="Hotel Represententive Contact Number" required/>
+                        <i class="bi bi-telephone"></i> 
+                    </div>
                     <div class="input-field">
                       <select id="district" v-model="district" name="district" class="form-control shadow-none">
                             <option value="" disabled selected>Select your District</option>
@@ -43,12 +50,8 @@
                         </select>  
                     </div>
                     <div class="input-field">
-                      <input type="text" v-model="email" placeholder="Hotel Email Address" required/>
-                        <i class="bi bi-at"></i> 
-                    </div>
-                    <div class="input-field">
-                      <input type="text" v-model="contactno" placeholder="Hotel Represententive Contact Number" required/>
-                        <i class="bi bi-telephone"></i> 
+                      <input type="text" v-model="address" placeholder="Hotel Location" required/>
+                        <i class="bi bi-geo-alt"></i> 
                     </div>
                       <ul>
                         <li :class="{ is_valid: contains_eight_characters }">8 Characters</li>
@@ -100,6 +103,7 @@ export default {
     return {
       name: "",
       district:"",
+      address:"",
       email: "",
       contactno:"",
       role: "hotel",
@@ -145,6 +149,7 @@ export default {
           const response = await auth.registerHotel({
             name: this.name,
             district: this.district,
+            address: this.address,
             email: this.email,
             contactno: this.contactno,
             role: this.role,

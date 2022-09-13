@@ -16,6 +16,10 @@ export default{
     findUser(val){
         return api().post('findUser', val);
     },
+    firebaseAuth(key){
+        return api().post('firebaseAuth', key);
+    },
+    
     showPromo(x){
         return api().post('showPromo', x);
     },

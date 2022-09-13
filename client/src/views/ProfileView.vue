@@ -31,7 +31,7 @@
                 <p class="mb-0">Phone</p>
               </div>
               <div class="col-sm-9">
-                <p class="text-muted mb-0">(097) 234-5678</p>
+                <p class="text-muted mb-0">{{contactno}}</p>
               </div>
             </div>
             <hr>
@@ -40,7 +40,7 @@
                 <p class="mb-0">Address</p>
               </div>
               <div class="col-sm-9">
-                <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
+                <p class="text-muted mb-0">{{address}}</p>
               </div>
             </div>
           </div>
@@ -49,10 +49,9 @@
           <ModalComp @close="toggleModal" :modalActive="modalActive">
       <div class="modal-content">
         <h1>Edit Profile</h1>
-        <div class="input-field">
-        <i class="bi bi-alarm"></i>
-        <input type="text" v-model="email" :class="{invalid: isLogin && !email.trim() }" placeholder="Enter your email" required/>
-          <i class="bi bi-at"></i>
+        <div class="input-field"> 
+        <input type="text" v-model=userName />
+          <i class="bi bi-person"></i>
           <span><p ref="emailError"></p></span>
         </div>
         <div class="input-field">
@@ -73,6 +72,7 @@
 </div>
    
 </div>
+
 </template>
 
 
@@ -105,6 +105,8 @@ setup() {
           userName:"",
           role:"",
           email:"",
+          contactno:null,
+          address:"",
           auth:getAuth(),
           isModalVisible: false,
         }
@@ -126,15 +128,17 @@ setup() {
         
           console.log(user.email);
           console.log(`This is the name ${(await resp).data} profile.`);
-          this.userName = (await resp).data;
+          this.userName = (await resp).data.name;
+          this.contactno = (await resp).data.contactno;
+          this.address = (await resp).data.address;
   
           const response = await auth.loginRole({
               'email': user.email,
             });
   
             console.log(`This is the name ${(response).data.role} profile.`);
-            this.role = (response).data.role;
-  
+            this.role = (response).data.role.toUpperCase();
+            
           })
     }
   },
@@ -318,5 +322,23 @@ setup() {
 			text-decoration: none;
 
 		}
-    
+    .modal-content{
+      padding: 100px;
+    }
+    .mapouter{
+      position:relative;
+      text-align:right;
+      width:600px;
+      height:400px;
+    }
+    .gmap_canvas {
+      overflow:hidden;
+      background:none!important;
+      width:600px;
+      height:400px;
+    }
+    .gmap_iframe {
+      width:600px!important;
+      height:400px!important;
+    }
     </style>

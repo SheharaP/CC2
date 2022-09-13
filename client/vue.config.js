@@ -6,5 +6,9 @@ module.exports = {
         iconPaths: {
           img: "./public/img/appimages/logo.png"
         }
-      }
+      },
+      experiments: {
+        futureDefaults: true,
+        topLevelAwait: true 
+    },
   }
