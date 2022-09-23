@@ -168,12 +168,11 @@ export default {
 
 
 <style lang=scss scoped>
+  
 .mb-0 {
   padding-inline-end: 0;
 }
-
-<<<<<<< HEAD
-h2 {
+h2{
   margin-top: 200px;
 }
 
@@ -383,9 +382,7 @@ input[type='checkbox'] {
   margin-right: 20px;
   margin-bottom: 20px;
 }
-</style>
-=======
-		}
+		
     .modal-content{
       padding: 100px;
     }
@@ -409,4 +406,3 @@ input[type='checkbox'] {
       width: 200px;
     }
     </style>
->>>>>>> 8cd555b0296e6cc489528ee8bebd71bc3e238a2c
