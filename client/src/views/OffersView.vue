@@ -29,14 +29,14 @@
                     <label><i class="bi bi-card-list"></i>What's Included:</label><br/>
                     <input type="text" v-model="feature" class="form-control shadow-none" placeholder="List us what are included in your promotion" id="List" required>
                 </div>
-                <!--<div class="input_field">
+                <div class="input_field">
                     <label><i class="bi bi-card-image"></i>Upload a picture of Promotion:</label><br/>
                     <div class="imagePreviewWrapper" :style="{'background-image': `url(${previewImage})`}">
                         <i class="bi bi-cloud-upload" @click="selectImage" v-if="icon"></i>
                     </div>
                     <input type="file" id="image_input" accept="image/png, image/jpg, image/jpeg" @input="pickFile" ref="fileInput" >
-                    <input type="file" @change="onFileSelected">
-                </div>-->
+                    <!-- <input type="file" @change="onFileSelected"> -->
+                </div>
                 <div class="col-lg-3">
                     <button type="submit" class="btn text-white shadow none" @click.prevent="showPromo">Upload </button>
                     <button type="reset" class="btn text-white shadow none" @click.prevent="reset">Reset </button>
@@ -111,11 +111,11 @@ export default {
             this.eDate = "";
             this.price = "";
             this.feature = "";
-            //this.icon=true;
-            //this.previewImage=null;
+            this.icon=true;
+            this.previewImage=null;
         },
         
-        /*async selectImage (){
+        async selectImage (){
             this.$refs.fileInput.click()
         },
         async pickFile (){
@@ -130,7 +130,7 @@ export default {
                 this.$emit('input', file[0])
                 this.icon=false;
             }
-        }*/
+        }
     },
 };
 

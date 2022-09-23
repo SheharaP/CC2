@@ -172,6 +172,7 @@ export default {
   padding-inline-end: 0;
 }
 
+<<<<<<< HEAD
 h2 {
   margin-top: 200px;
 }
@@ -383,3 +384,29 @@ input[type='checkbox'] {
   margin-bottom: 20px;
 }
 </style>
+=======
+		}
+    .modal-content{
+      padding: 100px;
+    }
+    .mapouter{
+      position:relative;
+      text-align:right;
+      width:600px;
+      height:400px;
+    }
+    .gmap_canvas {
+      overflow:hidden;
+      background:none!important;
+      width:600px;
+      height:400px;
+    }
+    .gmap_iframe {
+      width:600px!important;
+      height:400px!important;
+    }
+    .mb-0{
+      width: 200px;
+    }
+    </style>
+>>>>>>> 8cd555b0296e6cc489528ee8bebd71bc3e238a2c
