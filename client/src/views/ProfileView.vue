@@ -238,7 +238,6 @@ h2{
 }
 
 .form .title::before {
-  content: '';
   position: absolute;
   left: 0;
   bottom: 0;
