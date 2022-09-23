@@ -7,8 +7,4 @@ module.exports = {
           img: "./public/img/appimages/logo.png"
         }
       },
-      experiments: {
-        futureDefaults: true,
-        topLevelAwait: true 
-    },
   }

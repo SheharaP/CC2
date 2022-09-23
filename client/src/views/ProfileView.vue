@@ -341,4 +341,7 @@ setup() {
       width:600px!important;
       height:400px!important;
     }
+    .mb-0{
+      width: 200px;
+    }
     </style>

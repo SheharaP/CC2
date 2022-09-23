@@ -107,14 +107,14 @@ signin() {
               'Welcome! '+  this.email,
               'Successful login!'
             )
-            this.router.push("/tprofile");
+            this.router.push("/profile");
           }
           else if(resp.data.role == "hotel"){
             Swal.fire(
               'Welcome! '+ this.email,
               'Successful login!'
             )
-            this.router.push("/hprofile");
+            this.router.push("/profile");
           }
         })
         .catch((error) => {
