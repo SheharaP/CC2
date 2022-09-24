@@ -21,7 +21,11 @@ export default{
     },
     
     showPromo(x){
-        return api().post('showPromo', x);
+        return api().post('showPromo', x, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        });
     },
     book(y){
         return api().post('book', y);
