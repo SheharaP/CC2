@@ -7,7 +7,7 @@
 	<ul v-show="!mobile" class="navigation"> <!--Desktop Navigation -> "!mobile" function hides the mobile navigation in desktop view-->
 		<li><router-link to="/" class="nav-link">Home</router-link></li>
         <li><a href="/#about" class="nav-link">About</a></li>
-        <li><router-link to="/destination" class="nav-link">Explore</router-link></li>
+        <li><router-link to="/explore" class="nav-link">Explore</router-link></li>
         <li><router-link to="/offers" class="nav-link">Offers</router-link></li>
 		<li><router-link to="/profile" class="nav-link">My Profile</router-link></li>
 		<li><button @click="logout" class="btn-login">Logout</button></li>	
@@ -20,7 +20,7 @@
 		<li><router-link to="/" class="nav-link">Home</router-link></li>
         <li><router-link to="/about" class="nav-link">About</router-link></li>
         <li><router-link to="/offers" class="nav-link">Offers</router-link></li>
-        <li><router-link to="/destination" class="nav-link">Explore</router-link></li>
+        <li><router-link to="/explore" class="nav-link">Explore</router-link></li>
 		<li><button @click="logout" class="btn-login">Logout</button></li>
 	</ul>
 	</transition>

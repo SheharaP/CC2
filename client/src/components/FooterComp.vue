@@ -37,7 +37,7 @@
             <h4>Quick Links</h4>
             <p><a href="#about" class="nav-link">About</a>
             <router-link to="/offers" class="nav-link">Offers</router-link>
-            <router-link to="/destination" class="nav-link">Reservations</router-link>
+            <router-link to="/explore" class="nav-link">Reservations</router-link>
             <router-link to="/login" class="nav-link">Login</router-link></p>
           </div>
         </div>

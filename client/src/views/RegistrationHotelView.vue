@@ -21,31 +21,31 @@
           <div class="input-field">
             <select id="district" v-model="district" name="district" class="form-control shadow-none">
               <option value="" disabled selected>Select your District</option>
-              <option value="Nuwara Eliya">Nuwara Eliya</option>
-              <option value="Colombo">Colombo</option>
-              <option value="Galle">Galle</option>
-              <option value="Kandy">Kandy</option>
-              <option value="Ratnapura">Ratnapura</option>
-              <option value="Hambantota">Hambantota</option>
-              <option value="Matara">Matara</option>
-              <option value="Badulla">Badulla</option>
-              <option value="Jaffna">Jaffna</option>
-              <option value="Ampara">Ampara</option>
-              <option value="Anuradhapura	">Anuradhapura</option>
-              <option value="Batticaloa">Batticaloa</option>
-              <option value="Gampaha">Gampaha</option>
-              <option value="Kalutara">Kalutara</option>
-              <option value="Kegalle">Kegalle</option>
-              <option value="Kilinochchi">Kilinochchi</option>
-              <option value="Kurunegala">Kurunegala</option>
-              <option value="Mannar">Mannar</option>
-              <option value="Matale">Matale</option>
-              <option value="Monaragala">Monaragala</option>
-              <option value="Mullaitivu">Mullaitivu</option>
-              <option value="Polonnaruwa">Polonnaruwa</option>
-              <option value="Puttalam">Puttalam</option>
-              <option value="Trincomalee">Trincomalee</option>
-              <option value="Vavuniya">Vavuniya</option>
+              <option value="0" placeholder="Nuwara Eliya">Nuwara Eliya</option>
+              <option value="1" placeholder="Colombo">Colombo</option>
+              <option value="2" placeholder="Galle">Galle</option>
+              <option value=3 placeholder="Kandy">Kandy</option>
+              <option value=4 placeholder="Ratnapura">Ratnapura</option>
+              <option value=5 placeholder="Hambantota">Hambantota</option>
+              <option value=6 placeholder="Matara">Matara</option>
+              <option value=7 placeholder="Badulla">Badulla</option>
+              <option value=8 placeholder="Jaffna">Jaffna</option>
+              <option value=9 placeholder="Ampara">Ampara</option>
+              <option value=10 placeholder="Anuradhapura	">Anuradhapura</option>
+              <option value=11 placeholder="Batticaloa">Batticaloa</option>
+              <option value=12 placeholder="Gampaha">Gampaha</option>
+              <option value=13 placeholder="Kalutara">Kalutara</option>
+              <option value=14 placeholder="Kegalle">Kegalle</option>
+              <option value=15 placeholder="Kilinochchi">Kilinochchi</option>
+              <option value=16 placeholder="Kurunegala">Kurunegala</option>
+              <option value=17 placeholder="Mannar">Mannar</option>
+              <option value=18 placeholder="Matale">Matale</option>
+              <option value=19 placeholder="Monaragala">Monaragala</option>
+              <option value=20 placeholder="Mullaitivu">Mullaitivu</option>
+              <option value=21 placeholder="Polonnaruwa">Polonnaruwa</option>
+              <option value=22 placeholder="Puttalam">Puttalam</option>
+              <option value=23 placeholder="Trincomalee">Trincomalee</option>
+              <option value=24 placeholder="Vavuniya">Vavuniya</option>
             </select>
           </div>
           <div class="input-field">
@@ -95,12 +95,13 @@
                     <input type="checkbox" v-model="selectedFaci" :value="faci.name">{{faci.name}}
                   </div>
                 </div>
-                <!-- <div class="col-md-6">
+                <div class="col-md-6">
                   <legend>Add Images</legend>
-                  <div class="checkbox-content" v-for="faci in facilities" :key="faci.id">
-                    <input type="checkbox" v-model="selectedFaci" :value="faci.name">{{faci.name}}
-                  </div>
-                </div> -->
+                  <form id="upload-form">
+                    <input type="file" ref="fileInput" accept="image/*" @change="onFilePicked" required />
+                  </form>
+                  <img :src="imageUrl" height="150">
+                </div>
               </div>
             </fieldset>
           </form>
@@ -133,12 +134,14 @@ export default {
   data() {
     return {
       name: "",
-      district: "",
+      district: null,
       address: "",
       email: "",
       contactno: "",
       role: "hotel",
       password: "",
+      imageUrl: "",
+      image: null,
       rooms: [
         {
           id: 0,
@@ -267,16 +270,14 @@ export default {
 
         this.isHotel = true;
 
-        console.log(this.isHotel);
-
-        this.addFaci();
-
-        const responseRoom = await auth.hotelRooms({
+        const responseRoom = auth.hotelRooms({
           email: this.email,
           room: room,
           no: no
         })
         console.log(responseRoom.data);
+
+        this.addFaci();
 
       }
       else {
@@ -291,8 +292,6 @@ export default {
       if (this.isHotel) {
 
         if (this.selectedFaci.length > 0) {
-
-          console.log(this.email);
 
           console.log("hotelFacis");
           const faciid = [];
@@ -322,7 +321,7 @@ export default {
         }
 
       }
-      else{
+      else {
         console.log("Not existing")
       }
 
@@ -336,9 +335,10 @@ export default {
       console.log(this.isHotel);
 
       if (this.isHotel == true) {
+
         createUserWithEmailAndPassword(getAuth(), this.email, this.password)
           .then(  // eslint-disable-next-line
-            (data) => {
+            async (data) => {
 
               Swal.fire({
                 icon: 'success',
@@ -347,6 +347,17 @@ export default {
                 footer: this.email
               })
               this.router.push('/');
+              console.log("register");
+
+              const response = await auth.registerHotel({
+                name: this.name,
+                address: this.address,
+                email: this.email,
+                contactno: this.contactno,
+                district: this.district,
+                role: this.role,
+              })
+              console.log(response.data);
 
             })
           .catch((error) => {
@@ -359,22 +370,7 @@ export default {
             })
           }
           );
-
-        console.log("register");
-        event.preventDefault();
-        const response = await auth.registerHotel({
-          name: this.name,
-          district: this.district,
-          address: this.address,
-          email: this.email,
-          contactno: this.contactno,
-          role: this.role,
-        })
-        console.log(response.data)
-
-
       }
-
       else {
         Swal.fire({
           icon: 'error',
@@ -419,6 +415,28 @@ export default {
       }
       return this.valid_password;
     },
+
+    onPickFile() {
+      this.$refs.fileInput.click();
+    },
+    onFilePicked(event) {
+
+      const files = event.target.files;
+      let filename = files[0].name;
+
+      if (filename.lastIndexOf('.') <= 0) {
+        return alert('Please add a valid file');
+      }
+
+      const fileReader = new FileReader();
+      fileReader.addEventListener('load', () => {
+        this.imageUrl = fileReader.result;
+      })
+      fileReader.readAsDataURL(files[0]);
+      this.image = files[0];
+    }
+
+
 
   },
 };
