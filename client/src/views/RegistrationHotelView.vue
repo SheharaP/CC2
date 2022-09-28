@@ -19,11 +19,11 @@
             <i class="bi bi-telephone"></i>
           </div>
           <div class="input-field">
+            <label>Select your District</label>
             <select id="district" v-model="district" name="district" class="form-control shadow-none">
-              <option value="" disabled selected>Select your District</option>
-              <option value="0" placeholder="Nuwara Eliya">Nuwara Eliya</option>
-              <option value="1" placeholder="Colombo">Colombo</option>
-              <option value="2" placeholder="Galle">Galle</option>
+              <option value=0 placeholder="Nuwara Eliya">Nuwara Eliya</option>
+              <option value=1 placeholder="Colombo">Colombo</option>
+              <option value=2 placeholder="Galle">Galle</option>
               <option value=3 placeholder="Kandy">Kandy</option>
               <option value=4 placeholder="Ratnapura">Ratnapura</option>
               <option value=5 placeholder="Hambantota">Hambantota</option>
@@ -114,7 +114,7 @@
   </div>
 
   <div class="login-signup">
-    <input class="input-field-button" type="button" @click.prevent="registerHotel" value="Register"><br>
+    <input class="input-field-button" type="button" @click.prevent="registerHotel" value="Register"><br><br>
     <span class="text">Already a member?
       <router-link to="/login" class="text signup-link">Sign in Now</router-link>
     </span>
@@ -475,7 +475,7 @@ export default {
 }
 
 .container .form {
-  width: 50%;
+  width: 40%;
   padding: 30px;
   background-color: #fff;
   transition: 0.18s ease;
