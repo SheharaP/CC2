@@ -39,9 +39,9 @@ const routes = [
     component: () => import('../views/OffersTouristView.vue')
   },
   {
-    path: '/destination',
-    name: 'destination',
-    component: () => import('../views/DestinationView.vue')
+    path: '/explore',
+    name: 'explore',
+    component: () => import('../views/ExploreView.vue')
   },
   {
     path: '/registerTourist',

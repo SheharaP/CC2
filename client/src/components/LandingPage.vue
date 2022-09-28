@@ -8,7 +8,7 @@
           <h2 data-aos="fade-up">Escape from <br>Reality</h2>
           <p data-aos="fade-up" data-aos-delay="100">Making travel plans to Asia? Perhaps you'd like to travel to some of the most well-known locations on the continent, such Sri Lanka. When you don't have to, why pay more? For your trip needs and budget, Travel Lanka offers the greatest variety of hotels in Sri Lanka. With 25 distinct regions, the nation provides tourists with a wide variety of stunning landscapes as well as a rich culture and way of life. Oh, and you should definitely see Colombo, Kandy, and Negombo. Browse through our extensive selection of hotels to find the lowest prices available online.</p>
           <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
-            <router-link to="/destination" class="btn-book">Search Now</router-link>
+            <router-link to="/explore" class="btn-book">Search Now</router-link>
           </div>
         </div>
         <div class="col-lg-5 order-1 order-lg-2 text-center text-lg-start">

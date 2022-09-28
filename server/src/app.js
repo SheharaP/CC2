@@ -37,8 +37,6 @@ app.post('/registerTourist', async (req, res) => {
     const email = req.body.email;
     const emailExists = await dbQuery(`SELECT true FROM tourist WHERE tourist_email = '${email}';`);
 
-    console.log(emailExists);
-
     if (emailExists == null || emailExists == "") {
 
       const name = req.body.name;
@@ -66,6 +64,7 @@ app.post('/registerHotel', async (req, res) => {
 
   try {
     const email = req.body.email;
+
     const emailExists = await dbQuery(`SELECT true FROM hotel WHERE hotel_email = '${email}';`);
 
     console.log(emailExists);
@@ -73,17 +72,16 @@ app.post('/registerHotel', async (req, res) => {
     if (emailExists == null || emailExists == "") {
 
       const name = req.body.name;
-      const dist = req.body.dist;
       const address = req.body.address;
       const contactno = req.body.contactno;
+      const dist = req.body.district;
       const role = req.body.role;
 
-      console.log(JSON.stringify(req.body));
-      await dbQuery(`INSERT INTO hotel (hotel_name , dist , hotel_email , contactno, address, role) VALUES
-    ('${name}', '${dist}', '${email}','${contactno}', '${address}' ,'${role}') ON CONFLICT DO NOTHING;`);
-
-
-
+        console.log(JSON.stringify(req.body));
+        
+        await dbQuery(`INSERT INTO hotel (hotel_name , dist , hotel_email , contactno, address, role) VALUES
+      ('${name}', '${dist}', '${email}','${contactno}', '${address}' ,'${role}') ON CONFLICT DO NOTHING;`);
+       
     } else {
       res.send({
         message: `Hello ${email} is already registered!`
@@ -96,6 +94,67 @@ app.post('/registerHotel', async (req, res) => {
     });
   }
 
+})
+app.post('/hotelRooms', async (req, res) => {
+
+  try {
+
+    const email = req.body.email;
+
+    let len = (req.body.room).length
+
+    for (let i = 0; i < len; i++) {
+
+      let roomExistsQuery = await dbQuery(`SELECT roomid FROM rooms WHERE roomid = '${req.body.room[i]}';`);
+
+      if (roomExistsQuery.length) {
+
+
+        await dbQuery(`INSERT INTO hotel_room (hotel_email, roomid, noofroom) VALUES 
+            ('${email}', '${req.body.room[i]}', '${req.body.no[i]}');`);
+
+      }
+      else {
+        console.log("Error with room name");
+      }
+
+    };
+
+  } catch (e) {
+    res.send({
+      message: `Error for adding rooms : ${e}`
+    });
+  }
+})
+
+app.post('/hotelFaci', async (req, res) => {
+  try {
+
+    const email = req.body.email;
+
+    for (let i = 0; i < (req.body.faci).length; i++) {
+
+
+      let faciExistsQuery = await dbQuery(`SELECT faciid FROM facilities WHERE faci_name = '${req.body.faciname[i]}';`);
+
+      if (faciExistsQuery.length) {
+
+        await dbQuery(`INSERT INTO hotel_faci (hotel_email, faciid) VALUES 
+          ('${email}', '${req.body.faci[i]}');`);
+
+      }
+      else {
+        console.log("Error with room name");
+      }
+
+    };
+
+
+  } catch (e) {
+    res.send({
+      message: `Error for adding rooms : ${e}`
+    });
+  }
 })
 
 app.post('/login', async (req, res) => {
@@ -199,68 +258,7 @@ app.post('/showPromo',
     }
   })
 
-app.post('/hotelRooms', async (req, res) => {
-  try {
 
-    const email = req.body.email;
-
-    console.log("Room length: " + (req.body.room).length);
-
-    for (let i = 0; i < ((req.body.room).length); i++) {
-
-      let roomExistsQuery = await dbQuery(`SELECT roomid FROM rooms WHERE roomid = '${req.body.room[i]}';`);
-
-      if (roomExistsQuery.length) {
-
-        console.log("Room id: " +req.body.room[i]);
-
-        await dbQuery(`INSERT INTO hotel_room (hotel_email, roomid, noofroom) VALUES 
-            ('${email}', '${req.body.room[i]}', '${req.body.no[i]}');`);
-
-      }
-      else {
-        console.log("Error with room name");
-      }
-
-    };
-
-  } catch (e) {
-    res.send({
-      message: `Error for adding rooms : ${e}`
-    });
-  }
-})
-
-app.post('/hotelFaci', async (req, res) => {
-  try {
-
-    const email = req.body.email;
-
-    for (let i = 0; i < (req.body.faci).length; i++) {
-
-      console.log("faci : " + req.body.faci[i]);
-
-      let faciExistsQuery = await dbQuery(`SELECT faciid FROM facilities WHERE faci_name = '${req.body.faciname[i]}';`);
-
-      if (faciExistsQuery.length) {
-
-        await dbQuery(`INSERT INTO hotel_faci (hotel_email, faciid) VALUES 
-          ('${email}', '${req.body.faci[i]}');`);
-
-      }
-      else {
-        console.log("Error with room name");
-      }
-
-    };
-
-
-  } catch (e) {
-    res.send({
-      message: `Error for adding rooms : ${e}`
-    });
-  }
-})
 
 
 app.post('/showPromo', async (req, res) => {
