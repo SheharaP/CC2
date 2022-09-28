@@ -73,6 +73,7 @@ app.post('/registerHotel', async (req, res) => {
   }
 
 })
+
 app.post('/hotelRooms', async (req, res) => {
 
   try {
@@ -134,6 +135,35 @@ app.post('/hotelFaci', async (req, res) => {
     });
   }
 })
+
+app.post('/searchHotel', async (req, res) => {
+
+  try {
+
+    const district = req.body.district;
+    
+      const districtExist = await dbQuery(`SELECT dist_name FROM district WHERE distid = '${district[i]}';`);
+
+      if (roomExistsQuery.length) {
+
+
+        await dbQuery(`INSERT INTO hotel_room (hotel_email, roomid, noofroom) VALUES 
+            ('${email}', '${req.body.room[i]}', '${req.body.no[i]}');`);
+
+      }
+      else {
+        console.log("Error with room name");
+      }
+
+    
+
+  } catch (e) {
+    res.send({
+      message: `Error for adding rooms : ${e}`
+    });
+  }
+})
+
 
 app.post('/login', async (req, res) => {
 
