@@ -184,25 +184,25 @@ export default {
     },
     methods: {
 
-        async searchHotel() {
+        // async searchHotel() {
 
-            console.log("Searching...");
+        //     console.log("Searching...");
 
-                const resp = auth.searchHotel({
-                    'district': this.district,
-                });
+        //         const resp = auth.searchHotel({
+        //             'district': this.district,
+        //         });
 
-                console.log(user.email);
-                console.log(`This is the name ${(await resp).data} profile.`);
-                this.userName = (await resp).data;
+        //         console.log(user.email);
+        //         console.log(`This is the name ${(await resp).data} profile.`);
+        //         this.userName = (await resp).data;
 
-                const response = await auth.loginRole({
-                    'email': user.email,
-                });
+        //         const response = await auth.loginRole({
+        //             'email': user.email,
+        //         });
 
-                console.log(`This is the name ${(response).data.role} profile.`);
-                this.role = (response).data.role;
-            }
+        //         console.log(`This is the name ${(response).data.role} profile.`);
+        //         this.role = (response).data.role;
+        //     }
     },
 }
 </script>
