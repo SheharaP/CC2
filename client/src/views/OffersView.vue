@@ -34,7 +34,7 @@
                     <div class="imagePreviewWrapper" :style="{'background-image': `url(${previewImage})`}">
                         <i class="bi bi-cloud-upload" @click="selectImage" v-if="icon"></i>
                     </div>
-                    <input type="file" id="image_input" accept="image/png, image/jpg, image/jpeg" @input="pickFile" ref="fileInput" >
+                    <input type="file" id="image_input" accept="image/png, image/jpg, image/jpeg" @input="pickFile" @change="handleFileUpload( $event )" ref="fileInput" >
                     <!-- <input type="file" @change="onFileSelected"> -->
                 </div>
                 <div class="col-lg-3">
@@ -64,8 +64,8 @@ export default {
         eDate: "",
         price: "",
         feature:"",
-        selectedFile:null
-        //icon:true
+        selectedFile:null,
+        icon:null
 
     };
   },
@@ -73,15 +73,19 @@ export default {
         async showPromo() {
             if (this.pName && this.desc && this.sDate && this.eDate && this.price && this.feature){
                 alert("Your promotion has been uploaded for verification!");
-                event.preventDefault();
-                const response = await auth.showPromo({
-                    pName: this.pName,
-                    desc: this.desc,
-                    sDate: this.sDate,
-                    eDate: this.eDate,
-                    price: this.price,
-                    feature: this.feature
-                })
+
+                const formData = new FormData();
+
+                formData.append('pName', this.pName);
+                formData.append('desc', this.desc);
+                formData.append('sDate', this.sDate);
+                formData.append('eDate', this.eDate);
+                formData.append('price', this.price);
+                formData.append('feature', this.feature);
+                formData.append('icon', this.icon);
+
+                const response = await auth.showPromo(formData);
+                
                 console.log(response.data);
             }
             this.errors =[];
@@ -112,7 +116,7 @@ export default {
             this.eDate = "";
             this.price = "";
             this.feature = "";
-            this.icon=true;
+            this.icon=null;
             this.previewImage=null;
         },
         
@@ -129,13 +133,14 @@ export default {
                 }
                 reader.readAsDataURL(file[0])
                 this.$emit('input', file[0])
-                this.icon=false;
             }
+        },
+
+        handleFileUpload(e){
+            this.icon = e.target.files[0];
         }
     },
 };
-
-
 
         
 </script>

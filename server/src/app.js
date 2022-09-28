@@ -1,11 +1,33 @@
 import express from 'express';
-import { dbQuery } from './postgresql.js';
 import cors from 'cors';
+import { dbQuery } from './postgresql.js';
+import { extname } from 'path';
+import multer, { diskStorage } from 'multer';
 
-
+const multerStorage = diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, './images');
+  },
+  filename: (req, file, cb) => {
+    cb(null, `image-${Date.now()}` + extname(file.originalname))
+    //path.extname get the uploaded file extension
+  }
+});
+const multerFilter = (req, file, cb) => {
+  if (!file.originalname.match(/\.(png|jpg)$/)) {
+    // upload only png and jpg format
+    return cb(new Error('Please upload an image with these extensions: .jpg or .png.'))
+  }
+  cb (null, true)
+};
+const upload = multer({
+  storage: multerStorage,
+  fileFilter: multerFilter
+});
 
 const app = express();
 
+app.use(cors(), express.json(), express.urlencoded({extended : false}))
 
 app.use(cors(), express.json(), express.urlencoded({ extended: false }))
 
@@ -242,6 +264,29 @@ app.post('/findUser', async (req, res) => {
   }
 })
 
+app.post('/showPromo',
+  upload.single('icon'),
+  async(req, res) => {
+  
+    try{
+
+      const pName = req.body.pName;
+      const desc = req.body.desc;
+      const sDate = req.body.sDate;
+      const eDate = req.body.eDate;
+      const price = req.body.price;
+      const feature = req.body.feature;
+      const file = req.file.filename;
+
+      await dbQuery(`INSERT INTO offers (p_name , para , s_date , e_date , price, feature, icon) 
+      VALUES ('${pName}', '${desc}', '${sDate}', '${eDate}', '${price}','${feature}', '${file}') ON CONFLICT DO NOTHING;`);
+
+    }catch(e){
+      res.send({
+        message: `Error : ${e}`
+      });
+    }
+  })
 
 
 
@@ -264,9 +309,24 @@ app.post('/showPromo', async (req, res) => {
     res.send({
       message: `Error : ${e}`
     });
-  }
 
+  }
 })
+
+
+// app.post('/showPromos',
+//    upload.array('icon', 12),
+//    async(req, res) => {
+
+//       //YOUR CODE
+      
+//       for(var i=0;i<req.files.length;i++){
+//          await dbQuery(`INSERT INTO users(name, icon) VALUES ('${req.body.name}','${req.files[i].filename}')`);
+//       }
+//        res.status(200).json({'statusCode':200, 'status':true,
+//      message: 'All images added','data':[]});
+//    }
+// )
 
 app.get('/users', async (req, res) => {
   try {
@@ -329,4 +389,4 @@ app.get('/users/:id', async (req, res) => {
 
 app.listen(3000, () => {
   console.log('App running at http://localhost:3000');
-});
+})
