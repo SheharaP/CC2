@@ -16,10 +16,12 @@ export default{
     findUser(val){
         return api().post('findUser', val);
     },
-    firebaseAuth(key){
-        return api().post('firebaseAuth', key);
-    },
-    
+    hotelRooms(val){
+        return api().post('hotelRooms', val);
+    },    
+    hotelFaci(val){
+        return api().post('hotelFaci', val);
+    },   
     showPromo(x){
         return api().post('showPromo', x, {
             headers: {

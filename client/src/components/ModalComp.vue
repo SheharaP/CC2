@@ -7,6 +7,7 @@
           <!-- Modal Content -->
           <slot />
           <button @click="close" type="button">Close</button>
+          <button @click="close" type="button">Save</button>
         </div>
       </transition>
     </div>
@@ -20,7 +21,6 @@ export default {
     const close = () => {
       emit("close");
     };
-
     return { close };
   },
 };
@@ -86,13 +86,18 @@ export default {
     }
 
     button {
-      padding: 20px 30px;
-      border: none;
-      font-size: 16px;
-      background-color:  rgb(123, 43, 141);
-      color: #fff;
-      cursor: pointer;
-    }
+  backface-visibility: hidden;
+  background-color: #4070f4;
+  border-radius: 6px;
+  border-width: 0;
+  color: white;
+  margin-top: 10px;
+  padding: 5px;
+  width:50%;
+  margin-right: 10px;
+ 
+  
+}
   }
 }
 </style>
