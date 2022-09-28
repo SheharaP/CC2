@@ -181,7 +181,29 @@ export default {
         return {
             district: null
         }
-    }
+    },
+    methods: {
+
+        async searchHotel() {
+
+            console.log("Searching...");
+
+                const resp = auth.searchHotel({
+                    'district': this.district,
+                });
+
+                console.log(user.email);
+                console.log(`This is the name ${(await resp).data} profile.`);
+                this.userName = (await resp).data;
+
+                const response = await auth.loginRole({
+                    'email': user.email,
+                });
+
+                console.log(`This is the name ${(response).data.role} profile.`);
+                this.role = (response).data.role;
+            }
+    },
 }
 </script>
 
