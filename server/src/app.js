@@ -67,21 +67,32 @@ app.post('/registerHotel', async (req, res) => {
 
     const emailExists = await dbQuery(`SELECT true FROM hotel WHERE hotel_email = '${email}';`);
 
-    console.log(emailExists);
-
     if (emailExists == null || emailExists == "") {
+         
+    const dist = req.body.district;
 
+    const distExists = await dbQuery(`SELECT true FROM district WHERE distid = '${dist}';`);
+
+    if (distExists == null || distExists == ""){
+      res.send({
+        message: `Not a district`
+      });
+    }
+    else{
+      
       const name = req.body.name;
       const address = req.body.address;
       const contactno = req.body.contactno;
-      const dist = req.body.district;
       const role = req.body.role;
 
-        console.log(JSON.stringify(req.body));
+      console.log(JSON.stringify(req.body));
         
         await dbQuery(`INSERT INTO hotel (hotel_name , dist , hotel_email , contactno, address, role) VALUES
       ('${name}', '${dist}', '${email}','${contactno}', '${address}' ,'${role}') ON CONFLICT DO NOTHING;`);
        
+    }
+
+      
     } else {
       res.send({
         message: `Hello ${email} is already registered!`
@@ -162,26 +173,34 @@ app.post('/searchHotel', async (req, res) => {
 
   try {
 
-    const district = req.body.district;
-    
-      const districtExist = await dbQuery(`SELECT dist_name FROM district WHERE distid = '${district[i]}';`);
+    const dist = req.body.district;
+    let details = [];
 
-      if (roomExistsQuery.length) {
+    const distHotels = await dbQuery(`SELECT * from hotel as h, district as d WHERE h.dist = '${dist}' AND d.distid = '${dist}';`);
+      
+    if (distHotels.length) {
 
+      for(let i=0; i < distHotels.length; i++){
 
-        await dbQuery(`INSERT INTO hotel_room (hotel_email, roomid, noofroom) VALUES 
-            ('${email}', '${req.body.room[i]}', '${req.body.no[i]}');`);
+        details[i] = {len: distHotels.length, district: distHotels[i].dist_name, name: distHotels[i].hotel_name, email: distHotels[i].hotel_email, contactno: distHotels[i].contactno, address: distHotels[i].address };
+
+        console.log(details[i]);
+
+      }
+          
+
+        res.send(details);
 
       }
       else {
-        console.log("Error with room name");
+        console.log("Error finding district");
       }
 
     
 
   } catch (e) {
     res.send({
-      message: `Error for adding rooms : ${e}`
+      message: `Error for seaching the district : ${e}`
     });
   }
 })

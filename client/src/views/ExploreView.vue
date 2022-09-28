@@ -68,14 +68,38 @@
                         </select>
                     </div>
                     <div class="col-lg-1">
-                        <button type="submit" class="btn text-white shadow none">
-                            <router-link to="/hotels" class="nav-link">Search</router-link>
-                        </button>
+                        <button type="submit" @click.prevent="searchHotel" class="btn text-black shadow">
+                            Search
+                        </button> <br><br><br>
+
+
+                    </div>
+                </div>
+                <div class="container" v-for="(n,index) in name" :key="n">
+                    <div class="col-lg-12 bg-white shadow p-4 rounded">
+                        <div class="row gy-4">
+                            <div class="col-lg-3">
+                                <h4>{{n}}</h4>
+                            </div>
+                            <div class="col-lg-3">
+                                {{email[index]}}
+                            </div>
+                            <div class="col-lg-6">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                                has been the industry's standard dummy text ever since the 1500s, when an unknown
+                                printer took a galley of type and scrambled it to make a type specimen book. It has
+                                survived not only five centuries, but also the leap into electronic typesetting,
+                                remaining essentially unchanged. It was popularised in the 1960s with the release of
+                                Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+                                publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                            </div>
+                        </div>
                     </div>
                 </div>
             </form>
         </div>
     </div>
+
     <section class="section">
         <div class="container" data-aos="fade-up">
             <div class="section-header">
@@ -175,34 +199,63 @@
 
 <script>
 
+import auth from '@/services/auth'
+
 export default {
     name: "RegisterHotel",
+
     data() {
         return {
-            district: null
+            district: null,
+            selectedDist: null,
+            name: [],
+            email: [],
+            contactno: [],
+            address: [],
+            toggle: false
         }
     },
     methods: {
 
-        // async searchHotel() {
+        async searchHotel() {
 
-        //     console.log("Searching...");
+            this.reset();
+            
+            console.log("Searching...");
 
-        //         const resp = auth.searchHotel({
-        //             'district': this.district,
-        //         });
+            console.log(this.district);
 
-        //         console.log(user.email);
-        //         console.log(`This is the name ${(await resp).data} profile.`);
-        //         this.userName = (await resp).data;
+            const respSearch = auth.searchHotel({
+                'district': this.district,
+            });
 
-        //         const response = await auth.loginRole({
-        //             'email': user.email,
-        //         });
+            const searchRes = (await respSearch).data;
 
-        //         console.log(`This is the name ${(response).data.role} profile.`);
-        //         this.role = (response).data.role;
-        //     }
+            console.log(searchRes);
+
+            console.log();
+
+            let len = searchRes[0].len;
+            console.log(len);
+
+            for (let i = 0; i < len; i++) {
+
+                this.selectedDist = searchRes.district;
+
+                this.name[i] = searchRes[i].name;
+                this.email[i] = searchRes[i].email;
+                this.contactno[i] = searchRes[i].contactno;
+                this.address[i] = searchRes[i].address;
+
+            }
+        },
+        async reset() {
+            this.selectedDist = null;
+            this.name = [];
+            this.email = [];
+            this.contactno = [];
+            this.address = [];
+        }
     },
 }
 </script>
@@ -257,7 +310,7 @@ export default {
 }
 
 .btn {
-    background: var(--color-primary);
+    background: #6012CE;
     box-shadow: 0 8px 28px rgba(73, 46, 101, 0.2);
     margin-top: 40px;
 }

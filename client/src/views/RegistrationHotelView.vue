@@ -97,10 +97,6 @@
                 </div>
                 <div class="col-md-6">
                   <legend>Add Images</legend>
-                  <form id="upload-form">
-                    <input type="file" ref="fileInput" accept="image/*" @change="onFilePicked" required />
-                  </form>
-                  <img :src="imageUrl" height="150">
                 </div>
               </div>
             </fieldset>
@@ -346,18 +342,19 @@ export default {
                 text: 'Welcome to Your Travel Lanka  Profile',
                 footer: this.email
               })
-              this.router.push('/');
               console.log("register");
-
+              
               const response = await auth.registerHotel({
                 name: this.name,
                 address: this.address,
                 email: this.email,
                 contactno: this.contactno,
                 district: this.district,
-                role: this.role,
+                role: this.role
               })
               console.log(response.data);
+
+              window.location.reload();
 
             })
           .catch((error) => {
@@ -414,27 +411,27 @@ export default {
         this.valid_password = false;
       }
       return this.valid_password;
-    },
-
-    onPickFile() {
-      this.$refs.fileInput.click();
-    },
-    onFilePicked(event) {
-
-      const files = event.target.files;
-      let filename = files[0].name;
-
-      if (filename.lastIndexOf('.') <= 0) {
-        return alert('Please add a valid file');
-      }
-
-      const fileReader = new FileReader();
-      fileReader.addEventListener('load', () => {
-        this.imageUrl = fileReader.result;
-      })
-      fileReader.readAsDataURL(files[0]);
-      this.image = files[0];
     }
+
+    // onPickFile() {
+    //   this.$refs.fileInput.click();
+    // },
+    // onFilePicked(event) {
+
+    //   const files = event.target.files;
+    //   let filename = files[0].name;
+
+    //   if (filename.lastIndexOf('.') <= 0) {
+    //     return alert('Please add a valid file');
+    //   }
+
+    //   const fileReader = new FileReader();
+    //   fileReader.addEventListener('load', () => {
+    //     this.imageUrl = fileReader.result;
+    //   })
+    //   fileReader.readAsDataURL(files[0]);
+    //   this.image = files[0];
+    // }
 
 
 
@@ -475,7 +472,7 @@ export default {
 }
 
 .container .form {
-  width: 40%;
+  width: 50%;
   padding: 30px;
   background-color: #fff;
   transition: 0.18s ease;

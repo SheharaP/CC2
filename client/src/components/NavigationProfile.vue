@@ -94,7 +94,9 @@ export default {
           this.loggedIn = false;
           this.email = "";
           this.password = "";
-          this.router.push("/");
+
+		  window.location.reload();
+
         });
     }
 		

@@ -67,8 +67,6 @@
               </div>
             </ModalComp>
           </div>
-
-
           <button type="button" class="btn" @click="toggleModal">
             Edit Profile
           </button>
@@ -79,8 +77,6 @@
   </div>
 
 </template>
-
-
 
 <script>
 
