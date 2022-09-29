@@ -5,7 +5,7 @@ export default{
         return api().post('registerTourist', info);
     },
     registerHotel(info){
-        return api().post('registerHotel', info);
+        return api().post('registerHotel', info)
     },
     login(cred){
         return api().post('login', cred);
@@ -21,7 +21,10 @@ export default{
     },    
     hotelFaci(val){
         return api().post('hotelFaci', val);
-    },   
+    }, 
+    searchHotel(value){
+        return api().post('searchHotel', value);
+    } , 
     showPromo(x){
         return api().post('showPromo', x, {
             headers: {

@@ -43,14 +43,36 @@
                         </select>
                     </div>
                     <div class="col-lg-1">
-                        <button type="submit" class="btn text-white shadow none">
-                            <router-link to="/hotels" class="nav-link">Search</router-link>
-                        </button>
+                        <button type="submit" @click.prevent="searchHotel" class="btn text-black bold shadow">
+                            Search
+                        </button> <br><br><br>
+                    </div>
+                </div>
+                <div class="container" v-for="(n,index) in name" :key="n">
+                    <div class="col-lg-12 bg-white shadow p-4 rounded">
+                        <div class="row gy-4">
+                            <div class="col-lg-3">
+                                <h4><router-link to="/booking" class="nav-link">{{n}}</router-link></h4>
+                            </div>
+                            <div class="col-lg-3">
+                                {{email[index]}}
+                            </div>
+                            <div class="col-lg-6">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                                has been the industry's standard dummy text ever since the 1500s, when an unknown
+                                printer took a galley of type and scrambled it to make a type specimen book. It has
+                                survived not only five centuries, but also the leap into electronic typesetting,
+                                remaining essentially unchanged. It was popularised in the 1960s with the release of
+                                Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+                                publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                            </div>
+                        </div>
                     </div>
                 </div>
             </form>
         </div>
     </div>
+
     <section class="section">
         <div class="container" data-aos="fade-up">
             <div class="section-header">
@@ -145,22 +167,72 @@
             </div>
         </div>
     </section>
-
 </template>
 
 <script>
 
+import auth from '@/services/auth'
+
 export default {
     name: "RegisterHotel",
+
     data() {
         return {
-            district: null
+            district: null,
+            selectedDist: null,
+            name: [],
+            email: [],
+            contactno: [],
+            address: [],
+            toggle: false
         }
-    }
+    },
+    methods: {
+
+        async searchHotel() {
+
+            this.reset();
+            
+            console.log("Searching...");
+
+            console.log(this.district);
+
+            const respSearch = auth.searchHotel({
+                'district': this.district,
+            });
+
+            const searchRes = (await respSearch).data;
+
+            console.log(searchRes);
+
+            console.log();
+
+            let len = searchRes[0].len;
+            console.log(len);
+
+            for (let i = 0; i < len; i++) {
+
+                this.selectedDist = searchRes.district;
+
+                this.name[i] = searchRes[i].name;
+                this.email[i] = searchRes[i].email;
+                this.contactno[i] = searchRes[i].contactno;
+                this.address[i] = searchRes[i].address;
+
+            }
+        },
+        async reset() {
+            this.selectedDist = null;
+            this.name = [];
+            this.email = [];
+            this.contactno = [];
+            this.address = [];
+        }
+    },
 }
 </script>
 
-<style>
+<style scoped>
 :root {
     --font-default: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-primary: "Amatic SC", sans-serif;
@@ -179,6 +251,13 @@ export default {
     scroll-behavior: smooth;
 }
 
+.nav-link{
+    text-decoration: none;
+    color: #6012CE;
+}
+.nav-link:hover{
+    color: black;
+}
 .carousel-indicators {
     background-color: var(--color-primary);
     width: 70%;
@@ -210,14 +289,13 @@ export default {
 }
 
 .btn {
-    background: var(--color-primary);
+    background: rgba(73, 46, 101, 0.8);
     box-shadow: 0 8px 28px rgba(73, 46, 101, 0.2);
     margin-top: 40px;
 }
 
 .btn:hover {
-    background: rgba(73, 46, 101, 0.8);
-    box-shadow: 0 8px 28px rgba(73, 46, 101, 0.45);
+    box-shadow: 0 8px 28px rgba(73, 46, 101, 0.45); 
 }
 
 .section {

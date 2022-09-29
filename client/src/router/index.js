@@ -73,6 +73,7 @@ const routes = [
     }
   },
   {
+<<<<<<< HEAD
     path: '/hotels', 
     name: 'hotels',
     component: () => import('../views/HoteldisplayView.vue')
@@ -83,6 +84,8 @@ const routes = [
     component: () => import('../views/OfferdisplayView.vue')
   },
   {
+=======
+>>>>>>> 52d7e9aad97936505d8ef6fa6a1d14efa7f83cc2
     path: '/admin', 
     name: 'admin',
     component: () => import('../views/AdminPanel.vue'),

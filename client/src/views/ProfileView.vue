@@ -26,21 +26,33 @@
                 </div>
               </div>
               <hr>
-              <div class="row">
-                <div class="col-sm-3">
-                  <p class="mb-0">Phone</p>
+              <div v-if="isHotel">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">Phone</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0">{{contactno}}</p>
+                  </div>
                 </div>
-                <div class="col-sm-9">
-                  <p class="text-muted mb-0">{{contactno}}</p>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">Address</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0">{{address}}</p>
+                  </div>
                 </div>
               </div>
-              <hr>
-              <div class="row">
-                <div class="col-sm-3">
-                  <p class="mb-0">Address</p>
-                </div>
-                <div class="col-sm-9">
-                  <p class="text-muted mb-0">{{address}}</p>
+              <div v-else>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">Country</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0">{{country}}</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -67,8 +79,6 @@
               </div>
             </ModalComp>
           </div>
-
-
           <button type="button" class="btn" @click="toggleModal">
             Edit Profile
           </button>
@@ -79,8 +89,6 @@
   </div>
 
 </template>
-
-
 
 <script>
 
@@ -93,7 +101,7 @@ import ModalComp from '@/components/ModalComp.vue'
 
 
 export default {
-  name: "RegisterHotel",
+  name: "ProfileView",
   components: {
     ModalComp,
   },
@@ -109,6 +117,7 @@ export default {
     return {
       userName: "",
       role: "",
+      isHotel: false,
       email: "",
       contactno: null,
       address: "",
@@ -144,6 +153,12 @@ export default {
         console.log(`This is the name ${(response).data.role} profile.`);
         this.role = (response).data.role.toUpperCase();
 
+        if(this.role == "HOTEL"){
+          this.isHotel = true;
+        }
+        else{
+          this.isHotel=false;
+        }
       })
     }
 
@@ -168,11 +183,11 @@ export default {
 
 
 <style lang=scss scoped>
-  
 .mb-0 {
   padding-inline-end: 0;
 }
-h2{
+
+h2 {
   margin-top: 200px;
 }
 
@@ -381,27 +396,31 @@ input[type='checkbox'] {
   margin-right: 20px;
   margin-bottom: 20px;
 }
-		
-    .modal-content{
-      padding: 100px;
-    }
-    .mapouter{
-      position:relative;
-      text-align:right;
-      width:600px;
-      height:400px;
-    }
-    .gmap_canvas {
-      overflow:hidden;
-      background:none!important;
-      width:600px;
-      height:400px;
-    }
-    .gmap_iframe {
-      width:600px!important;
-      height:400px!important;
-    }
-    .mb-0{
-      width: 200px;
-    }
-    </style>
+
+.modal-content {
+  padding: 100px;
+}
+
+.mapouter {
+  position: relative;
+  text-align: right;
+  width: 600px;
+  height: 400px;
+}
+
+.gmap_canvas {
+  overflow: hidden;
+  background: none !important;
+  width: 600px;
+  height: 400px;
+}
+
+.gmap_iframe {
+  width: 600px !important;
+  height: 400px !important;
+}
+
+.mb-0 {
+  width: 200px;
+}
+</style>
