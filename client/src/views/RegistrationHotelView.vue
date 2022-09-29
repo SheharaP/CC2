@@ -645,34 +645,6 @@ export default {
   box-shadow: 0 0 0 0.25rem rgba(253, 13, 21, 0.25);
 }
 
-ul {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-top: 50px;
-  margin-bottom: 0;
-  margin-left: 0;
-  padding: 0;
-}
-
-li {
-  margin-top: 8px;
-  position: relative;
-  color: rgba(92, 90, 107, 0.8);
-  list-style: none;
-}
-
-li:before {
-  content: "";
-  width: 0%;
-  height: 2px;
-  background: #2ecc71;
-  position: absolute;
-  left: 0;
-  top: 50%;
-  display: block;
-  transition: all .6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
 
 /* Checkmark & Strikethrough --------- */
 .is_valid {

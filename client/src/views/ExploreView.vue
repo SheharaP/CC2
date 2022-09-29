@@ -68,18 +68,16 @@
                         </select>
                     </div>
                     <div class="col-lg-1">
-                        <button type="submit" @click.prevent="searchHotel" class="btn text-black shadow">
+                        <button type="submit" @click.prevent="searchHotel" class="btn text-black bold shadow">
                             Search
                         </button> <br><br><br>
-
-
                     </div>
                 </div>
                 <div class="container" v-for="(n,index) in name" :key="n">
                     <div class="col-lg-12 bg-white shadow p-4 rounded">
                         <div class="row gy-4">
                             <div class="col-lg-3">
-                                <h4>{{n}}</h4>
+                                <h4><router-link to="/booking" class="nav-link">{{n}}</router-link></h4>
                             </div>
                             <div class="col-lg-3">
                                 {{email[index]}}
@@ -194,7 +192,6 @@
             </div>
         </div>
     </section>
-
 </template>
 
 <script>
@@ -260,7 +257,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 :root {
     --font-default: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-primary: "Amatic SC", sans-serif;
@@ -279,6 +276,13 @@ export default {
     scroll-behavior: smooth;
 }
 
+.nav-link{
+    text-decoration: none;
+    color: #6012CE;
+}
+.nav-link:hover{
+    color: black;
+}
 .carousel-indicators {
     background-color: var(--color-primary);
     width: 70%;
@@ -310,14 +314,13 @@ export default {
 }
 
 .btn {
-    background: #6012CE;
+    background: rgba(73, 46, 101, 0.8);
     box-shadow: 0 8px 28px rgba(73, 46, 101, 0.2);
     margin-top: 40px;
 }
 
 .btn:hover {
-    background: rgba(73, 46, 101, 0.8);
-    box-shadow: 0 8px 28px rgba(73, 46, 101, 0.45);
+    box-shadow: 0 8px 28px rgba(73, 46, 101, 0.45); 
 }
 
 .section {

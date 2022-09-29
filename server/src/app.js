@@ -79,7 +79,7 @@ app.post('/registerHotel', async (req, res) => {
       });
     }
     else{
-      
+
       const name = req.body.name;
       const address = req.body.address;
       const contactno = req.body.contactno;
@@ -264,7 +264,7 @@ app.post('/findUser', async (req, res) => {
   try {
     const email = req.body.email;
 
-    const touristQuery = await dbQuery(`SELECT tourist_name FROM tourist WHERE tourist_email = ('${email}') ;`);
+    const touristQuery = await dbQuery(`SELECT tourist_name, country FROM tourist WHERE tourist_email = ('${email}') ;`);
 
     if (!(touristQuery.length)) {
       const hotelQuery = await dbQuery(`SELECT hotel_name, contactno, dist, address FROM hotel WHERE hotel_email = ('${email}') ;`);
@@ -273,8 +273,8 @@ app.post('/findUser', async (req, res) => {
 
     }
     else {
-      const name = touristQuery[0].tourist_name;
-      res.send(name);
+      const details = {name : touristQuery[0].tourist_name, country : touristQuery[0].country};
+      res.send(details);
     }
   } catch (e) {
     res.send({

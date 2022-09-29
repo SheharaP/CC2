@@ -73,11 +73,6 @@ const routes = [
     }
   },
   {
-    path: '/hotels', 
-    name: 'hotels',
-    component: () => import('../views/HoteldisplayView.vue')
-  },
-  {
     path: '/admin', 
     name: 'admin',
     component: () => import('../views/AdminPanel.vue'),
