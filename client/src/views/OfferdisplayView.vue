@@ -8,7 +8,7 @@
   
   <script>
   
-  import OfferDisplay from "@/components/OfferdisplaySite.vue";
+  import OfferDisplay from "../components/OfferdisplaySite.vue";
   
   export default {
     name: "OfferdisplayView",

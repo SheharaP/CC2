@@ -258,24 +258,6 @@ export default {
 .nav-link:hover{
     color: black;
 }
-.carousel-indicators {
-    background-color: var(--color-primary);
-    width: 70%;
-    position: absolute;
-}
-
-.carousel-inner {
-    margin: auto;
-    padding-right: 50px;
-    padding-left: 50px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
-.carousel-item img {
-    width: 400px;
-    height: 450px;
-}
 
 .container {
     padding-bottom: 10px;

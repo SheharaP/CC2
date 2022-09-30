@@ -84,11 +84,12 @@ app.post('/registerHotel', async (req, res) => {
       const address = req.body.address;
       const contactno = req.body.contactno;
       const role = req.body.role;
+      const file = req.file.filename;
 
       console.log(JSON.stringify(req.body));
         
-        await dbQuery(`INSERT INTO hotel (hotel_name , dist , hotel_email , contactno, address, role) VALUES
-      ('${name}', '${dist}', '${email}','${contactno}', '${address}' ,'${role}') ON CONFLICT DO NOTHING;`);
+        await dbQuery(`INSERT INTO hotel (hotel_name , dist , hotel_email , contactno, address, role,icon) VALUES
+      ('${name}', '${dist}', '${email}','${contactno}', '${address}' ,'${role}', '${file}') ON CONFLICT DO NOTHING;`);
        
     }
 
@@ -357,6 +358,25 @@ app.get('/users', async (req, res) => {
     }
     else {
       res.send(users);
+    }
+  } catch (e) {
+    res.send({
+      message: `Error : ${e}`
+    });
+  }
+})
+
+
+app.get('/offers', async (req, res) => {
+  try {
+    const offers = await dbQuery(`SELECT * FROM offers`);
+
+    if (offers == null || offers == "") {
+      const response = "No offer found";
+      res.send(response);
+    }
+    else {
+      res.send(offers);
     }
   } catch (e) {
     res.send({

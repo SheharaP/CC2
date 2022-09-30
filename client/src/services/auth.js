@@ -37,5 +37,8 @@ export default{
     },
     gethotels(){
         return api().get('users');
+    },
+    getoffers(){
+        return api().get('offers');
     }
 }

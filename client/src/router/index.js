@@ -36,7 +36,7 @@ const routes = [
   {
     path: '/offersview',
     name: 'offersview',
-    component: () => import('../views/OffersTouristView.vue')
+    component: () => import('../views/OfferdisplayView.vue')
   },
   {
     path: '/explore',
@@ -76,11 +76,6 @@ const routes = [
     path: '/hotels', 
     name: 'hotels',
     component: () => import('../views/HoteldisplayView.vue')
-  },
-  {
-    path: '/offers', 
-    name: 'offers',
-    component: () => import('../views/OfferdisplayView.vue')
   },
   {
     path: '/admin', 
