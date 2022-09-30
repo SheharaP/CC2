@@ -73,6 +73,16 @@ const routes = [
     }
   },
   {
+    path: '/hotels', 
+    name: 'hotels',
+    component: () => import('../views/HoteldisplayView.vue')
+  },
+  {
+    path: '/offers', 
+    name: 'offers',
+    component: () => import('../views/OfferdisplayView.vue')
+  },
+  {
     path: '/admin', 
     name: 'admin',
     component: () => import('../views/AdminPanel.vue'),

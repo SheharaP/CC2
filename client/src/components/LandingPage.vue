@@ -92,7 +92,7 @@
           <p>Check Our <span>Destinations</span></p>
         </div>
 
-        <ul class="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="200">
+        <!-- <ul class="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="200">
 
           <li class="nav-item">
             <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#destination-north">
@@ -123,7 +123,7 @@
               <h4>Central</h4>
             </a>
           </li>
-        </ul>
+        </ul> -->
 
         <div class="tab-content" data-aos="fade-up" data-aos-delay="300">
 
@@ -146,44 +146,14 @@
               <img src="../assets/img/Gallery/north_3.jpg" alt="Vankalai Sanctuary">
               <div class="desc">Vankalai Sanctuary</div>
             </div>
-
-            <div class="gallery">
-              <img src="../assets/img/Gallery/north_4.jpg" alt="Wilpattu National Park">
-              <div class="desc">Wilpattu National Park</div>
-            </div>
-
-            <div class="gallery">
-              <img src="../assets/img/Gallery/north_5.jpg" alt="Giant's Tank Sanctuary">
-              <div class="desc">Giant's Tank Sanctuary</div>
-            </div>
-
-            <div class="gallery">
-              <img src="../assets/img/Gallery/north_6.jpg" alt="Manatkaadu Beach">
-              <div class="desc">Manatkaadu Beach</div>
-            </div>
           </div>
 
-          <div class="tab-pane fade" id="destination-south">
+          <div class="tab-pane fade active show" id="destination-south">
 
             <div class="tab-header text-center">
               <p>Region</p>
               <h3>SOUTHERN</h3>
             </div>
-            <div class="gallery">
-              <img src="../assets/img/Gallery/south_1.jpg" alt="Yala National Park">
-              <div class="desc">Yala National Park</div>
-            </div>
-
-            <div class="gallery">
-              <img src="../assets/img/Gallery/south_2.jpg" alt="Galle Dutch Fort">
-              <div class="desc">Galle Dutch Fort</div>
-            </div>
-
-            <div class="gallery">
-              <img src="../assets/img/Gallery/south_3.jpg" alt="Sinharaja Forest Reserve">
-              <div class="desc">Sinharaja Forest Reserve</div>
-            </div>
-
             <div class="gallery">
               <img src="../assets/img/Gallery/south_4.jpg" alt="Mirissa Beach">
               <div class="desc">Mirissa Beach</div>
@@ -200,27 +170,12 @@
             </div>
           </div>
 
-          <div class="tab-pane fade" id="destination-west">
+          <div class="tab-pane fade active show" id="destination-west">
 
             <div class="tab-header text-center">
               <p>Region</p>
               <h3>WESTERN</h3>
             </div>
-            <div class="gallery">
-              <img src="../assets/img/Gallery/west_1.jpg" alt="Dehiwala Zoological Garden">
-              <div class="desc">Dehiwala Zoological Garden</div>
-            </div>
-
-            <div class="gallery">
-              <img src="../assets/img/Gallery/west_2.jpg" alt="Beddagana Wetland Park">
-              <div class="desc">Beddagana Wetland Park</div>
-            </div>
-
-            <div class="gallery">
-              <img src="../assets/img/Gallery/west_3.jpg" alt="Negombo Beach Park">
-              <div class="desc">Negombo Beach Park</div>
-            </div>
-
             <div class="gallery">
               <img src="../assets/img/Gallery/west_4.jpg" alt="Gangaramaya Park">
               <div class="desc">Gangaramaya Park</div>
@@ -237,7 +192,7 @@
             </div>
           </div>
 
-          <div class="tab-pane fade" id="destination-east">
+          <div class="tab-pane fade active show" id="destination-east">
 
             <div class="tab-header text-center">
               <p>Region</p>
@@ -247,22 +202,6 @@
               <img src="../assets/img/Gallery/east_1.jpg" alt="Arugam Bay Beach">
               <div class="desc">Arugam Bay Beach</div>
             </div>
-
-            <div class="gallery">
-              <img src="../assets/img/Gallery/east_2.jpg" alt="Kanniya Hot Springs">
-              <div class="desc">Kanniya Hot Springs</div>
-            </div>
-
-            <div class="gallery">
-              <img src="../assets/img/Gallery/east_3.jpg" alt="Lovers Leap">
-              <div class="desc">Lovers Leap</div>
-            </div>
-
-            <div class="gallery">
-              <img src="../assets/img/Gallery/east_4.jpg" alt="Kudumbigala Sanctuary">
-              <div class="desc">Kudumbigala Sanctuary</div>
-            </div>
-
             <div class="gallery">
               <img src="../assets/img/Gallery/east_5.jpg" alt="Dutch Bay">
               <div class="desc">Dutch Bay</div>
@@ -274,15 +213,11 @@
             </div>
           </div>
 
-          <div class="tab-pane fade" id="destination-central">
+          <div class="tab-pane fade active show" id="destination-central">
 
             <div class="tab-header text-center">
               <p>Region</p>
               <h3>CENTRAL</h3>
-            </div>
-            <div class="gallery">
-              <img src="../assets/img/Gallery/central_1.jpg" alt="Kandy Lake">
-              <div class="desc">Kandy Lake</div>
             </div>
 
             <div class="gallery">
@@ -294,20 +229,10 @@
               <img src="../assets/img/Gallery/central_3.jpg" alt="Pidurangala">
               <div class="desc">Pidurangala</div>
             </div>
-
-            <div class="gallery">
-              <img src="../assets/img/Gallery/central_4.jpg" alt="Victoria Park - Nuwara Eliya">
-              <div class="desc">Victoria Park - Nuwara Eliya</div>
-            </div>
-
+            
             <div class="gallery">
               <img src="../assets/img/Gallery/central_5.jpg" alt="Moon Plains">
               <div class="desc">Moon Plains</div>
-            </div>
-
-            <div class="gallery">
-              <img src="../assets/img/Gallery/central_6.jpg" alt="Archaeological Museum - Sigiriya">
-              <div class="desc">Archaeological Museum - Sigiriya</div>
             </div>
           </div>
         </div>

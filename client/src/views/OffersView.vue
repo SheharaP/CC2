@@ -35,7 +35,6 @@
                         <i class="bi bi-cloud-upload" @click="selectImage" v-if="icon"></i>
                     </div>
                     <input type="file" id="image_input" accept="image/png, image/jpg, image/jpeg" @input="pickFile" @change="handleFileUpload( $event )" ref="fileInput" >
-                    <!-- <input type="file" @change="onFileSelected"> -->
                 </div>
                 <div class="col-lg-3">
                     <button type="submit" class="btn text-white shadow none" @click.prevent="showPromo">Upload </button>
