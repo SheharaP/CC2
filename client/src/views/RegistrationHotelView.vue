@@ -59,11 +59,10 @@
             <li :class="{ is_valid: contains_special_character }">Contains Special Character</li>
           </ul>
           <div class="input-field">
-            <input type="password" @input="checkPassword" v-model="password" autocomplete="off" placeholder="Password"
-              required />
+            <input type="password" @input="checkPassword" v-model="password"
+              :class="{invalid: isSubmitting && !password.trim()}" autocomplete="off" placeholder="Password" required />
             <i class="bi bi-key"></i>
           </div>
-
           <div class="checkbox-text">
             <div class="checkbox-content">
               <input type="checkbox" id="logCheck">
@@ -343,7 +342,7 @@ export default {
                 footer: this.email
               })
               console.log("register");
-              
+
               const response = await auth.registerHotel({
                 name: this.name,
                 address: this.address,
@@ -385,33 +384,31 @@ export default {
       // this.contactno = "",
       //this.router.push('/registerHotel');
     },
-
-
     checkPassword() {
       this.password_length = this.password.length;
-      const format = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-
+			const format = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+			
       if (this.password_length > 7) {
         this.contains_eight_characters = true;
       } else {
         this.contains_eight_characters = false;
-      }
-
+			}
+			
       this.contains_number = /\d/.test(this.password);
       this.contains_uppercase = /[A-Z]/.test(this.password);
-      this.contains_special_character = format.test(this.password);
-
+			this.contains_special_character = format.test(this.password);
+      
       if (this.contains_eight_characters === true &&
-        this.contains_special_character === true &&
-        this.contains_uppercase === true &&
-        this.contains_number === true) {
-        this.valid_password = true;
-
+					this.contains_special_character === true &&
+					this.contains_uppercase === true &&
+					this.contains_number === true) {
+						this.valid_password = true;	
+            
       } else {
         this.valid_password = false;
       }
       return this.valid_password;
-    }
+    },
 
     // onPickFile() {
     //   this.$refs.fileInput.click();
@@ -637,27 +634,38 @@ export default {
   box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
 }
 
-.invalid {
-  color: #212529;
-  background-color: rgb(202, 144, 144);
-  border-color: #c81e12;
-  outline: 0;
-  box-shadow: 0 0 0 0.25rem rgba(253, 13, 21, 0.25);
+ul {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+  margin-top: 50px;
+  margin-bottom: 0;
+  margin-left: 0;
+  padding: 0;
 }
-
+li { 
+	margin-top: 8px;
+	position: relative;
+  color: rgba(92, 90, 107, 0.8);
+  list-style: none;
+}
+li:before {
+  content: "";
+	width: 0%; height: 2px;
+	background: #2ecc71;
+	position: absolute;
+	left: 0; top: 50%;
+	display: block;
+	transition: all .6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
 
 /* Checkmark & Strikethrough --------- */
-.is_valid {
+.is_valid { 
   color: rgba(136, 152, 170, 0.8);
 }
+.is_valid:before { width: 100%; }
 
-.is_valid:before {
-  width: 100%;
-}
 
-.spec {
-  margin-top: 30px;
-}
 
 label {
   margin-top: 10px;

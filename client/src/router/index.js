@@ -73,9 +73,15 @@ const routes = [
     }
   },
   {
+<<<<<<< HEAD
     path: '/hotels', 
     name: 'hotels',
     component: () => import('../views/HoteldisplayView.vue')
+=======
+    path: '/offers', 
+    name: 'offers',
+    component: () => import('../views/OfferdisplayView.vue')
+>>>>>>> 2d71fffc8d1414c882435532f2911453d697f18c
   },
   {
     path: '/admin', 
